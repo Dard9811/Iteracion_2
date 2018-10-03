@@ -52,9 +52,9 @@ import uniandes.isis2304.parranderos.negocio.VOEmpresa;
 import uniandes.isis2304.parranderos.negocio.VOCiudad;
 import uniandes.isis2304.parranderos.negocio.VOPromocion;
 import uniandes.isis2304.parranderos.negocio.VOBodega;
-import uniandes.isis2304.parranderos.negocio.VOSirven;
-import uniandes.isis2304.parranderos.negocio.VOTipoBebida;
-import uniandes.isis2304.parranderos.negocio.VOVisitan;
+import uniandes.isis2304.parranderos.negocio.VONivelDeReorden;
+import uniandes.isis2304.parranderos.negocio.VOProductoSucursal;
+import uniandes.isis2304.parranderos.negocio.VOSupermercado;
 
 /**
  * Clase principal de la interfaz
@@ -245,7 +245,7 @@ public class InterfazParranderosDemo extends JFrame implements ActionListener
     }
     
 	/* ****************************************************************
-	 * 			Demos de TipoBebida
+	 * 			Demos de ProductoSucursal
 	 *****************************************************************/
     /**
      * Demostración de creación, consulta y borrado de Tipos de Bebida
@@ -262,17 +262,17 @@ public class InterfazParranderosDemo extends JFrame implements ActionListener
 			// ATENCIÓN: En una aplicación real, los datos JAMÁS están en el código
 			String nombreTipoBebida = "Vino tinto";
 			boolean errorTipoBebida = false;
-			VOTipoBebida tipoBebida = parranderos.adicionarTipoBebida (nombreTipoBebida);
+			VOProductoSucursal tipoBebida = parranderos.adicionarTipoBebida (nombreTipoBebida);
 			if (tipoBebida == null)
 			{
 				tipoBebida = parranderos.darTipoBebidaPorNombre (nombreTipoBebida);
 				errorTipoBebida = true;
 			}
-			List <VOTipoBebida> lista = parranderos.darVOTiposBebida();
+			List <VOProductoSucursal> lista = parranderos.darVOTiposBebida();
 			long tbEliminados = parranderos.eliminarTipoBebidaPorId (tipoBebida.getId ());
 			
 			// Generación de la cadena de caracteres con la traza de la ejecución de la demo
-			String resultado = "Demo de creación y listado de TipoBebida\n\n";
+			String resultado = "Demo de creación y listado de ProductoSucursal\n\n";
 			resultado += "\n\n************ Generando datos de prueba ************ \n";
 			if (errorTipoBebida)
 			{
@@ -318,7 +318,7 @@ public class InterfazParranderosDemo extends JFrame implements ActionListener
 			String nombreTipoBebida = "Vino tinto";
 			String nombreBebida = "120";
 			boolean errorTipoBebida = false;
-			VOTipoBebida tipoBebida = parranderos.adicionarTipoBebida (nombreTipoBebida);
+			VOProductoSucursal tipoBebida = parranderos.adicionarTipoBebida (nombreTipoBebida);
 			if (tipoBebida == null)
 			{
 				tipoBebida = parranderos.darTipoBebidaPorNombre (nombreTipoBebida);
@@ -326,7 +326,7 @@ public class InterfazParranderosDemo extends JFrame implements ActionListener
 			}
 			VOPromocion bebida = parranderos.adicionarBebida(nombreBebida, tipoBebida.getId (), 10);
 			
-			List <VOTipoBebida> listaTiposBebida = parranderos.darVOTiposBebida();
+			List <VOProductoSucursal> listaTiposBebida = parranderos.darVOTiposBebida();
 			List <VOPromocion> listaBebidas = parranderos.darVOPromociones();
 			long bebEliminadas = parranderos.eliminarBebidaPorNombre(nombreBebida);
 			long tbEliminados = parranderos.eliminarTipoBebidaPorId (tipoBebida.getId ());
@@ -377,7 +377,7 @@ public class InterfazParranderosDemo extends JFrame implements ActionListener
 			// ATENCIÓN: En una aplicación real, los datos JAMÁS están en el código
 			String nombreTipoBebida = "Vino tinto";
 			boolean errorTipoBebida = false;
-			VOTipoBebida tipoBebida = parranderos.adicionarTipoBebida (nombreTipoBebida);
+			VOProductoSucursal tipoBebida = parranderos.adicionarTipoBebida (nombreTipoBebida);
 			if (tipoBebida == null)
 			{
 				tipoBebida = parranderos.darTipoBebidaPorNombre (nombreTipoBebida);
@@ -387,9 +387,9 @@ public class InterfazParranderosDemo extends JFrame implements ActionListener
 			VOPromocion bebida2 = parranderos.adicionarBebida("Gato Negro", tipoBebida.getId (), 11);
 			VOPromocion bebida3 = parranderos.adicionarBebida("Don Pedro", tipoBebida.getId (), 12);
 			
-			List <VOTipoBebida> listaTiposBebida = parranderos.darVOTiposBebida();
+			List <VOProductoSucursal> listaTiposBebida = parranderos.darVOTiposBebida();
 			List <VOPromocion> listaBebidas1 = parranderos.darVOPromociones();
-			List <VOSirven> listaSirven = parranderos.darVOSirven ();
+			List <VONivelDeReorden> listaSirven = parranderos.darVOSirven ();
 			long noServidasEliminadas = parranderos.eliminarBebidasNoServidas();
 			List <VOPromocion> listaBebidas2 = parranderos.darVOPromociones();
 			
@@ -431,7 +431,7 @@ public class InterfazParranderosDemo extends JFrame implements ActionListener
     /**
      * Demostración de creación y borrado de bebidas no servidas.
      * Incluye también los tipos de bebida pues el tipo de bebida es llave foránea en las bebidas
-     * Incluye también los bares pues son llave foránea en la relación Sirven
+     * Incluye también los bares pues son llave foránea en la relación NivelDeReorden
      * Caso 2: Hay bebidas que son servidas y estas quedan en la tabla de bebidas
      * Muestra la traza de la ejecución en el panelDatos
      * 
@@ -446,7 +446,7 @@ public class InterfazParranderosDemo extends JFrame implements ActionListener
 			// ATENCIÓN: En una aplicación real, los datos JAMÁS están en el código
 			String nombreTipoBebida = "Vino tinto";
 			boolean errorTipoBebida = false;
-			VOTipoBebida tipoBebida = parranderos.adicionarTipoBebida (nombreTipoBebida);
+			VOProductoSucursal tipoBebida = parranderos.adicionarTipoBebida (nombreTipoBebida);
 			if (tipoBebida == null)
 			{
 				tipoBebida = parranderos.darTipoBebidaPorNombre (nombreTipoBebida);
@@ -458,10 +458,10 @@ public class InterfazParranderosDemo extends JFrame implements ActionListener
 			VOEmpresa bar1 = parranderos.adicionarEmpresa ("Los Amigos", "Bogotá", "Bajo", 2);
 			parranderos.adicionarSirven (bar1.getId (), bebida1.getId (), "diurno");
 			
-			List <VOTipoBebida> listaTiposBebida = parranderos.darVOTiposBebida();
+			List <VOProductoSucursal> listaTiposBebida = parranderos.darVOTiposBebida();
 			List <VOPromocion> listaBebidas1 = parranderos.darVOPromociones();
 			List <VOEmpresa> bares = parranderos.darVOEmpresas ();
-			List <VOSirven> sirven = parranderos.darVOSirven ();
+			List <VONivelDeReorden> sirven = parranderos.darVOSirven ();
 			long noServidasEliminadas = parranderos.eliminarBebidasNoServidas();
 			List <VOPromocion> listaBebidas2 = parranderos.darVOPromociones();
 			
@@ -489,7 +489,7 @@ public class InterfazParranderosDemo extends JFrame implements ActionListener
 			resultado += noServidasEliminadas + " Bebidas eliminadas\n";
 			resultado += "\n" + listarBebidas (listaBebidas2);
 			resultado += "\n\n************ Limpiando la base de datos ************ \n";
-			resultado += sirvenEliminados + " Sirven eliminados\n";
+			resultado += sirvenEliminados + " NivelDeReorden eliminados\n";
 			resultado += baresEliminados + " Bares eliminados\n";
 			resultado += (bebEliminadas1 + bebEliminadas2 + bebEliminadas3) + " Bebidas eliminadas\n";
 			resultado += tbEliminados + " Tipos de bebida eliminados\n";
@@ -565,7 +565,7 @@ public class InterfazParranderosDemo extends JFrame implements ActionListener
     		// Ejecución de la demo y recolección de los resultados
 			// ATENCIÓN: En una aplicación real, los datos JAMÁS están en el código
 			boolean errorTipoBebida = false;
-			VOTipoBebida tipoBebida = parranderos.adicionarTipoBebida ("Vino tinto");
+			VOProductoSucursal tipoBebida = parranderos.adicionarTipoBebida ("Vino tinto");
 			if (tipoBebida == null)
 			{
 				tipoBebida = parranderos.darTipoBebidaPorNombre ("Vino tinto");
@@ -591,10 +591,10 @@ public class InterfazParranderosDemo extends JFrame implements ActionListener
 			parranderos.adicionarSirven (bar3.getId (), bebida4.getId (), "diurno");
 			parranderos.adicionarSirven (bar3.getId (), bebida5.getId (), "diurno");
 			
-			List <VOTipoBebida> listaTiposBebida = parranderos.darVOTiposBebida ();
+			List <VOProductoSucursal> listaTiposBebida = parranderos.darVOTiposBebida ();
 			List <VOPromocion> listaBebidas = parranderos.darVOPromociones ();
 			List <VOEmpresa> listaBares = parranderos.darVOEmpresas ();
-			List <VOSirven> listaSirven = parranderos.darVOSirven ();
+			List <VONivelDeReorden> listaSirven = parranderos.darVOSirven ();
 
 			List <long []> listaByB = parranderos.darBaresYCantidadBebidasSirven();
 
@@ -635,7 +635,7 @@ public class InterfazParranderosDemo extends JFrame implements ActionListener
 			resultado += "\n\n************ Ejecutando la demo ************ \n";
 			resultado += "\n" + listarBaresYBebidas (listaByB);
 			resultado += "\n\n************ Limpiando la base de datos ************ \n";
-			resultado += sirvenEliminados + " Sirven eliminados\n";
+			resultado += sirvenEliminados + " NivelDeReorden eliminados\n";
 			resultado += bebidasEliminadas + " Bebidas eliminados\n";
 			resultado += tbEliminados + " Tipos de Bebida eliminados\n";
 			resultado += baresEliminados + " Bares eliminados\n";
@@ -780,7 +780,7 @@ public class InterfazParranderosDemo extends JFrame implements ActionListener
     		// Ejecución de la demo y recolección de los resultados.
 			// ATENCIÓN: En una aplicación real, los datos JAMÁS están en el código
 			boolean errorTipoBebida = false;
-			VOTipoBebida tipoBebida = parranderos.adicionarTipoBebida ("Vino tinto");
+			VOProductoSucursal tipoBebida = parranderos.adicionarTipoBebida ("Vino tinto");
 			if (tipoBebida == null)
 			{
 				tipoBebida = parranderos.darTipoBebidaPorNombre ("Vino tinto");
@@ -795,12 +795,12 @@ public class InterfazParranderosDemo extends JFrame implements ActionListener
 			parranderos.adicionarVisitan (bdor1.getId (), bar1.getId (), new Timestamp (System.currentTimeMillis()), "todos");
 			parranderos.adicionarGustan (bdor1.getId (), bebida1.getId ());
 
-			List <VOTipoBebida> listaTipos = parranderos.darVOTiposBebida();
+			List <VOProductoSucursal> listaTipos = parranderos.darVOTiposBebida();
 			List <VOPromocion> listaBebidas = parranderos.darVOPromociones();
 			List <VOEmpresa> listaBares = parranderos.darVOEmpresas ();
 			List <VOCiudad> bebedores = parranderos.darVOCiudades();
 			List <VOBodega> listaGustan = parranderos.darVOGustan();
-			List <VOVisitan> listaVisitan = parranderos.darVOVisitan();
+			List <VOSupermercado> listaVisitan = parranderos.darVOVisitan();
 
 			VOCiudad bdor2 = parranderos.darBebedorCompleto(bdor1.getId ());
 
@@ -869,7 +869,7 @@ public class InterfazParranderosDemo extends JFrame implements ActionListener
 			VOCiudad bdor1 = parranderos.adicionarBebedor ("Pepito", "Bogotá", "Alto");
 			VOEmpresa bar1 = parranderos.adicionarEmpresa ("Los Amigos", "Bogotá", "Bajo", 2);
 			boolean errorTipoBebida = false;
-			VOTipoBebida tipoBebida = parranderos.adicionarTipoBebida ("Vino tinto");
+			VOProductoSucursal tipoBebida = parranderos.adicionarTipoBebida ("Vino tinto");
 			if (tipoBebida == null)
 			{
 				tipoBebida = parranderos.darTipoBebidaPorNombre ("Vino tinto");
@@ -882,12 +882,12 @@ public class InterfazParranderosDemo extends JFrame implements ActionListener
 			parranderos.adicionarVisitan (bdor1.getId (), bar1.getId (), new Timestamp (System.currentTimeMillis()), "todos");
 			parranderos.adicionarGustan (bdor1.getId (), bebida1.getId ());
 
-			List <VOTipoBebida> listaTipos = parranderos.darVOTiposBebida();
+			List <VOProductoSucursal> listaTipos = parranderos.darVOTiposBebida();
 			List <VOPromocion> listaBebidas = parranderos.darVOPromociones();
 			List <VOEmpresa> listaBares = parranderos.darVOEmpresas ();
 			List <VOCiudad> bebedores = parranderos.darVOCiudades();
 			List <VOBodega> listaGustan = parranderos.darVOGustan();
-			List <VOVisitan> listaVisitan = parranderos.darVOVisitan();
+			List <VOSupermercado> listaVisitan = parranderos.darVOVisitan();
 
 			VOCiudad bdor2 = parranderos.darBebedorCompleto(bdor1.getId ());
 
@@ -964,7 +964,7 @@ public class InterfazParranderosDemo extends JFrame implements ActionListener
 			VOCiudad bdor1 = parranderos.adicionarBebedor ("Pepito", "Bogotá", "Alto");
 			VOEmpresa bar1 = parranderos.adicionarEmpresa ("Los Amigos", "Bogotá", "Bajo", 2);
 			boolean errorTipoBebida = false;
-			VOTipoBebida tipoBebida = parranderos.adicionarTipoBebida ("Vino tinto");
+			VOProductoSucursal tipoBebida = parranderos.adicionarTipoBebida ("Vino tinto");
 			if (tipoBebida == null)
 			{
 				tipoBebida = parranderos.darTipoBebidaPorNombre ("Vino tinto");
@@ -977,12 +977,12 @@ public class InterfazParranderosDemo extends JFrame implements ActionListener
 			parranderos.adicionarVisitan (bdor1.getId (), bar1.getId (), new Timestamp (System.currentTimeMillis()), "todos");
 			parranderos.adicionarGustan (bdor1.getId (), bebida1.getId ());
 
-			List <VOTipoBebida> listaTipos = parranderos.darVOTiposBebida();
+			List <VOProductoSucursal> listaTipos = parranderos.darVOTiposBebida();
 			List <VOPromocion> listaBebidas = parranderos.darVOPromociones();
 			List <VOEmpresa> listaBares = parranderos.darVOEmpresas ();
 			List <VOCiudad> bebedores = parranderos.darVOCiudades();
 			List <VOBodega> listaGustan = parranderos.darVOGustan();
-			List <VOVisitan> listaVisitan = parranderos.darVOVisitan();
+			List <VOSupermercado> listaVisitan = parranderos.darVOVisitan();
 
 			VOCiudad bdor2 = parranderos.darBebedorCompleto(bdor1.getId ());
 
@@ -1110,7 +1110,7 @@ public class InterfazParranderosDemo extends JFrame implements ActionListener
 
 			List<VOEmpresa> bares = parranderos.darVOEmpresas();
 			List<VOCiudad> bebedores = parranderos.darVOCiudades();
-			List<VOVisitan> visitan = parranderos.darVOVisitan ();
+			List<VOSupermercado> visitan = parranderos.darVOVisitan ();
 			List<Object []> bebedoresYNumVisitas = parranderos.darBebedoresYNumVisitasRealizadas ();
 
 			long [] elimBdor1 = parranderos.eliminarBebedorYVisitas_v1 (bdor1.getId ());
@@ -1178,7 +1178,7 @@ public class InterfazParranderosDemo extends JFrame implements ActionListener
 
 			List<VOEmpresa> bares = parranderos.darVOEmpresas();
 			List<VOCiudad> bebedores = parranderos.darVOCiudades();
-			List<VOVisitan> visitan = parranderos.darVOVisitan ();
+			List<VOSupermercado> visitan = parranderos.darVOVisitan ();
 			long bebedoresBogota = parranderos.darCantidadBebedoresCiudadVisitanBares ("Bogotá");
 			long bebedoresMedellin = parranderos.darCantidadBebedoresCiudadVisitanBares ("Medellín");
 
@@ -1235,7 +1235,7 @@ public class InterfazParranderosDemo extends JFrame implements ActionListener
     		// Ejecución de la demo y recolección de los resultados
 			// ATENCIÓN: En una aplicación real, los datos JAMÁS están en el código
 			boolean errorTipoBebida = false;
-			VOTipoBebida tipoBebida = parranderos.adicionarTipoBebida ("Vino tinto");
+			VOProductoSucursal tipoBebida = parranderos.adicionarTipoBebida ("Vino tinto");
 			if (tipoBebida == null)
 			{
 				tipoBebida = parranderos.darTipoBebidaPorNombre ("Vino tinto");
@@ -1245,7 +1245,7 @@ public class InterfazParranderosDemo extends JFrame implements ActionListener
 			VOCiudad bdor1 = parranderos.adicionarBebedor ("Pepito", "Bogotá", "Alto");
 			parranderos.adicionarGustan (bdor1.getId (), bebida1.getId ());
 
-			List <VOTipoBebida> listaTiposBebida = parranderos.darVOTiposBebida ();
+			List <VOProductoSucursal> listaTiposBebida = parranderos.darVOTiposBebida ();
 			List <VOPromocion> listaBebidas = parranderos.darVOPromociones ();
 			List <VOCiudad> listaBebedores = parranderos.darVOCiudades ();
 			List <VOBodega> listaGustan = parranderos.darVOGustan();
@@ -1286,10 +1286,10 @@ public class InterfazParranderosDemo extends JFrame implements ActionListener
     }
 
 	/* ****************************************************************
-	 * 			Demos de Sirven
+	 * 			Demos de NivelDeReorden
 	 *****************************************************************/
     /**
-     * Demostración de creación, consulta y borrado de la relación Sirven
+     * Demostración de creación, consulta y borrado de la relación NivelDeReorden
      * Incluye el manejo de Bares
      * Incluye el manejo de tipos de bebida
      * Incluye el manejo de Bebidas
@@ -1305,7 +1305,7 @@ public class InterfazParranderosDemo extends JFrame implements ActionListener
     		// Ejecución de la demo y recolección de los resultados
 			// ATENCIÓN: En una aplicación real, los datos JAMÁS están en el código
 			boolean errorTipoBebida = false;
-			VOTipoBebida tipoBebida = parranderos.adicionarTipoBebida ("Vino tinto");
+			VOProductoSucursal tipoBebida = parranderos.adicionarTipoBebida ("Vino tinto");
 			if (tipoBebida == null)
 			{
 				tipoBebida = parranderos.darTipoBebidaPorNombre ("Vino tinto");
@@ -1315,10 +1315,10 @@ public class InterfazParranderosDemo extends JFrame implements ActionListener
 			VOEmpresa bar1 = parranderos.adicionarEmpresa ("Los Amigos1", "Bogotá", "Bajo", 2);
 			parranderos.adicionarSirven (bar1.getId (), bebida1.getId (), "diurno");
 
-			List <VOTipoBebida> listaTiposBebida = parranderos.darVOTiposBebida ();
+			List <VOProductoSucursal> listaTiposBebida = parranderos.darVOTiposBebida ();
 			List <VOPromocion> listaBebidas = parranderos.darVOPromociones ();
 			List <VOEmpresa> listaBares = parranderos.darVOEmpresas ();
-			List <VOSirven> listaSirven = parranderos.darVOSirven();
+			List <VONivelDeReorden> listaSirven = parranderos.darVOSirven();
 			
 			long sirvenEliminados = parranderos.eliminarSirven (bar1.getId (), bebida1.getId ());
 			long bebidasEliminadas = parranderos.eliminarBebidaPorNombre ("120");
@@ -1326,7 +1326,7 @@ public class InterfazParranderosDemo extends JFrame implements ActionListener
 			long baresEliminados = parranderos.eliminarEmpresaPorNombre ("Los Amigos1");
 			
 			// Generación de la cadena de caracteres con la traza de la ejecución de la demo
-			String resultado = "Demo de creación y listado de Sirven\n\n";
+			String resultado = "Demo de creación y listado de NivelDeReorden\n\n";
 			resultado += "\n\n************ Generando datos de prueba ************ \n";
 			if (errorTipoBebida)
 			{
@@ -1340,7 +1340,7 @@ public class InterfazParranderosDemo extends JFrame implements ActionListener
 			resultado += "\n\n************ Ejecutando la demo ************ \n";
 			resultado += "\n" + listarSirven (listaSirven);
 			resultado += "\n\n************ Limpiando la base de datos ************ \n";
-			resultado += sirvenEliminados + " Sirven eliminados\n";
+			resultado += sirvenEliminados + " NivelDeReorden eliminados\n";
 			resultado += bebidasEliminadas + " Bebidas eliminadas\n";
 			resultado += tbEliminados + " Tipos de bebida eliminados\n";
 			resultado += baresEliminados + " Bares eliminados\n";
@@ -1357,10 +1357,10 @@ public class InterfazParranderosDemo extends JFrame implements ActionListener
     }
 
 	/* ****************************************************************
-	 * 			Demos de Visitan
+	 * 			Demos de Supermercado
 	 *****************************************************************/
     /**
-     * Demostración de creación, consulta y borrado de la relación Visitan
+     * Demostración de creación, consulta y borrado de la relación Supermercado
      * Incluye el manejo de Bebedores
      * Incluye el manejo de Bares
      * Muestra la traza de la ejecución en el panelDatos
@@ -1380,20 +1380,20 @@ public class InterfazParranderosDemo extends JFrame implements ActionListener
 
 			List <VOEmpresa> listaBares = parranderos.darVOEmpresas ();
 			List <VOCiudad> listaBebedores = parranderos.darVOCiudades ();
-			List <VOVisitan> listaVisitan = parranderos.darVOVisitan();
+			List <VOSupermercado> listaVisitan = parranderos.darVOVisitan();
 			long visitanEliminados = parranderos.eliminarVisitan (bdor1.getId (), bar1.getId ());
 			long baresEliminados = parranderos.eliminarEmpresaPorNombre ("Los Amigos1");
 			long bebedoresEliminadas = parranderos.eliminarCiudadPorNombre ("Pepito");
 			
 			// Generación de la cadena de caracteres con la traza de la ejecución de la demo
-			String resultado = "Demo de creación y listado de Visitan\n\n";
+			String resultado = "Demo de creación y listado de Supermercado\n\n";
 			resultado += "\n\n************ Generando datos de prueba ************ \n";
 			resultado += "\n" + listarBares (listaBares);
 			resultado += "\n" + listarBebedores (listaBebedores);
 			resultado += "\n\n************ Ejecutando la demo ************ \n";
 			resultado += "\n" + listarVisitan (listaVisitan);
 			resultado += "\n\n************ Limpiando la base de datos ************ \n";
-			resultado += visitanEliminados + " Visitan eliminados\n";
+			resultado += visitanEliminados + " Supermercado eliminados\n";
 			resultado += bebedoresEliminadas + " Bebedores eliminadas\n";
 			resultado += baresEliminados + " Bares eliminados\n";
 			resultado += "\n Demo terminada";
@@ -1475,8 +1475,8 @@ public class InterfazParranderosDemo extends JFrame implements ActionListener
 			// Generación de la cadena de caracteres con la traza de la ejecución de la demo
 			String resultado = "\n\n************ Limpiando la base de datos ************ \n";
 			resultado += eliminados [0] + " Bodega eliminados\n";
-			resultado += eliminados [1] + " Sirven eliminados\n";
-			resultado += eliminados [2] + " Visitan eliminados\n";
+			resultado += eliminados [1] + " NivelDeReorden eliminados\n";
+			resultado += eliminados [2] + " Supermercado eliminados\n";
 			resultado += eliminados [3] + " Bebidas eliminadas\n";
 			resultado += eliminados [4] + " Tipos de bebida eliminados\n";
 			resultado += eliminados [5] + " Bebedores eliminados\n";
@@ -1572,11 +1572,11 @@ public class InterfazParranderosDemo extends JFrame implements ActionListener
      * @param lista - La lista con los tipos de bebida
      * @return La cadena con una líea para cada tipo de bebida recibido
      */
-    private String listarTiposBebida(List<VOTipoBebida> lista) 
+    private String listarTiposBebida(List<VOProductoSucursal> lista) 
     {
     	String resp = "Los tipos de bebida existentes son:\n";
     	int i = 1;
-        for (VOTipoBebida tb : lista)
+        for (VOProductoSucursal tb : lista)
         {
         	resp += i++ + ". " + tb.toString() + "\n";
         }
@@ -1652,11 +1652,11 @@ public class InterfazParranderosDemo extends JFrame implements ActionListener
      * @param lista - La lista con los sirven
      * @return La cadena con una líea para cada sirven recibido
      */
-    private String listarSirven (List<VOSirven> lista) 
+    private String listarSirven (List<VONivelDeReorden> lista) 
     {
     	String resp = "Los sirven existentes son:\n";
     	int i = 1;
-        for (VOSirven serv : lista)
+        for (VONivelDeReorden serv : lista)
         {
         	resp += i++ + ". " + serv.toString() + "\n";
         }
@@ -1668,11 +1668,11 @@ public class InterfazParranderosDemo extends JFrame implements ActionListener
      * @param lista - La lista con los visitan
      * @return La cadena con una líea para cada visitan recibido
      */
-    private String listarVisitan (List<VOVisitan> lista) 
+    private String listarVisitan (List<VOSupermercado> lista) 
     {
     	String resp = "Los visitan existentes son:\n";
     	int i = 1;
-        for (VOVisitan vis : lista)
+        for (VOSupermercado vis : lista)
         {
         	resp += i++ + ". " + vis.toString() + "\n";
         }

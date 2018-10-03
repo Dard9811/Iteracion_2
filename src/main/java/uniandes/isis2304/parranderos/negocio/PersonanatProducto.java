@@ -20,7 +20,7 @@ package uniandes.isis2304.parranderos.negocio;
  *
  * @author Germán Bravo
  */
-public class Personanat_Producto implements VOPersonanat_Producto
+public class PersonanatProducto implements VOPersonanatProducto
 {
 	/* ****************************************************************
 	 * 			Atributos
@@ -46,7 +46,7 @@ public class Personanat_Producto implements VOPersonanat_Producto
     /**
      * Constructor por defecto
      */
-	public Personanat_Producto() 
+	public PersonanatProducto() 
     {
     	this.personaNatNumDoc = 0;
 		this.codProducto = "";
@@ -61,7 +61,7 @@ public class Personanat_Producto implements VOPersonanat_Producto
 	 * @param presupuesto - El presupuesto del bar (ALTO, MEDIO, BAJO)
 	 * @param cantSedes - Las sedes del bar (Mayor que 0)
 	 */
-    public Personanat_Producto(long nit, String nombre, String correo) 
+    public PersonanatProducto(long nit, String nombre, String correo) 
     {
     	this.personaNatNumDoc = nit;
 		this.codProducto = nombre;

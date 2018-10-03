@@ -47,7 +47,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.stream.JsonReader;
 
 import uniandes.isis2304.parranderos.negocio.SuperAndes;
-import uniandes.isis2304.parranderos.negocio.VOTipoBebida;
+import uniandes.isis2304.parranderos.negocio.VOProductoSucursal;
 
 /**
  * Clase principal de la interfaz
@@ -237,7 +237,7 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
     }
     
 	/* ****************************************************************
-	 * 			CRUD de TipoBebida
+	 * 			CRUD de ProductoSucursal
 	 *****************************************************************/
     /**
      * Adiciona un tipo de bebida con la información dada por el usuario
@@ -250,7 +250,7 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
     		String nombreTipo = JOptionPane.showInputDialog (this, "Nombre del tipo de bedida?", "Adicionar tipo de bebida", JOptionPane.QUESTION_MESSAGE);
     		if (nombreTipo != null)
     		{
-        		VOTipoBebida tb = parranderos.adicionarTipoBebida (nombreTipo);
+        		VOProductoSucursal tb = parranderos.adicionarTipoBebida (nombreTipo);
         		if (tb == null)
         		{
         			throw new Exception ("No se pudo crear un tipo de bebida con nombre: " + nombreTipo);
@@ -280,7 +280,7 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
     {
     	try 
     	{
-			List <VOTipoBebida> lista = parranderos.darVOTiposBebida();
+			List <VOProductoSucursal> lista = parranderos.darVOTiposBebida();
 
 			String resultado = "En listarTipoBebida";
 			resultado +=  "\n" + listarTiposBebida (lista);
@@ -309,7 +309,7 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
     			long idTipo = Long.valueOf (idTipoStr);
     			long tbEliminados = parranderos.eliminarTipoBebidaPorId (idTipo);
 
-    			String resultado = "En eliminar TipoBebida\n\n";
+    			String resultado = "En eliminar ProductoSucursal\n\n";
     			resultado += tbEliminados + " Tipos de bebida eliminados\n";
     			resultado += "\n Operación terminada";
     			panelDatos.actualizarInterfaz(resultado);
@@ -337,7 +337,7 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
     		String nombreTb = JOptionPane.showInputDialog (this, "Nombre del tipo de bedida?", "Buscar tipo de bebida por nombre", JOptionPane.QUESTION_MESSAGE);
     		if (nombreTb != null)
     		{
-    			VOTipoBebida tipoBebida = parranderos.darTipoBebidaPorNombre (nombreTb);
+    			VOProductoSucursal tipoBebida = parranderos.darTipoBebidaPorNombre (nombreTb);
     			String resultado = "En buscar Tipo Bebida por nombre\n\n";
     			if (tipoBebida != null)
     			{
@@ -431,8 +431,8 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 			// Generación de la cadena de caracteres con la traza de la ejecución de la demo
 			String resultado = "\n\n************ Limpiando la base de datos ************ \n";
 			resultado += eliminados [0] + " Bodega eliminados\n";
-			resultado += eliminados [1] + " Sirven eliminados\n";
-			resultado += eliminados [2] + " Visitan eliminados\n";
+			resultado += eliminados [1] + " NivelDeReorden eliminados\n";
+			resultado += eliminados [2] + " Supermercado eliminados\n";
 			resultado += eliminados [3] + " Bebidas eliminadas\n";
 			resultado += eliminados [4] + " Tipos de bebida eliminados\n";
 			resultado += eliminados [5] + " Bebedores eliminados\n";
@@ -528,11 +528,11 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
      * @param lista - La lista con los tipos de bebida
      * @return La cadena con una líea para cada tipo de bebida recibido
      */
-    private String listarTiposBebida(List<VOTipoBebida> lista) 
+    private String listarTiposBebida(List<VOProductoSucursal> lista) 
     {
     	String resp = "Los tipos de bebida existentes son:\n";
     	int i = 1;
-        for (VOTipoBebida tb : lista)
+        for (VOProductoSucursal tb : lista)
         {
         	resp += i++ + ". " + tb.toString() + "\n";
         }

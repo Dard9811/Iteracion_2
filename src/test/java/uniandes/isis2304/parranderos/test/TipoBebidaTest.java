@@ -29,7 +29,7 @@ import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.stream.JsonReader;
 import uniandes.isis2304.parranderos.negocio.SuperAndes;
-import uniandes.isis2304.parranderos.negocio.VOTipoBebida;
+import uniandes.isis2304.parranderos.negocio.VOProductoSucursal;
 
 /**
  * Clase con los métdos de prueba de funcionalidad sobre TIPOBEBIDA
@@ -65,10 +65,10 @@ public class TipoBebidaTest
     private SuperAndes parranderos;
 	
     /* ****************************************************************
-	 * 			Métodos de prueba para la tabla TipoBebida - Creación y borrado
+	 * 			Métodos de prueba para la tabla ProductoSucursal - Creación y borrado
 	 *****************************************************************/
 	/**
-	 * Método que prueba las operaciones sobre la tabla TipoBebida
+	 * Método que prueba las operaciones sobre la tabla ProductoSucursal
 	 * 1. Adicionar un tipo de bebida
 	 * 2. Listar el contenido de la tabla con 0, 1 y 2 registros insertados
 	 * 3. Borrar un tipo de bebida por su identificador
@@ -80,7 +80,7 @@ public class TipoBebidaTest
     	// Probar primero la conexión a la base de datos
 		try
 		{
-			log.info ("Probando las operaciones CRD sobre TipoBebida");
+			log.info ("Probando las operaciones CRD sobre ProductoSucursal");
 			parranderos = new SuperAndes (openConfig (CONFIG_TABLAS_A));
 		}
 		catch (Exception e)
@@ -99,19 +99,19 @@ public class TipoBebidaTest
     	try
 		{
 			// Lectura de los tipos de bebida con la tabla vacía
-			List <VOTipoBebida> lista = parranderos.darVOTiposBebida();
+			List <VOProductoSucursal> lista = parranderos.darVOTiposBebida();
 			assertEquals ("No debe haber tipos de bebida creados!!", 0, lista.size ());
 
 			// Lectura de los tipos de bebida con un tipo de bebida adicionado
 			String nombreTipoBebida1 = "Vino tinto";
-			VOTipoBebida tipoBebida1 = parranderos.adicionarTipoBebida (nombreTipoBebida1);
+			VOProductoSucursal tipoBebida1 = parranderos.adicionarTipoBebida (nombreTipoBebida1);
 			lista = parranderos.darVOTiposBebida();
 			assertEquals ("Debe haber un tipo de bebida creado !!", 1, lista.size ());
 			assertEquals ("El objeto creado y el traido de la BD deben ser iguales !!", tipoBebida1, lista.get (0));
 
 			// Lectura de los tipos de bebida con dos tipos de bebida adicionados
 			String nombreTipoBebida2 = "Cerveza";
-			VOTipoBebida tipoBebida2 = parranderos.adicionarTipoBebida (nombreTipoBebida2);
+			VOProductoSucursal tipoBebida2 = parranderos.adicionarTipoBebida (nombreTipoBebida2);
 			lista = parranderos.darVOTiposBebida();
 			assertEquals ("Debe haber dos tipos de bebida creados !!", 2, lista.size ());
 			assertTrue ("El primer tipo de bebida adicionado debe estar en la tabla", tipoBebida1.equals (lista.get (0)) || tipoBebida1.equals (lista.get (1)));
@@ -134,11 +134,11 @@ public class TipoBebidaTest
 		catch (Exception e)
 		{
 //			e.printStackTrace();
-			String msg = "Error en la ejecución de las pruebas de operaciones sobre la tabla TipoBebida.\n";
+			String msg = "Error en la ejecución de las pruebas de operaciones sobre la tabla ProductoSucursal.\n";
 			msg += "Revise el log de parranderos y el de datanucleus para conocer el detalle de la excepción";
 			System.out.println (msg);
 
-    		fail ("Error en las pruebas sobre la tabla TipoBebida");
+    		fail ("Error en las pruebas sobre la tabla ProductoSucursal");
 		}
 		finally
 		{
@@ -148,7 +148,7 @@ public class TipoBebidaTest
 	}
 
     /**
-     * Método de prueba de la restricción de unicidad sobre el nombre de TipoBebida
+     * Método de prueba de la restricción de unicidad sobre el nombre de ProductoSucursal
      */
 	@Test
 	public void unicidadTipoBebidaTest() 
@@ -175,26 +175,26 @@ public class TipoBebidaTest
 		try
 		{
 			// Lectura de los tipos de bebida con la tabla vacía
-			List <VOTipoBebida> lista = parranderos.darVOTiposBebida();
+			List <VOProductoSucursal> lista = parranderos.darVOTiposBebida();
 			assertEquals ("No debe haber tipos de bebida creados!!", 0, lista.size ());
 
 			// Lectura de los tipos de bebida con un tipo de bebida adicionado
 			String nombreTipoBebida1 = "Vino tinto";
-			VOTipoBebida tipoBebida1 = parranderos.adicionarTipoBebida (nombreTipoBebida1);
+			VOProductoSucursal tipoBebida1 = parranderos.adicionarTipoBebida (nombreTipoBebida1);
 			lista = parranderos.darVOTiposBebida();
 			assertEquals ("Debe haber un tipo de bebida creado !!", 1, lista.size ());
 
-			VOTipoBebida tipoBebida2 = parranderos.adicionarTipoBebida (nombreTipoBebida1);
+			VOProductoSucursal tipoBebida2 = parranderos.adicionarTipoBebida (nombreTipoBebida1);
 			assertNull ("No puede adicionar dos tipos de bebida con el mismo nombre !!", tipoBebida2);
 		}
 		catch (Exception e)
 		{
 //			e.printStackTrace();
-			String msg = "Error en la ejecución de las pruebas de UNICIDAD sobre la tabla TipoBebida.\n";
+			String msg = "Error en la ejecución de las pruebas de UNICIDAD sobre la tabla ProductoSucursal.\n";
 			msg += "Revise el log de parranderos y el de datanucleus para conocer el detalle de la excepción";
 			System.out.println (msg);
 
-    		fail ("Error en las pruebas de UNICIDAD sobre la tabla TipoBebida");
+    		fail ("Error en las pruebas de UNICIDAD sobre la tabla ProductoSucursal");
 		}    				
 		finally
 		{

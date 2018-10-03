@@ -20,7 +20,7 @@ import java.util.List;
 import javax.jdo.PersistenceManager;
 import javax.jdo.Query;
 
-import uniandes.isis2304.parranderos.negocio.TipoBebida;
+import uniandes.isis2304.parranderos.negocio.ProductoSucursal;
 
 /**
  * Clase que encapsula los métodos que hacen acceso a la base de datos para el concepto TIPO DE BEBIDA de Parranderos
@@ -106,12 +106,12 @@ class SQLTipoBebida
 	 * @param idTipoBebida - El identificador del tipo de bebida
 	 * @return El objeto TIPOBEBIDA que tiene el identificador dado
 	 */
-	public TipoBebida darTipoBebidaPorId (PersistenceManager pm, long idTipoBebida) 
+	public ProductoSucursal darTipoBebidaPorId (PersistenceManager pm, long idTipoBebida) 
 	{
 		Query q = pm.newQuery(SQL, "SELECT * FROM " + pp.darTablaTipoBebida  () + " WHERE id = ?");
-		q.setResultClass(TipoBebida.class);
+		q.setResultClass(ProductoSucursal.class);
 		q.setParameters(idTipoBebida);
-		return (TipoBebida) q.executeUnique();
+		return (ProductoSucursal) q.executeUnique();
 	}
 
 	/**
@@ -121,12 +121,12 @@ class SQLTipoBebida
 	 * @param nombreTipoBebida - El nombre del tipo de bebida
 	 * @return El objeto TIPOBEBIDA que tiene el nombre dado
 	 */
-	public List<TipoBebida> darTiposBebidaPorNombre (PersistenceManager pm, String nombreTipoBebida) 
+	public List<ProductoSucursal> darTiposBebidaPorNombre (PersistenceManager pm, String nombreTipoBebida) 
 	{
 		Query q = pm.newQuery(SQL, "SELECT * FROM " + pp.darTablaTipoBebida  () + " WHERE nombre = ?");
-		q.setResultClass(TipoBebida.class);
+		q.setResultClass(ProductoSucursal.class);
 		q.setParameters(nombreTipoBebida);
-		return (List<TipoBebida>) q.executeList();
+		return (List<ProductoSucursal>) q.executeList();
 	}
 
 	/**
@@ -135,11 +135,11 @@ class SQLTipoBebida
 	 * @param pm - El manejador de persistencia
 	 * @return Una lista de objetos TIPOBEBIDA
 	 */
-	public List<TipoBebida> darTiposBebida (PersistenceManager pm)
+	public List<ProductoSucursal> darTiposBebida (PersistenceManager pm)
 	{
 		Query q = pm.newQuery(SQL, "SELECT * FROM " + pp.darTablaTipoBebida  ());
-		q.setResultClass(TipoBebida.class);
-		return (List<TipoBebida>) q.executeList();
+		q.setResultClass(ProductoSucursal.class);
+		return (List<ProductoSucursal>) q.executeList();
 	}
 
 }

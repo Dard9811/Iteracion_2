@@ -82,14 +82,14 @@ public class SuperAndes
 	 * Adiciona de manera persistente un tipo de bebida 
 	 * Adiciona entradas al log de la aplicación
 	 * @param nombre - El nombre del tipo de bebida
-	 * @return El objeto TipoBebida adicionado. null si ocurre alguna Excepción
+	 * @return El objeto ProductoSucursal adicionado. null si ocurre alguna Excepción
 	 */
-	public TipoBebida adicionarTipoBebida (String nombre)
+	public ProductoSucursal adicionarTipoBebida (String nombre)
 	{
         log.info ("Adicionando Tipo de bebida: " + nombre);
-        TipoBebida tipoBebida = pp.adicionarTipoBebida (nombre);		
-        log.info ("Adicionando Tipo de bebida: " + tipoBebida);
-        return tipoBebida;
+        ProductoSucursal productoSucursal = pp.adicionarTipoBebida (nombre);		
+        log.info ("Adicionando Tipo de bebida: " + productoSucursal);
+        return productoSucursal;
 	}
 	
 	/**
@@ -123,26 +123,26 @@ public class SuperAndes
 	/**
 	 * Encuentra todos los tipos de bebida en SuperAndes
 	 * Adiciona entradas al log de la aplicación
-	 * @return Una lista de objetos TipoBebida con todos los tipos de bebida que conoce la aplicación, llenos con su información básica
+	 * @return Una lista de objetos ProductoSucursal con todos los tipos de bebida que conoce la aplicación, llenos con su información básica
 	 */
-	public List<TipoBebida> darTiposBebida ()
+	public List<ProductoSucursal> darTiposBebida ()
 	{
 		log.info ("Consultando Tipos de bebida");
-        List<TipoBebida> tiposBebida = pp.darTiposBebida ();	
+        List<ProductoSucursal> tiposBebida = pp.darTiposBebida ();	
         log.info ("Consultando Tipos de bebida: " + tiposBebida.size() + " existentes");
         return tiposBebida;
 	}
 
 	/**
-	 * Encuentra todos los tipos de bebida en SuperAndes y los devuelve como una lista de VOTipoBebida
+	 * Encuentra todos los tipos de bebida en SuperAndes y los devuelve como una lista de VOProductoSucursal
 	 * Adiciona entradas al log de la aplicación
-	 * @return Una lista de objetos VOTipoBebida con todos los tipos de bebida que conoce la aplicación, llenos con su información básica
+	 * @return Una lista de objetos VOProductoSucursal con todos los tipos de bebida que conoce la aplicación, llenos con su información básica
 	 */
-	public List<VOTipoBebida> darVOTiposBebida ()
+	public List<VOProductoSucursal> darVOTiposBebida ()
 	{
 		log.info ("Generando los VO de Tipos de bebida");        
-        List<VOTipoBebida> voTipos = new LinkedList<VOTipoBebida> ();
-        for (TipoBebida tb : pp.darTiposBebida ())
+        List<VOProductoSucursal> voTipos = new LinkedList<VOProductoSucursal> ();
+        for (ProductoSucursal tb : pp.darTiposBebida ())
         {
         	voTipos.add (tb);
         }
@@ -154,13 +154,13 @@ public class SuperAndes
 	 * Encuentra el tipos de bebida en SuperAndes con el nombre solicitado
 	 * Adiciona entradas al log de la aplicación
 	 * @param nombre - El nombre de la bebida
-	 * @return Un objeto TipoBebida con el tipos de bebida de ese nombre que conoce la aplicación, 
+	 * @return Un objeto ProductoSucursal con el tipos de bebida de ese nombre que conoce la aplicación, 
 	 * lleno con su información básica
 	 */
-	public TipoBebida darTipoBebidaPorNombre (String nombre)
+	public ProductoSucursal darTipoBebidaPorNombre (String nombre)
 	{
 		log.info ("Buscando Tipo de bebida por nombre: " + nombre);
-		List<TipoBebida> tb = pp.darTipoBebidaPorNombre (nombre);
+		List<ProductoSucursal> tb = pp.darTipoBebidaPorNombre (nombre);
 		return !tb.isEmpty () ? tb.get (0) : null;
 	}
 
@@ -211,7 +211,7 @@ public class SuperAndes
 	}
 
 	/**
-	 * Encuentra todos los tipos de bebida en SuperAndes y los devuelve como una lista de VOTipoBebida
+	 * Encuentra todos los tipos de bebida en SuperAndes y los devuelve como una lista de VOProductoSucursal
 	 * Adiciona entradas al log de la aplicación
 	 * @return Una lista de objetos VOBebida con todos las bebidas que conoce la aplicación, llenos con su información básica
 	 */
@@ -921,12 +921,12 @@ public class SuperAndes
 	 * @param idBar - El identificador del bar
 	 * @param idBebida - El identificador de la bebida
 	 * @param horario - El horario en el que se sirve la bebida (DIURNO, NOCTURNO, TODOS)
-	 * @return Un objeto Sirven con los valores dados
+	 * @return Un objeto NivelDeReorden con los valores dados
 	 */
-	public Sirven adicionarSirven (long idBar, long idBebida, String horario)
+	public NivelDeReorden adicionarSirven (long idBar, long idBebida, String horario)
 	{
         log.info ("Adicionando sirven [" + idBar + ", " + idBebida + "]");
-        Sirven resp = pp.adicionarSirven (idBar, idBebida, horario);
+        NivelDeReorden resp = pp.adicionarSirven (idBar, idBebida, horario);
         log.info ("Adicionando sirven: " + resp + " tuplas insertadas");
         return resp;
 	}
@@ -951,12 +951,12 @@ public class SuperAndes
 	 * Adiciona entradas al log de la aplicación
 	 * @return Una lista de objetos SIRVEN con todos los GUSTAN que conoce la aplicación, llenos con su información básica
 	 */
-	public List<Sirven> darSirven ()
+	public List<NivelDeReorden> darSirven ()
 	{
-        log.info ("Listando Sirven");
-        List<Sirven> sirven = pp.darSirven ();	
-        log.info ("Listando Sirven: " + sirven.size() + " sirven existentes");
-        return sirven;
+        log.info ("Listando NivelDeReorden");
+        List<NivelDeReorden> nivelDeReorden = pp.darSirven ();	
+        log.info ("Listando NivelDeReorden: " + nivelDeReorden.size() + " sirven existentes");
+        return nivelDeReorden;
 	}
 
 	/**
@@ -964,15 +964,15 @@ public class SuperAndes
 	 * Adiciona entradas al log de la aplicación
 	 * @return Una lista de objetos SIRVEN con todos los SIRVEN que conoce la aplicación, llenos con su información básica
 	 */
-	public List<VOSirven> darVOSirven ()
+	public List<VONivelDeReorden> darVOSirven ()
 	{
-		log.info ("Generando los VO de Sirven");
-		List<VOSirven> voGustan = new LinkedList<VOSirven> ();
-		for (VOSirven sirven: pp.darSirven ())
+		log.info ("Generando los VO de NivelDeReorden");
+		List<VONivelDeReorden> voGustan = new LinkedList<VONivelDeReorden> ();
+		for (VONivelDeReorden sirven: pp.darSirven ())
 		{
 			voGustan.add (sirven);
 		}
-		log.info ("Generando los VO de Sirven: " + voGustan.size () + " Sirven existentes");
+		log.info ("Generando los VO de NivelDeReorden: " + voGustan.size () + " NivelDeReorden existentes");
 		return voGustan;
 	}
 
@@ -987,12 +987,12 @@ public class SuperAndes
 	 * @param idBar - El identificador del bar
 	 * @param fecha - La fecha en la que se realizó la visita
 	 * @param horario - El horario en el que se sirve la bebida (DIURNO, NOCTURNO, TODOS)
-	 * @return Un objeto Visitan con los valores dados
+	 * @return Un objeto Supermercado con los valores dados
 	 */
-	public Visitan adicionarVisitan (long idBebedor, long idBar, Timestamp fecha, String horario)
+	public Supermercado adicionarVisitan (long idBebedor, long idBar, Timestamp fecha, String horario)
 	{
         log.info ("Adicionando visitan [" + idBebedor + ", " + idBar + "]");
-        Visitan resp = pp.adicionarVisitan (idBebedor, idBar, fecha, horario);
+        Supermercado resp = pp.adicionarVisitan (idBebedor, idBar, fecha, horario);
         log.info ("Adicionando visitan: " + resp + " tuplas insertadas");
         return resp;
 	}
@@ -1017,28 +1017,28 @@ public class SuperAndes
 	 * Adiciona entradas al log de la aplicación
 	 * @return Una lista de objetos VISITAN con todos los GUSTAN que conoce la aplicación, llenos con su información básica
 	 */
-	public List<Visitan> darVisitan ()
+	public List<Supermercado> darVisitan ()
 	{
-        log.info ("Listando Visitan");
-        List<Visitan> visitan = pp.darVisitan ();	
-        log.info ("Listando Visitan: Listo!");
-        return visitan;
+        log.info ("Listando Supermercado");
+        List<Supermercado> supermercado = pp.darVisitan ();	
+        log.info ("Listando Supermercado: Listo!");
+        return supermercado;
 	}
 
 	/**
 	 * Encuentra todos los visitan en SuperAndes y los devuelve como VO
 	 * Adiciona entradas al log de la aplicación
-	 * @return Una lista de objetos Visitan con todos los Visitan que conoce la aplicación, llenos con su información básica
+	 * @return Una lista de objetos Supermercado con todos los Supermercado que conoce la aplicación, llenos con su información básica
 	 */
-	public List<VOVisitan> darVOVisitan ()
+	public List<VOSupermercado> darVOVisitan ()
 	{
-		log.info ("Generando los VO de Visitan");
-		List<VOVisitan> voGustan = new LinkedList<VOVisitan> ();
-		for (VOVisitan vis: pp.darVisitan ())
+		log.info ("Generando los VO de Supermercado");
+		List<VOSupermercado> voGustan = new LinkedList<VOSupermercado> ();
+		for (VOSupermercado vis: pp.darVisitan ())
 		{
 			voGustan.add (vis);
 		}
-		log.info ("Generando los VO de Visitan: " + voGustan.size () + " Visitan existentes");
+		log.info ("Generando los VO de Supermercado: " + voGustan.size () + " Supermercado existentes");
 		return voGustan;
 	}
 

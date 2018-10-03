@@ -15,43 +15,37 @@
 
 package uniandes.isis2304.parranderos.negocio;
 
-import java.sql.Timestamp;
-
 /**
- * Interfaz para los métodos get de VISITAN.
+ * Interfaz para los métodos get de BAR.
  * Sirve para proteger la información del negocio de posibles manipulaciones desde la interfaz 
  * 
  * @author Germán Bravo
  */
-public interface VOVisitan 
+public interface VOPersonanatProducto 
 {
 	/* ****************************************************************
-	 * 			Métodos
+	 * 			Métodos 
 	 *****************************************************************/
+     /**
+	 * @return El identificador de persona natural	
+	 */
+	public long getPersonaNatNumDoc();
+	
 	/**
-	 * @return El idBebedor
+	 * @return El identificador de persona natural
 	 */
-	public long getIdBebedor();
-
+	public long getPersonaNatTipoDoc();
+	
 	/**
-	 * @return El idBar
+	 * @return el nombre del bar
 	 */
-	public long getIdBar();
+	public String getCodProducto();
+		
 
-	/**
-	 * @return La fechaVisita
-	 */
-	public Timestamp getFechaVisita();
-
-	/**
-	 * @return El horario
-	 */
-	public String getHorario();
-
-	/** 
-	 * @return Una cadena con la información básica
-	 */
 	@Override
+	/**
+	 * @return Una cadena de caracteres con todos los atributos del bar
+	 */
 	public String toString();
 
 }

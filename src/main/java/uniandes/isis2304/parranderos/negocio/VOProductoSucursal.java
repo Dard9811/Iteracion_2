@@ -16,36 +16,37 @@
 package uniandes.isis2304.parranderos.negocio;
 
 /**
- * Interfaz para los métodos get de BAR.
+ * Interfaz para los métodos get de TIPOBEBIDA.
  * Sirve para proteger la información del negocio de posibles manipulaciones desde la interfaz 
  * 
  * @author Germán Bravo
  */
-public interface VOPersonanat_Producto 
+public interface VOProductoSucursal 
 {
 	/* ****************************************************************
-	 * 			Métodos 
+	 * 			Métodos
 	 *****************************************************************/
-     /**
-	 * @return El identificador de persona natural	
-	 */
-	public long getPersonaNatNumDoc();
-	
 	/**
-	 * @return El identificador de persona natural
+	 * @return El id del tipo de bebida
 	 */
-	public long getPersonaNatTipoDoc();
-	
+	public long getIdSucursal();
+
 	/**
-	 * @return el nombre del bar
+	 * @return El nombre del tipo de bebida
 	 */
 	public String getCodProducto();
-		
 
-	@Override
 	/**
-	 * @return Una cadena de caracteres con todos los atributos del bar
+	 * @return Una cadena de caracteres con la información del tipo de bebida
 	 */
-	public String toString();
+	@Override
+	public String toString(); 
 
+	/**
+	 * Define la igualdad dos Tipos de bebida
+	 * @param tb - El tipo de bebida a comparar
+	 * @return true si tienen el mismo identificador y el mismo nombre
+	 */
+	@Override
+	public boolean equals (Object tb); 
 }

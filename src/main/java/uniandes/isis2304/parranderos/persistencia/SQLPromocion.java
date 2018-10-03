@@ -7,7 +7,7 @@ import javax.jdo.PersistenceManager;
 import javax.jdo.Query;
 
 import uniandes.isis2304.parranderos.negocio.Promocion;
-import uniandes.isis2304.parranderos.negocio.TipoBebida;
+import uniandes.isis2304.parranderos.negocio.ProductoSucursal;
 
 /**
  * Clase que encapsula los métodos que hacen acceso a la base de datos para el concepto PROMOCION de SuperAndes
@@ -81,7 +81,7 @@ class SQLPromocion
 	public Promocion darPromoPorId (PersistenceManager pm, long idPromo) 
 	{
 		Query q = pm.newQuery(SQL, "SELECT * FROM " + pp.darTablaPromo () + " WHERE id = ?");
-		q.setResultClass(TipoBebida.class);
+		q.setResultClass(ProductoSucursal.class);
 		q.setParameters(idPromo);
 		return (Promocion) q.executeUnique();
 	}
