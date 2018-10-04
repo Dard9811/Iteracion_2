@@ -76,90 +76,63 @@ public class SuperAndes
 	}
 	
 	/* ****************************************************************
-	 * 			Métodos para manejar los TIPOS DE BEBIDA
+	 * 			Métodos para manejar los PRODUCTO SUCURSAL
 	 *****************************************************************/
 	/**
-	 * Adiciona de manera persistente un tipo de bebida 
+	 * Adiciona de manera persistente un producto sucursal 
 	 * Adiciona entradas al log de la aplicación
-	 * @param nombre - El nombre del tipo de bebida
+	 * @param nombre - El nombre del producto sucursal
 	 * @return El objeto ProductoSucursal adicionado. null si ocurre alguna Excepción
 	 */
-	public ProductoSucursal adicionarTipoBebida (String nombre)
+	public ProductoSucursal adicionarProductoSucursal (String nombre)
 	{
-        log.info ("Adicionando Tipo de bebida: " + nombre);
-        ProductoSucursal productoSucursal = pp.adicionarTipoBebida (nombre);		
-        log.info ("Adicionando Tipo de bebida: " + productoSucursal);
+        log.info ("Adicionando producto sucursal: " + nombre);
+        ProductoSucursal productoSucursal = pp.adicionarProductoSucursal (nombre);		
+        log.info ("Adicionando producto sucursal: " + productoSucursal);
         return productoSucursal;
 	}
+
 	
 	/**
-	 * Elimina un tipo de bebida por su nombre
+	 * Encuentra todos los PRODUCTO SUCURSAL en SuperAndes
 	 * Adiciona entradas al log de la aplicación
-	 * @param nombre - El nombre del tipo de bebida a eliminar
-	 * @return El número de tuplas eliminadas
+	 * @return Una lista de objetos ProductoSucursal con todos los PRODUCTO SUCURSAL que conoce la aplicación, llenos con su información básica
 	 */
-	public long eliminarTipoBebidaPorNombre (String nombre)
+	public List<ProductoSucursal> darProductoSucursal ()
 	{
-		log.info ("Eliminando Tipo de bebida por nombre: " + nombre);
-        long resp = pp.eliminarTipoBebidaPorNombre (nombre);		
-        log.info ("Eliminando Tipo de bebida por nombre: " + resp + " tuplas eliminadas");
-        return resp;
-	}
-	
-	/**
-	 * Elimina un tipo de bebida por su identificador
-	 * Adiciona entradas al log de la aplicación
-	 * @param idTipoBebida - El id del tipo de bebida a eliminar
-	 * @return El número de tuplas eliminadas
-	 */
-	public long eliminarTipoBebidaPorId (long idTipoBebida)
-	{
-		log.info ("Eliminando Tipo de bebida por id: " + idTipoBebida);
-        long resp = pp.eliminarTipoBebidaPorId (idTipoBebida);		
-        log.info ("Eliminando Tipo de bebida por id: " + resp + " tuplas eliminadas");
-        return resp;
-	}
-	
-	/**
-	 * Encuentra todos los tipos de bebida en SuperAndes
-	 * Adiciona entradas al log de la aplicación
-	 * @return Una lista de objetos ProductoSucursal con todos los tipos de bebida que conoce la aplicación, llenos con su información básica
-	 */
-	public List<ProductoSucursal> darTiposBebida ()
-	{
-		log.info ("Consultando Tipos de bebida");
-        List<ProductoSucursal> tiposBebida = pp.darTiposBebida ();	
-        log.info ("Consultando Tipos de bebida: " + tiposBebida.size() + " existentes");
-        return tiposBebida;
+		log.info ("Consultando PRODUCTO SUCURSAL");
+        List<ProductoSucursal> productosSucursal = pp.darProductoSucursal ();	
+        log.info ("Consultando PRODUCTO SUCURSAL: " + productosSucursal.size() + " existentes");
+        return productosSucursal;
 	}
 
 	/**
-	 * Encuentra todos los tipos de bebida en SuperAndes y los devuelve como una lista de VOProductoSucursal
+	 * Encuentra todos los PRODUCTO SUCURSAL en SuperAndes y los devuelve como una lista de VOProductoSucursal
 	 * Adiciona entradas al log de la aplicación
-	 * @return Una lista de objetos VOProductoSucursal con todos los tipos de bebida que conoce la aplicación, llenos con su información básica
+	 * @return Una lista de objetos VOProductoSucursal con todos los PRODUCTO SUCURSAL que conoce la aplicación, llenos con su información básica
 	 */
-	public List<VOProductoSucursal> darVOTiposBebida ()
+	public List<VOProductoSucursal> darVOproductosSucursal ()
 	{
-		log.info ("Generando los VO de Tipos de bebida");        
+		log.info ("Generando los VO de PRODUCTO SUCURSAL");        
         List<VOProductoSucursal> voTipos = new LinkedList<VOProductoSucursal> ();
-        for (ProductoSucursal tb : pp.darTiposBebida ())
+        for (ProductoSucursal tb : pp.darProductoSucursal ())
         {
         	voTipos.add (tb);
         }
-        log.info ("Generando los VO de Tipos de bebida: " + voTipos.size() + " existentes");
+        log.info ("Generando los VO de PRODUCTO SUCURSAL: " + voTipos.size() + " existentes");
         return voTipos;
 	}
 
 	/**
-	 * Encuentra el tipos de bebida en SuperAndes con el nombre solicitado
+	 * Encuentra el PRODUCTO SUCURSAL en SuperAndes con el nombre solicitado
 	 * Adiciona entradas al log de la aplicación
 	 * @param nombre - El nombre de la bebida
-	 * @return Un objeto ProductoSucursal con el tipos de bebida de ese nombre que conoce la aplicación, 
+	 * @return Un objeto ProductoSucursal con el PRODUCTO SUCURSAL de ese nombre que conoce la aplicación, 
 	 * lleno con su información básica
 	 */
 	public ProductoSucursal darTipoBebidaPorNombre (String nombre)
 	{
-		log.info ("Buscando Tipo de bebida por nombre: " + nombre);
+		log.info ("Buscando producto sucursal por nombre: " + nombre);
 		List<ProductoSucursal> tb = pp.darTipoBebidaPorNombre (nombre);
 		return !tb.isEmpty () ? tb.get (0) : null;
 	}
@@ -171,7 +144,7 @@ public class SuperAndes
 	 * Adiciona de manera persistente una bebida 
 	 * Adiciona entradas al log de la aplicación
 	 * @param nombre - El nombre la bebida
-	 * @param idTipoBebida - El identificador del tipo de bebida de la bebida - Debe existir un TIPOBEBIDA con este identificador
+	 * @param idTipoBebida - El identificador del producto sucursal de la bebida - Debe existir un TIPOBEBIDA con este identificador
 	 * @param gradoAlcohol - El grado de alcohol de la bebida (Mayor que 0)
 	 * @return El objeto Bebida adicionado. null si ocurre alguna Excepción
 	 */
@@ -211,7 +184,7 @@ public class SuperAndes
 	}
 
 	/**
-	 * Encuentra todos los tipos de bebida en SuperAndes y los devuelve como una lista de VOProductoSucursal
+	 * Encuentra todos los PRODUCTO SUCURSAL en SuperAndes y los devuelve como una lista de VOProductoSucursal
 	 * Adiciona entradas al log de la aplicación
 	 * @return Una lista de objetos VOBebida con todos las bebidas que conoce la aplicación, llenos con su información básica
 	 */

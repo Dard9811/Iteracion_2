@@ -20,7 +20,7 @@ package uniandes.isis2304.parranderos.negocio;
  *
  * @author Germán Bravo
  */
-public class Empresa_Producto implements VOEmpresa_Producto
+public class EmpresaProducto implements VOEmpresa_Producto
 {
 	/* ****************************************************************
 	 * 			Atributos
@@ -41,7 +41,7 @@ public class Empresa_Producto implements VOEmpresa_Producto
     /**
      * Constructor por defecto
      */
-	public Empresa_Producto() 
+	public EmpresaProducto() 
     {
     	this.nit = 0;
 		this.codProducto = "";
@@ -56,7 +56,7 @@ public class Empresa_Producto implements VOEmpresa_Producto
 	 * @param presupuesto - El presupuesto del bar (ALTO, MEDIO, BAJO)
 	 * @param cantSedes - Las sedes del bar (Mayor que 0)
 	 */
-    public Empresa_Producto(long nit, String nombre, String correo) 
+    public EmpresaProducto(long nit, String nombre, String correo) 
     {
     	this.nit = nit;
 		this.codProducto = nombre;

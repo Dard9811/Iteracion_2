@@ -250,7 +250,7 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
     		String nombreTipo = JOptionPane.showInputDialog (this, "Nombre del tipo de bedida?", "Adicionar tipo de bebida", JOptionPane.QUESTION_MESSAGE);
     		if (nombreTipo != null)
     		{
-        		VOProductoSucursal tb = parranderos.adicionarTipoBebida (nombreTipo);
+        		VOProductoSucursal tb = parranderos.adicionarProductoSucursal (nombreTipo);
         		if (tb == null)
         		{
         			throw new Exception ("No se pudo crear un tipo de bebida con nombre: " + nombreTipo);

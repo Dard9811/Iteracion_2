@@ -53,7 +53,7 @@ class SQLPromocion
 	 */
 	public long adicionarPromo (PersistenceManager pm, long idPromo, Timestamp tiempo_oferta) 
 	{
-        Query q = pm.newQuery(SQL, "INSERT INTO " + pp.darTablaPromo () + "(id, tiempo_oferta) values (?, ?)");
+        Query q = pm.newQuery(SQL, "INSERT INTO " + pp.darTablaPromocion() + "(id, tiempo_oferta) values (?, ?)");
         q.setParameters(idPromo, tiempo_oferta);
         return (long) q.executeUnique();            
 	}
@@ -66,7 +66,7 @@ class SQLPromocion
 	 */
 	public long eliminarPromoPorId (PersistenceManager pm, long idPromo)
 	{
-        Query q = pm.newQuery(SQL, "DELETE FROM " + pp.darTablaPromo () + " WHERE id = ?");
+        Query q = pm.newQuery(SQL, "DELETE FROM " + pp.darTablaPromocion() + " WHERE id = ?");
         q.setParameters(idPromo);
         return (long) q.executeUnique();            
 	}
@@ -80,7 +80,7 @@ class SQLPromocion
 	 */
 	public Promocion darPromoPorId (PersistenceManager pm, long idPromo) 
 	{
-		Query q = pm.newQuery(SQL, "SELECT * FROM " + pp.darTablaPromo () + " WHERE id = ?");
+		Query q = pm.newQuery(SQL, "SELECT * FROM " + pp.darTablaPromocion() + " WHERE id = ?");
 		q.setResultClass(ProductoSucursal.class);
 		q.setParameters(idPromo);
 		return (Promocion) q.executeUnique();
@@ -94,7 +94,7 @@ class SQLPromocion
 	 */
 	public List<Promocion> darPromo (PersistenceManager pm)
 	{
-		Query q = pm.newQuery(SQL, "SELECT * FROM " + pp.darTablaPromo ());
+		Query q = pm.newQuery(SQL, "SELECT * FROM " + pp.darTablaPromocion());
 		q.setResultClass(Promocion.class);
 		return (List<Promocion>) q.executeList();
 	}

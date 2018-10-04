@@ -23,12 +23,12 @@ import javax.jdo.Query;
 import uniandes.isis2304.parranderos.negocio.NivelDeReorden;
 
 /**
- * Clase que encapsula los métodos que hacen acceso a la base de datos para el concepto SIRVEN de Parranderos
+ * Clase que encapsula los métodos que hacen acceso a la base de datos para el concepto NivelDeReorden de Parranderos
  * Nótese que es una clase que es sólo conocida en el paquete de persistencia
  * 
  * @author Germán Bravo
  */
-class SQLSirven 
+class SQLNivelDeReorden 
 {
 	/* ****************************************************************
 	 * 			Constantes
@@ -54,67 +54,67 @@ class SQLSirven
 	 * Constructor
 	 * @param pp - El Manejador de persistencia de la aplicación
 	 */
-	public SQLSirven (PersistenciaSuperAndes pp)
+	public SQLNivelDeReorden (PersistenciaSuperAndes pp)
 	{
 		this.pp = pp;
 	}
 	
 	/**
-	 * Crea y ejecuta la sentencia SQL para adicionar un SIRVEN a la base de datos de Parranderos
+	 * Crea y ejecuta la sentencia SQL para adicionar un NivelDeReorden a la base de datos de Parranderos
 	 * @param pm - El manejador de persistencia
-	 * @param idBar - El identificador del bar
-	 * @param idBebida - El identificador de la bebida
+	 * @param idBodega - El identificador del bar
+	 * @param idSucursal - El identificador de la bebida
 	 * @param horario - El horario en que el bar sirve la bebida (DIURNO, NOCTURNO, TDOOS)
 	 * @return EL número de tuplas insertadas
 	 */
-	public long adicionarSirven (PersistenceManager pm, long idBar, long idBebida, String horario) 
+	public long adicionarNivelDeReorden (PersistenceManager pm, long idBodega, long idSucursal, long cantidadMin, long cantidadRecompra) 
 	{
-        Query q = pm.newQuery(SQL, "INSERT INTO " + pp.darTablaSirven () + "(idbar, idbebida, horario) values (?, ?, ?)");
-        q.setParameters(idBar, idBebida, horario);
+        Query q = pm.newQuery(SQL, "INSERT INTO " + pp.darTablaNivelDeReorden () + "(idbodega, idsucursal, cantidad_min, cantidad_recompra) values (?, ?, ?)");
+        q.setParameters(idBodega, idSucursal, cantidadMin, cantidadRecompra);
         return (long)q.executeUnique();            
 	}
 
 	/**
-	 * Crea y ejecuta la sentencia SQL para eliminar UN SIRVEN de la base de datos de Parranderos, por sus identificador
+	 * Crea y ejecuta la sentencia SQL para eliminar UN NivelDeReorden de la base de datos de Parranderos, por sus identificador
 	 * @param pm - El manejador de persistencia
-	 * @param idBar - El identificador del bar
-	 * @param idBebida - El identificador de la bebida
+	 * @param idBodega - El identificador del bar
+	 * @param idSucursal - El identificador de la bebida
 	 * @return EL número de tuplas eliminadas
 	 */
-	public long eliminarSirven (PersistenceManager pm, long idBar, long idBebida) 
+	public long eliminarNivelDeReorden (PersistenceManager pm, long idBodega, long idSucursal) 
 	{
-        Query q = pm.newQuery(SQL, "DELETE FROM " + pp.darTablaSirven () + " WHERE idbar = ? AND idbebida = ?");
-        q.setParameters(idBar, idBebida);
+        Query q = pm.newQuery(SQL, "DELETE FROM " + pp.darTablaNivelDeReorden () + " WHERE idbodega = ? AND idsucursal = ?");
+        q.setParameters(idBodega, idSucursal);
         return (long) q.executeUnique();            
 	}
 
 	/**
-	 * Crea y ejecuta la sentencia SQL para encontrar la información de los SIRVEN de la 
+	 * Crea y ejecuta la sentencia SQL para encontrar la información de los NivelDeReorden de la 
 	 * base de datos de Parranderos
 	 * @param pm - El manejador de persistencia
-	 * @return Una lista de objetos SIRVEN
+	 * @return Una lista de objetos NivelDeReorden
 	 */
-	public List<NivelDeReorden> darSirven (PersistenceManager pm)
+	public List<NivelDeReorden> darNivelDeReorden (PersistenceManager pm)
 	{
-		Query q = pm.newQuery(SQL, "SELECT * FROM " + pp.darTablaSirven ());
+		Query q = pm.newQuery(SQL, "SELECT * FROM " + pp.darTablaNivelDeReorden ());
 		q.setResultClass(NivelDeReorden.class);
 		return (List<NivelDeReorden>) q.execute();
 	}
  
-	/**
-	 * Crea y ejecuta la sentencia SQL para encontrar el identificador y el número de bebidas que sirven los bares de la 
-	 * base de datos de Parranderos
-	 * @param pm - El manejador de persistencia
-	 * @return Una lista de parejas de objetos, el primer elemento de cada pareja representa el identificador de un bar,
-	 * 	el segundo elemento representa el número de bebidas que sirve (Una bebida que se sirve en dos horarios cuenta dos veces)
-	 */
-	public List<Object []> darBaresYCantidadBebidasSirven (PersistenceManager pm)
-	{
-        String sql = "SELECT idBar, count (*) as numBebidas";
-        sql += " FROM " + pp.darTablaSirven ();
-       	sql	+= " GROUP BY idBar";
-		Query q = pm.newQuery(SQL, sql);
-		return q.executeList();
-	}
+//	/**
+//	 * Crea y ejecuta la sentencia SQL para encontrar el identificador y el número de bebidas que NivelDeReorden los bares de la 
+//	 * base de datos de Parranderos
+//	 * @param pm - El manejador de persistencia
+//	 * @return Una lista de parejas de objetos, el primer elemento de cada pareja representa el identificador de un bar,
+//	 * 	el segundo elemento representa el número de bebidas que sirve (Una bebida que se sirve en dos horarios cuenta dos veces)
+//	 */
+//	public List<Object []> darBaresYCantidadBebidasNivelDeReorden (PersistenceManager pm)
+//	{
+//        String sql = "SELECT idBar, count (*) as numBebidas";
+//        sql += " FROM " + pp.darTablaNivelDeReorden ();
+//       	sql	+= " GROUP BY idBar";
+//		Query q = pm.newQuery(SQL, sql);
+//		return q.executeList();
+//	}
 
 }

@@ -23,12 +23,12 @@ import javax.jdo.Query;
 import uniandes.isis2304.parranderos.negocio.Bodega;
 
 /**
- * Clase que encapsula los métodos que hacen acceso a la base de datos para el concepto GUSTAN de Parranderos
+ * Clase que encapsula los métodos que hacen acceso a la base de datos para el concepto Bodega de Parranderos
  * Nótese que es una clase que es sólo conocida en el paquete de persistencia
  * 
  * @author Germán Bravo
  */
-class SQLGustan 
+class SQLBodega 
 {
 	/* ****************************************************************
 	 * 			Constantes
@@ -54,48 +54,47 @@ class SQLGustan
 	 * Constructor
 	 * @param pp - El Manejador de persistencia de la aplicación
 	 */
-	public SQLGustan (PersistenciaSuperAndes pp)
+	public SQLBodega (PersistenciaSuperAndes pp)
 	{
 		this.pp = pp;
 	}
 	
 	/**
-	 * Crea y ejecuta la sentencia SQL para adicionar un GUSTAN a la base de datos de Parranderos
+	 * Crea y ejecuta la sentencia SQL para adicionar un Bodega a la base de datos de Parranderos
 	 * @param pm - El manejador de persistencia
-	 * @param idBebedor - El identificador del bebedor
-	 * @param idBebida - El identificador de la bebida
+	 * @param id - El identificador de la bodega
+	 * @param espacio - espacio de la bodega
 	 * @return EL número de tuplas insertadas
 	 */
-	public long adicionarGustan(PersistenceManager pm, long idBebedor, long idBebida) 
+	public long adicionarBodega(PersistenceManager pm, long id, long espacio) 
 	{
-        Query q = pm.newQuery(SQL, "INSERT INTO " + pp.darTablaGustan () + "(idbebedor, idbebida) values (?, ?)");
-        q.setParameters(idBebedor, idBebida);
+        Query q = pm.newQuery(SQL, "INSERT INTO " + pp.darTablaBodega () + "(id, espacio) values (?, ?)");
+        q.setParameters(id, espacio);
         return (long) q.executeUnique();
 	}
 
 	/**
-	 * Crea y ejecuta la sentencia SQL para eliminar UN GUSTAN de la base de datos de Parranderos, por sus identificador
+	 * Crea y ejecuta la sentencia SQL para eliminar UN Bodega de la base de datos de Parranderos, por sus identificador
 	 * @param pm - El manejador de persistencia
-	 * @param idBebedor - El identificador del bebedor
-	 * @param idBebida - El identificador de la bebida
+	 * @param id - El identificador de la bodega
 	 * @return EL número de tuplas eliminadas
 	 */
-	public long eliminarGustan (PersistenceManager pm, long idBebedor, long idBebida)
+	public long eliminarBodega (PersistenceManager pm,  long id)
 	{
-        Query q = pm.newQuery(SQL, "DELETE FROM " + pp.darTablaGustan () + " WHERE idbebedor = ? AND idbebida = ?");
-        q.setParameters(idBebedor, idBebida);
+        Query q = pm.newQuery(SQL, "DELETE FROM " + pp.darTablaBodega () + " WHERE id = ?");
+        q.setParameters(id);
         return (long) q.executeUnique();
 	}
 
 	/**
-	 * Crea y ejecuta la sentencia SQL para encontrar la información de los GUSTAN de la 
+	 * Crea y ejecuta la sentencia SQL para encontrar la información de los Bodega de la 
 	 * base de datos de Parranderos
 	 * @param pm - El manejador de persistencia
-	 * @return Una lista de objetos GUSTAN
+	 * @return Una lista de objetos Bodega
 	 */
-	public List<Bodega> darGustan (PersistenceManager pm)
+	public List<Bodega> darBodega (PersistenceManager pm)
 	{
-		Query q = pm.newQuery(SQL, "SELECT * FROM " + pp.darTablaGustan ());
+		Query q = pm.newQuery(SQL, "SELECT * FROM " + pp.darTablaBodega ());
 		q.setResultClass(Bodega.class);
 		List<Bodega> resp = (List<Bodega>) q.execute();
 		return resp;

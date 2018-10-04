@@ -262,7 +262,7 @@ public class InterfazParranderosDemo extends JFrame implements ActionListener
 			// ATENCIÓN: En una aplicación real, los datos JAMÁS están en el código
 			String nombreTipoBebida = "Vino tinto";
 			boolean errorTipoBebida = false;
-			VOProductoSucursal tipoBebida = parranderos.adicionarTipoBebida (nombreTipoBebida);
+			VOProductoSucursal tipoBebida = parranderos.adicionarProductoSucursal (nombreTipoBebida);
 			if (tipoBebida == null)
 			{
 				tipoBebida = parranderos.darTipoBebidaPorNombre (nombreTipoBebida);
@@ -318,7 +318,7 @@ public class InterfazParranderosDemo extends JFrame implements ActionListener
 			String nombreTipoBebida = "Vino tinto";
 			String nombreBebida = "120";
 			boolean errorTipoBebida = false;
-			VOProductoSucursal tipoBebida = parranderos.adicionarTipoBebida (nombreTipoBebida);
+			VOProductoSucursal tipoBebida = parranderos.adicionarProductoSucursal (nombreTipoBebida);
 			if (tipoBebida == null)
 			{
 				tipoBebida = parranderos.darTipoBebidaPorNombre (nombreTipoBebida);
@@ -377,7 +377,7 @@ public class InterfazParranderosDemo extends JFrame implements ActionListener
 			// ATENCIÓN: En una aplicación real, los datos JAMÁS están en el código
 			String nombreTipoBebida = "Vino tinto";
 			boolean errorTipoBebida = false;
-			VOProductoSucursal tipoBebida = parranderos.adicionarTipoBebida (nombreTipoBebida);
+			VOProductoSucursal tipoBebida = parranderos.adicionarProductoSucursal (nombreTipoBebida);
 			if (tipoBebida == null)
 			{
 				tipoBebida = parranderos.darTipoBebidaPorNombre (nombreTipoBebida);
@@ -446,7 +446,7 @@ public class InterfazParranderosDemo extends JFrame implements ActionListener
 			// ATENCIÓN: En una aplicación real, los datos JAMÁS están en el código
 			String nombreTipoBebida = "Vino tinto";
 			boolean errorTipoBebida = false;
-			VOProductoSucursal tipoBebida = parranderos.adicionarTipoBebida (nombreTipoBebida);
+			VOProductoSucursal tipoBebida = parranderos.adicionarProductoSucursal (nombreTipoBebida);
 			if (tipoBebida == null)
 			{
 				tipoBebida = parranderos.darTipoBebidaPorNombre (nombreTipoBebida);
@@ -565,7 +565,7 @@ public class InterfazParranderosDemo extends JFrame implements ActionListener
     		// Ejecución de la demo y recolección de los resultados
 			// ATENCIÓN: En una aplicación real, los datos JAMÁS están en el código
 			boolean errorTipoBebida = false;
-			VOProductoSucursal tipoBebida = parranderos.adicionarTipoBebida ("Vino tinto");
+			VOProductoSucursal tipoBebida = parranderos.adicionarProductoSucursal ("Vino tinto");
 			if (tipoBebida == null)
 			{
 				tipoBebida = parranderos.darTipoBebidaPorNombre ("Vino tinto");
@@ -780,7 +780,7 @@ public class InterfazParranderosDemo extends JFrame implements ActionListener
     		// Ejecución de la demo y recolección de los resultados.
 			// ATENCIÓN: En una aplicación real, los datos JAMÁS están en el código
 			boolean errorTipoBebida = false;
-			VOProductoSucursal tipoBebida = parranderos.adicionarTipoBebida ("Vino tinto");
+			VOProductoSucursal tipoBebida = parranderos.adicionarProductoSucursal ("Vino tinto");
 			if (tipoBebida == null)
 			{
 				tipoBebida = parranderos.darTipoBebidaPorNombre ("Vino tinto");
@@ -869,7 +869,7 @@ public class InterfazParranderosDemo extends JFrame implements ActionListener
 			VOCiudad bdor1 = parranderos.adicionarBebedor ("Pepito", "Bogotá", "Alto");
 			VOEmpresa bar1 = parranderos.adicionarEmpresa ("Los Amigos", "Bogotá", "Bajo", 2);
 			boolean errorTipoBebida = false;
-			VOProductoSucursal tipoBebida = parranderos.adicionarTipoBebida ("Vino tinto");
+			VOProductoSucursal tipoBebida = parranderos.adicionarProductoSucursal ("Vino tinto");
 			if (tipoBebida == null)
 			{
 				tipoBebida = parranderos.darTipoBebidaPorNombre ("Vino tinto");
@@ -964,7 +964,7 @@ public class InterfazParranderosDemo extends JFrame implements ActionListener
 			VOCiudad bdor1 = parranderos.adicionarBebedor ("Pepito", "Bogotá", "Alto");
 			VOEmpresa bar1 = parranderos.adicionarEmpresa ("Los Amigos", "Bogotá", "Bajo", 2);
 			boolean errorTipoBebida = false;
-			VOProductoSucursal tipoBebida = parranderos.adicionarTipoBebida ("Vino tinto");
+			VOProductoSucursal tipoBebida = parranderos.adicionarProductoSucursal ("Vino tinto");
 			if (tipoBebida == null)
 			{
 				tipoBebida = parranderos.darTipoBebidaPorNombre ("Vino tinto");
@@ -1235,7 +1235,7 @@ public class InterfazParranderosDemo extends JFrame implements ActionListener
     		// Ejecución de la demo y recolección de los resultados
 			// ATENCIÓN: En una aplicación real, los datos JAMÁS están en el código
 			boolean errorTipoBebida = false;
-			VOProductoSucursal tipoBebida = parranderos.adicionarTipoBebida ("Vino tinto");
+			VOProductoSucursal tipoBebida = parranderos.adicionarProductoSucursal ("Vino tinto");
 			if (tipoBebida == null)
 			{
 				tipoBebida = parranderos.darTipoBebidaPorNombre ("Vino tinto");
@@ -1305,7 +1305,7 @@ public class InterfazParranderosDemo extends JFrame implements ActionListener
     		// Ejecución de la demo y recolección de los resultados
 			// ATENCIÓN: En una aplicación real, los datos JAMÁS están en el código
 			boolean errorTipoBebida = false;
-			VOProductoSucursal tipoBebida = parranderos.adicionarTipoBebida ("Vino tinto");
+			VOProductoSucursal tipoBebida = parranderos.adicionarProductoSucursal ("Vino tinto");
 			if (tipoBebida == null)
 			{
 				tipoBebida = parranderos.darTipoBebidaPorNombre ("Vino tinto");
