@@ -20,7 +20,7 @@ public interface VOEstante
 	/**
 	 * @return El nombre del bebedor
 	 */
-	public int getEspacio();
+	public long getEspacio();
 
 	/**
 	 * @return La ciudad del bebedor

@@ -21,7 +21,7 @@ package uniandes.isis2304.parranderos.negocio;
  * 
  * @author Germán Bravo
  */
-public interface VOEmpresa_Producto 
+public interface VOEmpresaProducto 
 {
 	/* ****************************************************************
 	 * 			Métodos 

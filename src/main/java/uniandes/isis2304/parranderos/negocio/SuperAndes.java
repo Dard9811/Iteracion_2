@@ -87,7 +87,7 @@ public class SuperAndes
 	public ProductoSucursal adicionarProductoSucursal (String nombre)
 	{
         log.info ("Adicionando producto sucursal: " + nombre);
-        ProductoSucursal productoSucursal = pp.adicionarProductoSucursal (nombre);		
+        ProductoSucursal productoSucursal = pp.adicionarProductoSucursal(nombre);		
         log.info ("Adicionando producto sucursal: " + productoSucursal);
         return productoSucursal;
 	}

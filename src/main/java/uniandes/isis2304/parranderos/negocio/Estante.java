@@ -18,7 +18,7 @@ public class Estante implements VOEstante
 	/**
 	 * El nombre de la ciudad
 	 */
-	private int espacio;
+	private long espacio;
 	
 	/**
 	 * La direccion en la ciudad
@@ -46,7 +46,7 @@ public class Estante implements VOEstante
 	 * @param nombre - El nombre del ciudad
 	 * @param direccion - La ciudad del ciudad
 	 */
-	public Estante(long id, int espacio, long idBodega) 
+	public Estante(long id, long espacio, long idBodega) 
 	{
 		this.id = id;
 		this.espacio = espacio;
@@ -70,11 +70,11 @@ public class Estante implements VOEstante
 		this.id = id;
 	}
 
-	public int getEspacio() {
+	public long getEspacio() {
 		return espacio;
 	}
 
-	public void setEspacio(int espacio) {
+	public void setEspacio(long espacio) {
 		this.espacio = espacio;
 	}
 

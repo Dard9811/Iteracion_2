@@ -75,10 +75,10 @@ class SQLEmpresaProducto
 	 * @param codProducto - El nombre dela empresa
 	 * @return EL número de tuplas eliminadas
 	 */
-	public long eliminarEmpresaProductoPorNombre (PersistenceManager pm, long nit ,String codProducto)
+	public long eliminarEmpresaProductoPorNIT (PersistenceManager pm, long nit)
 	{
-        Query q = pm.newQuery(SQL, "DELETE FROM " + pp.darTablaEmpresaProducto () + " WHERE nit_empresa = ? AND cod_producto = ?");
-        q.setParameters(nit, codProducto);
+        Query q = pm.newQuery(SQL, "DELETE FROM " + pp.darTablaEmpresaProducto () + " WHERE nit_empresa = ?");
+        q.setParameters(nit);
         return (long) q.executeUnique();
 	}
 
@@ -88,12 +88,12 @@ class SQLEmpresaProducto
 	 * @param pm - El manejador de persistencia
 	 * @return Una lista de objetos BAR que tienen el nombre dado
 	 */
-	public List<Empresa> darEmpresasProductoPorNit (PersistenceManager pm, long nit) 
+	public List<EmpresaProducto> darEmpresasProductoPorNit (PersistenceManager pm, long nit) 
 	{
 		Query q = pm.newQuery(SQL, "SELECT * FROM " + pp.darTablaEmpresa () + " WHERE nit_empresa = ?");
 		q.setResultClass(EmpresaProducto.class);
 		q.setParameters(nit);
-		return (List<Empresa>) q.executeList();
+		return (List<EmpresaProducto>) q.executeList();
 	}
 	
 	/**
@@ -102,12 +102,12 @@ class SQLEmpresaProducto
 	 * @param pm - El manejador de persistencia
 	 * @return Una lista de objetos BAR que tienen el nombre dado
 	 */
-	public List<Empresa> darEmpresasProductoPorCodProducto (PersistenceManager pm, String codProducto) 
+	public List<EmpresaProducto> darEmpresasProductoPorCodProducto (PersistenceManager pm, String codProducto) 
 	{
 		Query q = pm.newQuery(SQL, "SELECT * FROM " + pp.darTablaEmpresa () + " WHERE cod_producto = ?");
 		q.setResultClass(EmpresaProducto.class);
 		q.setParameters(codProducto);
-		return (List<Empresa>) q.executeList();
+		return (List<EmpresaProducto>) q.executeList();
 	}
 
 	/**
@@ -116,11 +116,11 @@ class SQLEmpresaProducto
 	 * @param pm - El manejador de persistencia
 	 * @return Una lista de objetos EMPRESA
 	 */
-	public List<Empresa> darEmpresasProducto (PersistenceManager pm)
+	public List<EmpresaProducto> darEmpresasProducto (PersistenceManager pm)
 	{
 		Query q = pm.newQuery(SQL, "SELECT * FROM " + pp.darTablaEmpresaProducto ());
-		q.setResultClass(Empresa.class);
-		return (List<Empresa>) q.executeList();
+		q.setResultClass(EmpresaProducto.class);
+		return (List<EmpresaProducto>) q.executeList();
 	}
 	
 }

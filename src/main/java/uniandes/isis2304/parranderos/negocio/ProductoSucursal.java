@@ -38,10 +38,10 @@ public class ProductoSucursal implements VOProductoSucursal
 	 * @param idSucursal - El identificador del tipo de bebida
 	 * @param codProducto - El codProducto del tipo de bebida
 	 */
-	public ProductoSucursal(long id, String nombre) 
+	public ProductoSucursal(long id, String codProducto) 
 	{
 		this.idSucursal = id;
-		this.codProducto = nombre;
+		this.codProducto = codProducto;
 	}
 
 	/**

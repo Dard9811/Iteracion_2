@@ -15,24 +15,21 @@
 
 package uniandes.isis2304.parranderos.persistencia;
 
-import java.math.BigDecimal;
-import java.sql.Timestamp;
-import java.util.LinkedList;
 import java.util.List;
 
 import javax.jdo.PersistenceManager;
 import javax.jdo.Query;
 
-import uniandes.isis2304.parranderos.negocio.ProductoSucursal;
-import uniandes.isis2304.parranderos.negocio.Supermercado;
+import uniandes.isis2304.parranderos.negocio.Bodega;
+import uniandes.isis2304.parranderos.negocio.BodegaProducto;
 
 /**
- * Clase que encapsula los métodos que hacen acceso a la base de datos para el concepto ProductoSucursal de Parranderos
+ * Clase que encapsula los métodos que hacen acceso a la base de datos para el concepto Bodega de Parranderos
  * Nótese que es una clase que es sólo conocida en el paquete de persistencia
  * 
  * @author Germán Bravo
  */
-class SQLProductoSucursal 
+class SQLBodegaProducto 
 {
 	/* ****************************************************************
 	 * 			Constantes
@@ -58,51 +55,50 @@ class SQLProductoSucursal
 	 * Constructor
 	 * @param pp - El Manejador de persistencia de la aplicación
 	 */
-	public SQLProductoSucursal (PersistenciaSuperAndes pp)
+	public SQLBodegaProducto (PersistenciaSuperAndes pp)
 	{
 		this.pp = pp;
 	}
 	
 	/**
-	 * Crea y ejecuta la sentencia SQL para adicionar un ProductoSucursal a la base de datos de Parranderos
+	 * Crea y ejecuta la sentencia SQL para adicionar un Bodega a la base de datos de Parranderos
 	 * @param pm - El manejador de persistencia
-	 * @param idSucursal - El identificador del bebedor
-	 * @param idProducto - El identificador del bar
-	 * @param fecha - La fecha en que se realizó la visita
-	 * @param horario - EL horario en que se realizó la visita (DIURNO, NOCTURNO, TODOS)
+	 * @param id - El identificador de la bodega
+	 * @param espacio - espacio de la bodega
 	 * @return EL número de tuplas insertadas
 	 */
-	public long adicionarProductoSucursal (PersistenceManager pm, long idSucursal, String idProducto) 
+	public long adicionarBodegaProducto(PersistenceManager pm, long idBodega, String codProducto, long cantidad) 
 	{
-        Query q = pm.newQuery(SQL, "INSERT INTO " + pp.darTablaProductoSucursal () + "(idsucursal, idproducto) values (?, ?)");
-        q.setParameters(idSucursal, idProducto);
+        Query q = pm.newQuery(SQL, "INSERT INTO " + pp.darTablaBodega () + "(idbodega, cod_producto, cantidad) values (?, ?, ?)");
+        q.setParameters(idBodega, codProducto, cantidad);
         return (long) q.executeUnique();
 	}
 
 	/**
-	 * Crea y ejecuta la sentencia SQL para eliminar UN ProductoSucursal de la base de datos de Parranderos, por sus identificadores
+	 * Crea y ejecuta la sentencia SQL para eliminar UN Bodega de la base de datos de Parranderos, por sus identificador
 	 * @param pm - El manejador de persistencia
-	 * @param idSucursal - El identificador del bebedor
-	 * @param idProducto - El identificador del bar
+	 * @param id - El identificador de la bodega
 	 * @return EL número de tuplas eliminadas
 	 */
-	public long eliminarProductoSucursal (PersistenceManager pm, long idSucursal, String idProducto) 
+	public long eliminarBodegaProducto (PersistenceManager pm,  long idBodega, String codProducto)
 	{
-        Query q = pm.newQuery(SQL, "DELETE FROM " + pp.darTablaProductoSucursal () + " WHERE idsucursal = ? AND idproducto = ?");
-        q.setParameters(idSucursal, idProducto);
+        Query q = pm.newQuery(SQL, "DELETE FROM " + pp.darTablaBodega () + " WHERE idbodega = ? AND cod_producto = ?" );
+        q.setParameters(idBodega, codProducto);
         return (long) q.executeUnique();
 	}
 
 	/**
-	 * Crea y ejecuta la sentencia SQL para encontrar la información de los ProductoSucursal de la 
+	 * Crea y ejecuta la sentencia SQL para encontrar la información de los Bodega de la 
 	 * base de datos de Parranderos
 	 * @param pm - El manejador de persistencia
-	 * @return Una lista de objetos ProductoSucursal
+	 * @return Una lista de objetos Bodega
 	 */
-	public List<ProductoSucursal> darProductoSucursal (PersistenceManager pm)
+	public List<BodegaProducto> darBodegaProducto (PersistenceManager pm)
 	{
-		Query q = pm.newQuery(SQL, "SELECT * FROM " + pp.darTablaProductoSucursal ());
-		q.setResultClass(ProductoSucursal.class);
-		return (List<ProductoSucursal>) q.execute();
-	}		 	
+		Query q = pm.newQuery(SQL, "SELECT * FROM " + pp.darTablaBodega ());
+		q.setResultClass(BodegaProducto.class);
+		List<BodegaProducto> resp = (List<BodegaProducto>) q.execute();
+		return resp;
+	}
+
 }

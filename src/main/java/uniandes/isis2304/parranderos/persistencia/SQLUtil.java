@@ -77,11 +77,13 @@ class SQLUtil
 	 */
 	public long [] limpiarSuperAndes (PersistenceManager pm)
 	{
-        Query qBodega = pm.newQuery(SQL, "DELETE FROM " + pp.darTablaBodega ());          
+        Query qBodega = pm.newQuery(SQL, "DELETE FROM " + pp.darTablaBodega ());    
+        Query qBodegaProducto = pm.newQuery(SQL, "DELETE FROM " + pp.darTablaBodegaProducto ());   
         Query qCiudad = pm.newQuery(SQL, "DELETE FROM " + pp.darTablaCiudad());
         Query qEmpresa = pm.newQuery(SQL, "DELETE FROM " + pp.darTablaEmpresa());
         Query qEmpresaProducto = pm.newQuery(SQL, "DELETE FROM " + pp.darTablaEmpresaProducto());
         Query qEstante = pm.newQuery(SQL, "DELETE FROM " + pp.darTablaEstante());
+        Query qEstanteProducto = pm.newQuery(SQL, "DELETE FROM " + pp.darTablaEstanteProducto ());   
         Query qNivelDeReorden = pm.newQuery(SQL, "DELETE FROM " + pp.darTablaNivelDeReorden());
         Query qOrdenDePedido = pm.newQuery(SQL, "DELETE FROM " + pp.darTablaOrdenDePedido());
         Query qPersonaNat = pm.newQuery(SQL, "DELETE FROM " + pp.darTablaPersonaNat());
@@ -95,10 +97,12 @@ class SQLUtil
         		
         		
         long BodegaEliminados = (long) qBodega.executeUnique ();
+        long BodegaProductoEliminados = (long) qBodegaProducto.executeUnique ();
         long CiudadEliminados = (long) qCiudad.executeUnique ();
         long EmpresaEliminados = (long) qEmpresa.executeUnique ();
         long EmpresaProductoEliminados = (long) qEmpresaProducto.executeUnique ();
         long EstanteEliminados = (long) qEstante.executeUnique ();
+        long EstanteProductoEliminados = (long) qEstanteProducto.executeUnique ();
         long NivelDeReordenEliminados = (long) qNivelDeReorden.executeUnique ();
         long OrdenDePedidoEliminados = (long) qOrdenDePedido.executeUnique ();
         long PersonaNatEliminados = (long) qPersonaNat.executeUnique ();
