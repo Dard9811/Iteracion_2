@@ -28,8 +28,9 @@ import org.junit.Test;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.stream.JsonReader;
-import uniandes.isis2304.parranderos.negocio.SuperAndes;
-import uniandes.isis2304.parranderos.negocio.VOProductoSucursal;
+
+import uniandes.isis2304.superAndes.negocio.SuperAndes;
+import uniandes.isis2304.superAndes.negocio.VOProductoSucursal;
 
 /**
  * Clase con métodos de prueba de conexión a la base de datos
@@ -77,7 +78,7 @@ public class ConexionTest
 	/**
 	 * La clase que se quiere probar
 	 */
-    private SuperAndes parranderos;
+    private SuperAndes superAndes;
 	
 	/* ****************************************************************
 	 * 			Métodos de prueba de acceso a la BD
@@ -91,11 +92,11 @@ public class ConexionTest
   	  	try
 		{
 			log.info ("Probando el acceso a la base de datos con datos válidos (BD, credenciales, esquema");
-			parranderos = new SuperAndes (openConfig (CONFIG_TABLAS_A));
+			superAndes = new SuperAndes (openConfig (CONFIG_TABLAS_A));
 			log.info ("Conexión realizada correstamente");
 			log.info ("Cerrando la conexión");
 			
-			parranderos.cerrarUnidadPersistencia ();
+			superAndes.cerrarUnidadPersistencia ();
 			log.info ("Conexión cerrada");
 		}
 		catch (Exception e)
@@ -122,7 +123,7 @@ public class ConexionTest
 		try
 		{
 	    	log.info ("Probando el acceso a la base de datos con una base de datos que no existe");
-			parranderos = new SuperAndes (openConfig (CONFIG_TABLAS_ERR_DS));
+			superAndes = new SuperAndes (openConfig (CONFIG_TABLAS_ERR_DS));
 			fail ("Debería fallar. La base de datos no existe !!");
 		}
 		catch (Exception e)
@@ -147,7 +148,7 @@ public class ConexionTest
 		try
 		{
 	    	log.info ("Probando el acceso a la base de datos con datos de usuario incorrectos");
-			parranderos = new SuperAndes (openConfig (CONFIG_TABLAS_ERR_USER));
+			superAndes = new SuperAndes (openConfig (CONFIG_TABLAS_ERR_USER));
 			fail ("Debería fallar. Las credenciales del usuario no son válidas");
 		}
 		catch (Exception e)
@@ -173,7 +174,7 @@ public class ConexionTest
 		try
 		{
 	    	log.info ("Probando el acceso a la base de datos con datos de usuario correctos, pero sin crear el esquema");
-			parranderos = new SuperAndes (openConfig (CONFIG_TABLAS_B));
+			superAndes = new SuperAndes (openConfig (CONFIG_TABLAS_B));
 		}
 		catch (Exception e)
 		{
@@ -190,7 +191,7 @@ public class ConexionTest
 		// Ahora si se puede probar si la tabla existe o no...
 		try
 		{
-			parranderos.darProductoSucursal ();
+			superAndes.darProductoSucursal ();
 			fail ("Debería fallar. La tabla consultada no existe en la BD");
 		}
 		catch (Exception e)
@@ -205,8 +206,8 @@ public class ConexionTest
 		}
 		finally
 		{
-			parranderos.limpiarSuperAndes ();
-    		parranderos.cerrarUnidadPersistencia ();    		
+			superAndes.limpiarSuperAndes ();
+    		superAndes.cerrarUnidadPersistencia ();    		
 		}
     }
 

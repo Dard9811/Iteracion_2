@@ -1,50 +1,46 @@
 {
-	"title": "Demostración de Parranderos Uniandes",
+	"title": "SuperAndes",
 	"frameH": 600,
 	"frameW": 800,
 	"bannerPath": "./src/main/resources/config/logo.png",
 	"menuBar":
 	[
-		{ "menuTitle": "TipoBebida",
+		{ "menuTitle": "Bodega",
 		  "options":
 			[
 				{
-					"label": "CRD de TipoBebida",
-					"event": "demoTipoBebida"
+					"label": "CRD de Bodega",
+					"event": "demoBodega"
 				}
 			]
 		},		
-		{ "menuTitle": "Bebida",
+		{ "menuTitle": "Bodega-Producto",
 		  "options":
 			[
 				{
-					"label": "CRD Bebida",
-					"event": "demoBebida"
+					"label": "CRD Bodega-Producto",
+					"event": "demoBodega-Producto"
 				},
 				{
-					"label": "Eliminar Bebidas no servidas 1",
-					"event": "demoElimNoServidas1"
-				},
-				{
-					"label": "Eliminar Bebidas no servidas 2",
-					"event": "demoElimNoServidas2"
+					"label": "Eliminar Productos de bodegas",
+					"event": "demoElimProductoDeBodega"
 				}
 			]
 		},
-		{ "menuTitle": "Bar",
+		{ "menuTitle": "Ciudad",
 		  "options":
 			[
 				{
-					"label": "CRD Bar",
-					"event": "demoBar"
+					"label": "CRD Ciudad",
+					"event": "demoCiudad"
 				},
 				{
-					"label": "Bares y Bebidas",
-					"event": "demoBaresBebidas"
+					"label": "Agregar",
+					"event": "demoAgregarCiudad"
 				},
 				{
-					"label": "Aumentar sedes en una ciudad",
-					"event": "demoAumentarSedesBaresEnCiudad"
+					"label": "Mostrar ciudades",
+					"event": "mostrarListaCiudades"
 				}
 			]
 		},

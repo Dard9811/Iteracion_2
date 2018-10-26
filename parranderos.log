@@ -1,0 +1,33 @@
+12:02:18,604 (main) INFO  [uniandes.isis2304.parranderos.interfazDemo.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Interfaz
+12:02:18,604 (main) INFO  [uniandes.isis2304.parranderos.interfazDemo.InterfazSuperAndes] - Se aplica configuración indicada en el archivo de configuración
+12:02:18,619 (main) INFO  [uniandes.isis2304.parranderos.interfazDemo.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Tablas BD
+12:12:39,351 (main) INFO  [uniandes.isis2304.parranderos.interfazDemo.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Interfaz
+12:12:39,351 (main) INFO  [uniandes.isis2304.parranderos.interfazDemo.InterfazSuperAndes] - Se aplica configuración indicada en el archivo de configuración
+12:12:39,367 (main) INFO  [uniandes.isis2304.parranderos.interfazDemo.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Tablas BD
+12:49:49,055 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - Probando el acceso a la base de datos con datos de usuario correctos, pero sin crear el esquema
+12:49:49,196 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - Se encontró un archivo de configuración de tablas válido
+12:49:49,633 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - Prueba de tabla inexistente incompleta. No se pudo conectar a la base de datos !!. La excepción generada es: javax.jdo.JDOFatalUserException
+12:49:49,633 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - La causa es: javax.jdo.JDOUserException: PersistenceManagerFactory debe usar "persistence-unit" con nombre "Parranderos" pero no hay ninguna con ese nombre
+12:49:49,645 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - Probando el acceso a la base de datos con una base de datos que no existe
+12:49:49,645 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - Se encontró un archivo de configuración de tablas válido
+12:49:50,606 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - Prueba realizada exitosamente. La excepción generada es: javax.jdo.JDOFatalUserException
+12:49:50,606 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - La causa es: javax.jdo.JDOFatalDataStoreException: Listener refused the connection with the following error:
+ORA-12505, TNS:listener does not currently know of SID given in connect descriptor
+ 
+NestedThrowables:
+java.sql.SQLException: Listener refused the connection with the following error:
+ORA-12505, TNS:listener does not currently know of SID given in connect descriptor
+ 
+12:49:50,606 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - Probando el acceso a la base de datos con datos de usuario incorrectos
+12:49:50,622 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - Se encontró un archivo de configuración de tablas válido
+12:49:52,136 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - Prueba realizada exitosamente. La excepción generada es: javax.jdo.JDOFatalUserException
+12:49:52,136 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - La causa es: javax.jdo.JDOFatalDataStoreException: ORA-01017: invalid username/password; logon denied
+
+NestedThrowables:
+java.sql.SQLException: ORA-01017: invalid username/password; logon denied
+
+12:49:52,152 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - Probando el acceso a la base de datos con datos válidos (BD, credenciales, esquema
+12:49:52,154 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - Se encontró un archivo de configuración de tablas válido
+12:49:52,842 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - Conexión realizada correstamente
+12:49:52,842 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - Cerrando la conexión
+12:49:52,857 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - Conexión cerrada
