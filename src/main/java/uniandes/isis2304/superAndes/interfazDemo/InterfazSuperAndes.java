@@ -46,6 +46,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.stream.JsonReader;
+
 import uniandes.isis2304.superAndes.negocio.SuperAndes;
 import uniandes.isis2304.superAndes.negocio.VOEmpresa;
 import uniandes.isis2304.superAndes.negocio.VOCiudad;
@@ -368,12 +369,28 @@ public class InterfazSuperAndes extends JFrame implements ActionListener
 		mostrarArchivo ("doc/index.html");
 	}
 	
-	public void mostrarListaCiudades()
+	/* ****************************************************************
+	 * 			Metodos de requerimientos
+	 *****************************************************************/
+	public void listarCiudades()
 	{
-		String resultado = listarCiudades(superAndes.darVOCiudades());
-		System.out.println(listarCiudades(superAndes.darVOCiudades()));
-		panelDatos.actualizarInterfaz(resultado);
+    	try 
+    	{
+			List <VOCiudad> lista = superAndes.darVOCiudades();
+
+			String resultado = "En listarCiudades";
+			resultado +=  "\n" + listarCiudades (lista);
+			panelDatos.actualizarInterfaz(resultado);
+			resultado += "\n Operación terminada";
+		} 
+    	catch (Exception e) 
+    	{
+//			e.printStackTrace();
+			String resultado = generarMensajeError(e);
+			panelDatos.actualizarInterfaz(resultado);
+		}
 	}
+	
     
 
 	/* ****************************************************************

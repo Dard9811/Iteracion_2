@@ -35,8 +35,8 @@
 					"event": "demoCiudad"
 				},
 				{
-					"label": "Agregar",
-					"event": "demoAgregarCiudad"
+					"label": "Listar",
+					"event": "listarCiudades"
 				},
 				{
 					"label": "Mostrar ciudades",
