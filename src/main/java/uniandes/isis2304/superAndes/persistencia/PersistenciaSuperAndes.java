@@ -182,6 +182,7 @@ import uniandes.isis2304.superAndes.negocio.Supermercado;
 	
 			// Define los nombres por defecto de las tablas de la base de datos
 			tablas = new LinkedList<String> ();
+			tablas.add("SuperAndes_sequence");
 			tablas.add ("BODEGA");
 			tablas.add("BODEGA_PRODUCTO");
 			tablas.add ("CIUDAD");
@@ -199,7 +200,6 @@ import uniandes.isis2304.superAndes.negocio.Supermercado;
 			tablas.add ("PROVEEDOR");
 			tablas.add("SUCURSAL");
 			tablas.add("SUPERMERCADO");
-			tablas.add("SuperAndes_sequence");
 		}
 	
 		/**
@@ -296,92 +296,92 @@ import uniandes.isis2304.superAndes.negocio.Supermercado;
 	
 		public String darTablaBodega()
 		{
-			return tablas.get(0);
+			return tablas.get(1);
 		}
 	
 		public String darTablaBodegaProducto()
 		{
-			return tablas.get(1);
+			return tablas.get(2);
 		}
 	
 		public String darTablaCiudad()
 		{
-			return tablas.get(2);
+			return tablas.get(3);
 		}
 	
 		public String darTablaEmpresa()
 		{
-			return tablas.get(3);
+			return tablas.get(4);
 		}
 	
 		public String darTablaEmpresaProducto()
 		{
-			return tablas.get(4);
+			return tablas.get(5);
 		}
 	
 		public String darTablaEstante()
 		{
-			return tablas.get(5);
+			return tablas.get(6);
 		}
 	
 		public String darTablaEstanteProducto()
 		{
-			return tablas.get(6);
+			return tablas.get(7);
 		}
 	
 		public String darTablaNivelDeReorden()
 		{
-			return tablas.get(7);
+			return tablas.get(8);
 		}
 	
 		public String darTablaOrdenDePedido()
 		{
-			return tablas.get(8);
+			return tablas.get(9);
 		}
 	
 		public String darTablaPersonaNat()
 		{
-			return tablas.get(9);
+			return tablas.get(10);
 		}
 	
 		public String darTablaPersonanatProducto()
 		{
-			return tablas.get(10);
+			return tablas.get(11);
 		}
 	
 		public String darTablaProducto()
 		{
-			return tablas.get(11);
+			return tablas.get(12);
 		}
 	
 		public String darTablaProductoSucursal()
 		{
-			return tablas.get(12);
+			return tablas.get(13);
 		}
 	
 		public String darTablaPromocion()
 		{
-			return tablas.get(13);
+			return tablas.get(14);
 		}
 	
 		public String darTablaProveedor()
 		{
-			return tablas.get(14);
+			return tablas.get(15);
 		}
 	
 		public String darTablaSucursal()
 		{
-			return tablas.get(15);
+			return tablas.get(16);
 		}
 	
 		public String darTablaSupermercado()
 		{
-			return tablas.get(16);
+			return tablas.get(17);
 		}
 	
 		public String darSeqSuperAndes()
 		{
-			return tablas.get(17);
+			return tablas.get(0);
 		}
 	
 		/**

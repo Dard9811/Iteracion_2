@@ -5,6 +5,15 @@
 	"bannerPath": "./src/main/resources/config/logo.png",
 	"menuBar":
 	[
+		{ "menuTitle": "Req. Funcionales",
+		  "options":
+			[
+				{
+					"label": "RF1",
+					"event": "demoVisitan"
+				}			
+			]
+		},
 		{ "menuTitle": "Bodega",
 		  "options":
 			[
@@ -44,12 +53,12 @@
 				}
 			]
 		},
-		{ "menuTitle": "Bebedor",
+		{ "menuTitle": "Empresa",
 		  "options":
 			[
 				{
-					"label": "CRD Bebedor",
-					"event": "demoBebedor"
+					"label": "CRD Empresa",
+					"event": "demoEmpresa"
 				},
 				{
 					"label": "Cambiar ciudad",
@@ -77,29 +86,92 @@
 				}
 			]
 		},
-		{ "menuTitle": "Gustan",
+		{ "menuTitle": "Empresa-Producto",
 		  "options":
 			[
 				{
-					"label": "CRD Gustan",
+					"label": "CRD Empresa-Producto",
 					"event": "demoGustan"
 				}
 			]
 		},
-		{ "menuTitle": "Sirven",
+		{ "menuTitle": "Estante",
 		  "options":
 			[
 				{
-					"label": "CRD Sirven",
+					"label": "CRD Estante",
 					"event": "demoSirven"
 				}
 			]
 		},
-		{ "menuTitle": "Visitan",
+		{ "menuTitle": "Estante-Producto",
 		  "options":
 			[
 				{
-					"label": "CRD Visitan",
+					"label": "CRD Estante-Producto",
+					"event": "demoVisitan"
+				}			
+			]
+		},
+		{ "menuTitle": "Orden De Pedido",
+		  "options":
+			[
+				{
+					"label": "CRD Orden De Pedido",
+					"event": "demoVisitan"
+				}			
+			]
+		},
+		{ "menuTitle": "Persona Natural",
+		  "options":
+			[
+				{
+					"label": "CRD Persona Natural",
+					"event": "demoVisitan"
+				}			
+			]
+		},		
+		{ "menuTitle": "Producto",
+		  "options":
+			[
+				{
+					"label": "CRD Producto",
+					"event": "demoVisitan"
+				}			
+			]
+		},		
+		{ "menuTitle": "Promoción",
+		  "options":
+			[
+				{
+					"label": "CRD Promoción",
+					"event": "demoVisitan"
+				}			
+			]
+		},
+		{ "menuTitle": "Proveedor",
+		  "options":
+			[
+				{
+					"label": "CRD Proveedor",
+					"event": "demoVisitan"
+				}			
+			]
+		},
+		{ "menuTitle": "Sucursal",
+		  "options":
+			[
+				{
+					"label": "CRD Sucursal",
+					"event": "demoVisitan"
+				}			
+			]
+		},
+		{ "menuTitle": "Supermercado",
+		  "options":
+			[
+				{
+					"label": "CRD Supermercado",
 					"event": "demoVisitan"
 				}			
 			]
@@ -108,16 +180,16 @@
 		  "options":
 			[
 				{
-					"label": "Mostrar log Parranderos",
-					"event": "mostrarLogParranderos"
+					"label": "Mostrar log SuperAndes",
+					"event": "mostrarLogSuperAndes"
 				},
 				{
 					"label": "Mostrar log datanucleus",
 					"event": "mostrarLogDatanuecleus"
 				},
 				{
-					"label": "Limpiar log de parranderos",
-					"event": "limpiarLogParranderos"
+					"label": "Limpiar log de SuperAndes",
+					"event": "limpiarLogSuperAndes"
 				},
 				{
 					"label": "Limpiar log de datanucleus",

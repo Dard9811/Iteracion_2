@@ -13,7 +13,7 @@
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  */
 
-package uniandes.isis2304.superAndes.interfazDemo;
+package uniandes.isis2304.superAndes.interfaz;
 
 import java.awt.BorderLayout;
 import javax.swing.JPanel;

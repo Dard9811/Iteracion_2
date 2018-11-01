@@ -13,7 +13,7 @@
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  */
 
-package uniandes.isis2304.superAndes.interfazDemo;
+package uniandes.isis2304.superAndes.interfaz;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -76,12 +76,12 @@ public class InterfazSuperAndes extends JFrame implements ActionListener
 	/**
 	 * Ruta al archivo de configuración de la interfaz
 	 */
-	private final String CONFIG_INTERFAZ = "./src/main/resources/config/interfaceConfigDemo.json"; 
+	private final String CONFIG_INTERFAZ = "./src/main/resources/config/interfaceConfig.json"; 
 	
 	/**
 	 * Ruta al archivo de configuración de los nombres de tablas de la base de datos
 	 */
-	private static final String CONFIG_TABLAS = "./src/main/resources/config/TablasBD_A.json"; 
+	private static final String CONFIG_TABLAS = "./src/main/resources/config/TablasBD_SuperAndes.json"; 
 	
 	/* ****************************************************************
 	 * 			Atributos
@@ -250,7 +250,7 @@ public class InterfazSuperAndes extends JFrame implements ActionListener
 	/**
 	 * Muestra el log de superAndes
 	 */
-	public void mostrarLogsuperAndes ()
+	public void mostrarLogSuperAndes ()
 	{
 		mostrarArchivo ("superAndes.log");
 	}
@@ -267,7 +267,7 @@ public class InterfazSuperAndes extends JFrame implements ActionListener
 	 * Limpia el contenido del log de superAndes
 	 * Muestra en el panel de datos la traza de la ejecución
 	 */
-	public void limpiarLogsuperAndes ()
+	public void limpiarLogSuperAndes ()
 	{
 		// Ejecución de la operación y recolección de los resultados
 		boolean resp = limpiarArchivo ("superAndes.log");
@@ -435,7 +435,7 @@ public class InterfazSuperAndes extends JFrame implements ActionListener
      */
     public String listarCiudades (List<VOCiudad> lista) 
     {
-    	String resp = "Los Ciudades existentes son:\n";
+    	String resp = "Las Ciudades existentes son:\n";
     	int i = 1;
         for (VOCiudad ciudad : lista)
         {
