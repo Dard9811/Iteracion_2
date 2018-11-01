@@ -8,3 +8,8 @@
 11:53:28,108 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Tablas BD
 11:53:47,765 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Generando los VO de Ciudades
 11:53:48,103 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Generando los VO de Ciudades: 1 ciudades existentes
+11:57:51,792 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Interfaz
+11:57:51,794 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se aplica configuración indicada en el archivo de configuración
+11:57:51,849 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Tablas BD
+11:58:09,556 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Generando los VO de Ciudades
+11:58:09,821 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Generando los VO de Ciudades: 1 ciudades existentes
