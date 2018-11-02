@@ -232,7 +232,7 @@ public class Producto implements VOProducto
 	@Override
 	public String toString() 
 	{
-		return "Sucursal [id=" + codigo_barras + ", local_ventas=" + nombre + ", segmentacion_mercado=" + marca + ", productos_ofrecidos=" + categoria + ", tamanio_instalacion=" + precio_unitario + ", idCiudad=" + precio_medida + ", idSupermercado=" + presentacion + "]";
+		return "Sucursal [id=" + codigo_barras + ", nombre=" + nombre + ", marca=" + marca + ", categoria=" + categoria + ", precio_unitario=" + precio_unitario + ", precio_medida=" + precio_medida + ", presentación=" + presentacion + ", cantidad_presentación="+ cantidad_presentacion + ", unidad_medida=" + unidad_medida + ", especificación_empacado=" + especificacion_empacado + ", bodega=" + idBodega + ", estante=" + idEstante + ", proveedor=" + idProveedor + "]";
 	}
 
 

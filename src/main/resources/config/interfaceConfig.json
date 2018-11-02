@@ -1,7 +1,7 @@
 {
 	"title": "SuperAndes",
 	"frameH": 600,
-	"frameW": 800,
+	"frameW": 1000,
 	"bannerPath": "./src/main/resources/config/logo.png",
 	"menuBar":
 	[
@@ -11,7 +11,19 @@
 				{
 					"label": "RF1",
 					"event": "registrarProveedor"
-				}			
+				},
+				{
+					"label": "RF2",
+					"event": "registrarProducto"
+				},
+				{
+					"label": "RF3",
+					"event": "registrarCliente"
+				},
+				{
+					"label": "RF4",
+					"event": "registrarSucursal"
+				}							
 			]
 		},
 		{ "menuTitle": "Bodega",

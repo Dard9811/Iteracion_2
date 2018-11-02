@@ -54,8 +54,10 @@ import uniandes.isis2304.superAndes.negocio.VOEstante;
 import uniandes.isis2304.superAndes.negocio.VOCiudad;
 import uniandes.isis2304.superAndes.negocio.VOPromocion;
 import uniandes.isis2304.superAndes.negocio.VOProveedor;
+import uniandes.isis2304.superAndes.negocio.VOSucursal;
 import uniandes.isis2304.superAndes.negocio.VOBodega;
 import uniandes.isis2304.superAndes.negocio.VONivelDeReorden;
+import uniandes.isis2304.superAndes.negocio.VOPersonaNat;
 import uniandes.isis2304.superAndes.negocio.VOProducto;
 import uniandes.isis2304.superAndes.negocio.VOProductoSucursal;
 import uniandes.isis2304.superAndes.negocio.VOSupermercado;
@@ -382,10 +384,59 @@ public class InterfazSuperAndes extends JFrame implements ActionListener
 		long nit = 860554978;
 		try 
 		{
-			superAndes.adicionarProveedor(nit, "Alpina", 1);
-			String resultado = "Se registro el proveedor exitosamente";
+			VOProveedor nProv = superAndes.adicionarProveedor(nit, "Alpina", 1);
+			String resultado = "Se registro el proveedor exitosamente.";
+			resultado += "\n" + nProv.toString();
 			panelDatos.actualizarInterfaz(resultado);
-//			listarProveedores();
+		} 
+		catch (Exception e) 
+		{
+			String resultado = generarMensajeError(e);
+			panelDatos.actualizarInterfaz(resultado);
+		}
+	}
+	
+	public void registrarProducto()
+	{
+		try 
+		{
+			VOProducto nProd = superAndes.adicionarProducto("2DED448F", "Leche Entera", "Alpina", "Perecederos", 2000, 2000, "Bolsa", 1, "ml", "Ninguna", 1 , 1, 860554978);
+			String resultado = "Se registro el producto exitosamente.";
+			resultado += "\n" + nProd.toString();
+			panelDatos.actualizarInterfaz(resultado);
+		} 
+		catch (Exception e) 
+		{
+			String resultado = generarMensajeError(e);
+			panelDatos.actualizarInterfaz(resultado);
+		}
+	}
+	
+	
+	public void registrarCliente()
+	{
+		try 
+		{
+			VOPersonaNat nPersonanat = superAndes.adicionarPersonaNat(1, "CC", "Juan", "juan@gmail.com");
+			String resultado = "Se registro la persona natural exitosamente.";
+			resultado += "\n" + nPersonanat.toString();
+			panelDatos.actualizarInterfaz(resultado);
+		} 
+		catch (Exception e) 
+		{
+			String resultado = generarMensajeError(e);
+			panelDatos.actualizarInterfaz(resultado);
+		}
+	}
+	
+	public void registrarSucursal()
+	{
+		try 
+		{
+			VOSucursal nSuc = superAndes.adicionarSucursal( "Principal", "Canasta Familiar", "Canasta Familiar", "Grande", 1, 1);
+			String resultado = "Se registro la persona natural exitosamente.";
+			resultado += "\n" + nSuc.toString();
+			panelDatos.actualizarInterfaz(resultado);
 		} 
 		catch (Exception e) 
 		{
@@ -517,7 +568,7 @@ public class InterfazSuperAndes extends JFrame implements ActionListener
      * @param lista - La lista con los tipos de bebida
      * @return La cadena con una líea para cada tipo de bebida recibido
      */
-    public String listarTiposBebida(List<VOProductoSucursal> lista) 
+    private String listarTiposBebida(List<VOProductoSucursal> lista) 
     {
     	String resp = "Los tipos de bebida existentes son:\n";
     	int i = 1;
@@ -528,7 +579,7 @@ public class InterfazSuperAndes extends JFrame implements ActionListener
         return resp;
 	}
     
-    public String listarBodega (List<VOBodega> lista) 
+    private String listarBodega (List<VOBodega> lista) 
     {
     	String resp = "Los Productos existentes son:\n";
     	int i = 1;
@@ -539,7 +590,7 @@ public class InterfazSuperAndes extends JFrame implements ActionListener
         return resp;
 	}
     
-    public String listarProductos (List<VOProducto> lista) 
+    private String listarProductos (List<VOProducto> lista) 
     {
     	String resp = "Los Productos existentes son:\n";
     	int i = 1;
@@ -550,7 +601,7 @@ public class InterfazSuperAndes extends JFrame implements ActionListener
         return resp;
 	}
     
-    public String listarEmpresas (List<VOEmpresa> lista) 
+    private String listarEmpresas (List<VOEmpresa> lista) 
     {
     	String resp = "Las Empresas existentes son:\n";
     	int i = 1;
@@ -561,7 +612,7 @@ public class InterfazSuperAndes extends JFrame implements ActionListener
         return resp;
 	}
     
-    public String listarEstantes (List<VOEstante> lista) 
+    private String listarEstantes (List<VOEstante> lista) 
     {
     	String resp = "Las Empresas existentes son:\n";
     	int i = 1;
@@ -572,7 +623,7 @@ public class InterfazSuperAndes extends JFrame implements ActionListener
         return resp;
 	}
     
-    public String listarProveedores(List<VOProveedor> lista) 
+    private String listarProveedores(List<VOProveedor> lista) 
     {
     	String resp = "Los proveedores son:\n";
     	int i = 1;
@@ -588,7 +639,7 @@ public class InterfazSuperAndes extends JFrame implements ActionListener
      * @param lista - La lista con las bebidas
      * @return La cadena con una líea para cada bebida recibida
      */
-    public String listarBebidas (List<VOPromocion> lista) 
+    private String listarBebidas (List<VOPromocion> lista) 
     {
     	String resp = "Las bebidas existentes son:\n";
     	int i = 1;
@@ -604,7 +655,7 @@ public class InterfazSuperAndes extends JFrame implements ActionListener
      * @param lista - La lista con los Ciudades
      * @return La cadena con una líea para cada Ciudad recibido
      */
-    public String listarCiudades (List<VOCiudad> lista) 
+    private String listarCiudades (List<VOCiudad> lista) 
     {
     	String resp = "Las Ciudades existentes son:\n";
     	int i = 1;
@@ -620,7 +671,7 @@ public class InterfazSuperAndes extends JFrame implements ActionListener
      * @param lista - La lista con los bares
      * @return La cadena con una líea para cada bar recibido
      */
-    public String listarBares (List<VOEmpresa> lista) 
+    private String listarBares (List<VOEmpresa> lista) 
     {
     	String resp = "Los bares existentes son:\n";
     	int i = 1;
@@ -636,7 +687,7 @@ public class InterfazSuperAndes extends JFrame implements ActionListener
      * @param lista - La lista con los gustan
      * @return La cadena con una líea para cada gustan recibido
      */
-    public String listarGustan (List<VOBodega> lista) 
+    private String listarGustan (List<VOBodega> lista) 
     {
     	String resp = "Los gustan existentes son:\n";
     	int i = 1;
@@ -652,7 +703,7 @@ public class InterfazSuperAndes extends JFrame implements ActionListener
      * @param lista - La lista con los sirven
      * @return La cadena con una líea para cada sirven recibido
      */
-    public String listarSirven (List<VONivelDeReorden> lista) 
+    private String listarSirven (List<VONivelDeReorden> lista) 
     {
     	String resp = "Los sirven existentes son:\n";
     	int i = 1;
@@ -668,7 +719,7 @@ public class InterfazSuperAndes extends JFrame implements ActionListener
      * @param lista - La lista con los visitan
      * @return La cadena con una líea para cada visitan recibido
      */
-    public String listarVisitan (List<VOSupermercado> lista) 
+    private String listarVisitan (List<VOSupermercado> lista) 
     {
     	String resp = "Los visitan existentes son:\n";
     	int i = 1;
@@ -684,7 +735,7 @@ public class InterfazSuperAndes extends JFrame implements ActionListener
      * @param lista - La lista con las pareja
      * @return La cadena con una líea para cada pareja recibido
      */
-    public String listarBaresYBebidas (List<long[]> lista) 
+    private String listarBaresYBebidas (List<long[]> lista) 
     {
     	String resp = "Los bares y el número de bebidas que sirven son:\n";
     	int i = 1;
@@ -705,7 +756,7 @@ public class InterfazSuperAndes extends JFrame implements ActionListener
      * @param lista - La lista con las parejas (Ciudad, numero visitas)
      * @return La cadena con una línea para cada pareja recibido
      */
-    public String listarCiudadYNumVisitas (List<Object[]> lista) 
+    private String listarCiudadYNumVisitas (List<Object[]> lista) 
     {
     	String resp = "Los Ciudades y el número visitas realizadas son:\n";
     	int i = 1;

@@ -140,7 +140,7 @@ public class PersonaNat implements VOPersonaNat
 	 */
 	public String toString() 
 	{
-		return "Empresa [num_doc=" + num_doc + ", tipo_doc=" + tipo_doc + ", nombre=" + nombre + ", correo=" + correo + "]";
+		return "Persona Natural [num_doc=" + num_doc + ", tipo_doc=" + tipo_doc + ", nombre=" + nombre + ", correo=" + correo + "]";
 	}
 	
 
