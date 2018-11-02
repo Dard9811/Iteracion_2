@@ -80,10 +80,10 @@ public class SuperAndes
 	 * 			Métodos para manejar las BODEGA
 	 *****************************************************************/
 	
-	public Bodega adicionarBodega( long id ,long espacio)
+	public Bodega adicionarBodega(long espacio)
 	{
         log.info ("Adicionando bodega: " + espacio);
-        Bodega bodega = pp.adicionarBodega(id, espacio);		
+        Bodega bodega = pp.adicionarBodega(espacio);		
         log.info ("Adicionando bodega: " + bodega);
         return bodega;
 	}
@@ -805,12 +805,20 @@ public class SuperAndes
 	{
 		log.info ("Generando los VO de Proveedores");
 		List<VOProveedor> voProveedores = new LinkedList<VOProveedor> ();
-		for (Proveedor empresa: pp.darProveedores ())
+		for (Proveedor proveedor: pp.darProveedores ())
 		{
-			voProveedores.add (empresa);
+			voProveedores.add (proveedor);
 		}
 		log.info ("Generando los VO de Proveedores: " + voProveedores.size () + " proveedores existentes");
 		return voProveedores;
+	}
+	
+	public VOProveedor darVOProveedoresPorNit (long nit)
+	{
+		log.info ("Generando los VO de Proveedor con nit: " + nit);
+		VOProveedor voProveedor = pp.darProveedorPorNit(nit);
+		log.info ("Se encontro el VO de proveedor con el nit indicado");
+		return voProveedor;
 	}
 	
 	/* ****************************************************************

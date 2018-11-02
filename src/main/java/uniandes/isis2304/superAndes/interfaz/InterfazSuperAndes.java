@@ -47,12 +47,16 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.stream.JsonReader;
 
+import javafx.geometry.VPos;
 import uniandes.isis2304.superAndes.negocio.SuperAndes;
 import uniandes.isis2304.superAndes.negocio.VOEmpresa;
+import uniandes.isis2304.superAndes.negocio.VOEstante;
 import uniandes.isis2304.superAndes.negocio.VOCiudad;
 import uniandes.isis2304.superAndes.negocio.VOPromocion;
+import uniandes.isis2304.superAndes.negocio.VOProveedor;
 import uniandes.isis2304.superAndes.negocio.VOBodega;
 import uniandes.isis2304.superAndes.negocio.VONivelDeReorden;
+import uniandes.isis2304.superAndes.negocio.VOProducto;
 import uniandes.isis2304.superAndes.negocio.VOProductoSucursal;
 import uniandes.isis2304.superAndes.negocio.VOSupermercado;
 
@@ -372,6 +376,100 @@ public class InterfazSuperAndes extends JFrame implements ActionListener
 	/* ****************************************************************
 	 * 			Metodos de requerimientos
 	 *****************************************************************/
+	
+	public void registrarProveedor()
+	{
+		long nit = 860554978;
+		try 
+		{
+			superAndes.adicionarProveedor(nit, "Alpina", 1);
+			String resultado = "Se registro el proveedor exitosamente";
+			panelDatos.actualizarInterfaz(resultado);
+//			listarProveedores();
+		} 
+		catch (Exception e) 
+		{
+			String resultado = generarMensajeError(e);
+			panelDatos.actualizarInterfaz(resultado);
+		}
+	}
+	
+	public void listarBodega()
+	{
+		try 
+		{
+			List <VOBodega> lista = superAndes.darVOBodega();
+
+			String resultado = "En listarProductos";
+			resultado +=  "\n" + listarBodega(lista);
+			panelDatos.actualizarInterfaz(resultado);
+			resultado += "\n Operación terminada";
+		} 
+		catch (Exception e)
+		{
+//			e.printStackTrace();
+			String resultado = generarMensajeError(e);
+			panelDatos.actualizarInterfaz(resultado);
+		}
+	}
+	
+	public void listarProducto()
+	{
+		try 
+		{
+			List <VOProducto> lista = superAndes.darVOProductos();
+
+			String resultado = "En listarProductos";
+			resultado +=  "\n" + listarProductos(lista);
+			panelDatos.actualizarInterfaz(resultado);
+			resultado += "\n Operación terminada";
+		} 
+		catch (Exception e)
+		{
+//			e.printStackTrace();
+			String resultado = generarMensajeError(e);
+			panelDatos.actualizarInterfaz(resultado);
+		}
+	}
+	
+	public void listarEmpresa()
+	{
+		try 
+		{
+			List <VOEmpresa> lista = superAndes.darVOEmpresas();
+
+			String resultado = "En listarEmpresas";
+			resultado +=  "\n" + listarEmpresas(lista);
+			panelDatos.actualizarInterfaz(resultado);
+			resultado += "\n Operación terminada";
+		} 
+		catch (Exception e)
+		{
+//			e.printStackTrace();
+			String resultado = generarMensajeError(e);
+			panelDatos.actualizarInterfaz(resultado);
+		}
+	}
+	
+	public void listarEstante()
+	{
+		try 
+		{
+			List <VOEstante> lista = superAndes.darVOEstantes();
+
+			String resultado = "En listarEmpresas";
+			resultado +=  "\n" + listarEstantes(lista);
+			panelDatos.actualizarInterfaz(resultado);
+			resultado += "\n Operación terminada";
+		} 
+		catch (Exception e)
+		{
+//			e.printStackTrace();
+			String resultado = generarMensajeError(e);
+			panelDatos.actualizarInterfaz(resultado);
+		}
+	}
+	
 	public void listarCiudades()
 	{
     	try 
@@ -386,6 +484,24 @@ public class InterfazSuperAndes extends JFrame implements ActionListener
     	catch (Exception e) 
     	{
 //			e.printStackTrace();
+			String resultado = generarMensajeError(e);
+			panelDatos.actualizarInterfaz(resultado);
+		}
+	}
+	
+	public void listarProveedores()
+	{
+    	try 
+    	{
+			List <VOProveedor> lista = superAndes.darVOProveedores();
+
+			String resultado = "En listarProveedores";
+			resultado +=  "\n" + listarProveedores(lista);
+			panelDatos.actualizarInterfaz(resultado);
+			resultado += "\n Operación terminada";
+		} 
+    	catch (Exception e) 
+    	{
 			String resultado = generarMensajeError(e);
 			panelDatos.actualizarInterfaz(resultado);
 		}
@@ -408,6 +524,61 @@ public class InterfazSuperAndes extends JFrame implements ActionListener
         for (VOProductoSucursal tb : lista)
         {
         	resp += i++ + ". " + tb.toString() + "\n";
+        }
+        return resp;
+	}
+    
+    public String listarBodega (List<VOBodega> lista) 
+    {
+    	String resp = "Los Productos existentes son:\n";
+    	int i = 1;
+        for (VOBodega bod : lista)
+        {
+        	resp += i++ + ". " + bod.toString() + "\n";
+        }
+        return resp;
+	}
+    
+    public String listarProductos (List<VOProducto> lista) 
+    {
+    	String resp = "Los Productos existentes son:\n";
+    	int i = 1;
+        for (VOProducto prod : lista)
+        {
+        	resp += i++ + ". " + prod.toString() + "\n";
+        }
+        return resp;
+	}
+    
+    public String listarEmpresas (List<VOEmpresa> lista) 
+    {
+    	String resp = "Las Empresas existentes son:\n";
+    	int i = 1;
+        for (VOEmpresa empr : lista)
+        {
+        	resp += i++ + ". " + empr.toString() + "\n";
+        }
+        return resp;
+	}
+    
+    public String listarEstantes (List<VOEstante> lista) 
+    {
+    	String resp = "Las Empresas existentes son:\n";
+    	int i = 1;
+        for (VOEstante est : lista)
+        {
+        	resp += i++ + ". " + est.toString() + "\n";
+        }
+        return resp;
+	}
+    
+    public String listarProveedores(List<VOProveedor> lista) 
+    {
+    	String resp = "Los proveedores son:\n";
+    	int i = 1;
+        for (VOProveedor proveedor : lista)
+        {
+        	resp += i++ + ". " + proveedor.toString() + "\n";
         }
         return resp;
 	}

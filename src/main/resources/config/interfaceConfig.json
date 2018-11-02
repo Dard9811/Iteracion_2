@@ -10,7 +10,7 @@
 			[
 				{
 					"label": "RF1",
-					"event": "demoVisitan"
+					"event": "registrarProveedor"
 				}			
 			]
 		},
@@ -18,8 +18,8 @@
 		  "options":
 			[
 				{
-					"label": "CRD de Bodega",
-					"event": "demoBodega"
+					"label": "Listar",
+					"event": "listarBodega"
 				}
 			]
 		},		
@@ -57,8 +57,8 @@
 		  "options":
 			[
 				{
-					"label": "CRD Empresa",
-					"event": "demoEmpresa"
+					"label": "Listar",
+					"event": "listarEmpresa"
 				},
 				{
 					"label": "Cambiar ciudad",
@@ -99,8 +99,8 @@
 		  "options":
 			[
 				{
-					"label": "CRD Estante",
-					"event": "demoSirven"
+					"label": "Listar",
+					"event": "listarEstante"
 				}
 			]
 		},
@@ -135,8 +135,8 @@
 		  "options":
 			[
 				{
-					"label": "CRD Producto",
-					"event": "demoVisitan"
+					"label": "Listar",
+					"event": "listarProducto"
 				}			
 			]
 		},		
@@ -153,8 +153,8 @@
 		  "options":
 			[
 				{
-					"label": "CRD Proveedor",
-					"event": "demoVisitan"
+					"label": "Listar",
+					"event": "listarProveedores"
 				}			
 			]
 		},

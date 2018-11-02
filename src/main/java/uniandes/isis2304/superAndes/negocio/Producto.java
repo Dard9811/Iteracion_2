@@ -33,12 +33,12 @@ public class Producto implements VOProducto
 	/**
 	 * La segmentación del mercado de la sucursal
 	 */
-	private int precio_unitario;
+	private long precio_unitario;
 	
 	/**
 	 * El local de ventas de la sucursal
 	 */
-	private int precio_medida;
+	private long precio_medida;
 	
 	/**
 	 * La segmentación del mercado de la sucursal
@@ -48,7 +48,7 @@ public class Producto implements VOProducto
 	/**
 	 * El local de ventas de la sucursal
 	 */
-	private int cantidad_presentacion;
+	private long cantidad_presentacion;
 
 	/**
 	 * La segmentación del mercado de la sucursal
@@ -154,7 +154,7 @@ public class Producto implements VOProducto
 		this.categoria = categoria;
 	}
 
-	public int getPrecio_unitario() {
+	public long getPrecio_unitario() {
 		return precio_unitario;
 	}
 
@@ -162,7 +162,7 @@ public class Producto implements VOProducto
 		this.precio_unitario = precio_unitario;
 	}
 
-	public int getPrecio_medida() {
+	public long getPrecio_medida() {
 		return precio_medida;
 	}
 
@@ -178,7 +178,7 @@ public class Producto implements VOProducto
 		this.presentacion = presentacion;
 	}
 
-	public int getCantidad_presentacion() {
+	public long getCantidad_presentacion() {
 		return cantidad_presentacion;
 	}
 

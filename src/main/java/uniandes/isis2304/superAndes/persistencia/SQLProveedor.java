@@ -101,7 +101,7 @@ class SQLProveedor
 	 * @param nitProveedor - El identificador de la empresa
 	 * @return El objeto EMPRESA que tiene el identificador dado
 	 */
-	public Proveedor darProveedorPorId (PersistenceManager pm, long nitProveedor) 
+	public Proveedor darProveedorPorNit (PersistenceManager pm, long nitProveedor) 
 	{
 		Query q = pm.newQuery(SQL, "SELECT * FROM " + pp.darTablaProveedor () + " WHERE nit = ?");
 		q.setResultClass(Proveedor.class);

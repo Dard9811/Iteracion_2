@@ -28,13 +28,13 @@ public interface VOProducto
 
 	public String getCategoria();
 	
-	public int getPrecio_unitario();
+	public long getPrecio_unitario();
 	
-	public int getPrecio_medida();
+	public long getPrecio_medida();
 	
 	public String getPresentacion();
 	
-	public int getCantidad_presentacion();
+	public long getCantidad_presentacion();
 	
 	public String getUnidad_medida();
 	

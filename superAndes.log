@@ -13,3 +13,119 @@
 11:57:51,849 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Tablas BD
 11:58:09,556 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Generando los VO de Ciudades
 11:58:09,821 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Generando los VO de Ciudades: 1 ciudades existentes
+11:31:09,903 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Interfaz
+11:31:09,910 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se aplica configuración indicada en el archivo de configuración
+11:31:09,931 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Tablas BD
+11:31:16,026 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Adicionando proveedor: Alpina
+11:31:16,273 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Adicionando proveedor: Empresa [nit=860554978, nombre=Alpina, idSucursal=1]
+11:31:16,274 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Generando los VO de Proveedor con nit: 860554978
+11:35:05,574 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Interfaz
+11:35:05,575 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se aplica configuración indicada en el archivo de configuración
+11:35:05,595 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Tablas BD
+11:35:10,818 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Adicionando proveedor: Alpina
+11:35:11,061 (AWT-EventQueue-0) ERROR [uniandes.isis2304.superAndes.persistencia.PersistenciaSuperAndes] - Exception : Error con la ejecucion de Query de SQL "INSERT INTO PROVEEDOR(nit, nombre, sucursal) values (?, ?, ?)".
+ORA-00001: restricción única (ISIS2304B291820.PROVEEDOR_PK) violada
+
+11:35:11,073 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Adicionando proveedor: null
+11:35:11,073 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Generando los VO de Proveedor con nit: 860554978
+11:35:55,077 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Interfaz
+11:35:55,078 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se aplica configuración indicada en el archivo de configuración
+11:35:55,095 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Tablas BD
+11:35:59,059 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Adicionando proveedor: Alpina
+11:35:59,354 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Adicionando proveedor: Empresa [nit=860554978, nombre=Alpina, idSucursal=1]
+11:37:27,389 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Interfaz
+11:37:27,390 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se aplica configuración indicada en el archivo de configuración
+11:37:27,406 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Tablas BD
+11:37:31,717 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Adicionando proveedor: Alpina
+11:37:31,974 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Adicionando proveedor: Empresa [nit=860554978, nombre=Alpina, idSucursal=1]
+11:37:31,975 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Generando los VO de Proveedor con nit: 860554978
+11:38:17,425 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Interfaz
+11:38:17,426 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se aplica configuración indicada en el archivo de configuración
+11:38:17,442 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Tablas BD
+11:38:21,669 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Adicionando proveedor: Alpina
+11:38:21,919 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Adicionando proveedor: Empresa [nit=860554978, nombre=Alpina, idSucursal=1]
+11:38:21,920 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Generando los VO de Proveedor con nit: 860554978
+11:43:26,400 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Interfaz
+11:43:26,401 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se aplica configuración indicada en el archivo de configuración
+11:43:26,418 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Tablas BD
+11:43:30,903 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Adicionando proveedor: Alpina
+11:43:31,215 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Adicionando proveedor: Empresa [nit=860554978, nombre=Alpina, idSucursal=1]
+11:43:31,216 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Generando los VO de Proveedores
+11:48:03,048 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Interfaz
+11:48:03,049 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se aplica configuración indicada en el archivo de configuración
+11:48:03,066 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Tablas BD
+11:48:08,216 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Adicionando proveedor: Alpina
+11:48:08,547 (AWT-EventQueue-0) ERROR [uniandes.isis2304.superAndes.persistencia.PersistenciaSuperAndes] - Exception : Error con la ejecucion de Query de SQL "INSERT INTO PROVEEDOR(nit, nombre, sucursal) values (?, ?, ?)".
+ORA-00001: restricción única (ISIS2304B291820.PROVEEDOR_PK) violada
+
+11:48:08,563 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Adicionando proveedor: null
+11:48:08,563 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Generando los VO de Proveedores
+11:48:27,975 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Interfaz
+11:48:27,976 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se aplica configuración indicada en el archivo de configuración
+11:48:27,992 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Tablas BD
+11:48:32,080 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Adicionando proveedor: Alpina
+11:48:32,337 (AWT-EventQueue-0) ERROR [uniandes.isis2304.superAndes.persistencia.PersistenciaSuperAndes] - Exception : Error con la ejecucion de Query de SQL "INSERT INTO PROVEEDOR(nit, nombre, sucursal) values (?, ?, ?)".
+ORA-00001: restricción única (ISIS2304B291820.PROVEEDOR_PK) violada
+
+11:48:32,347 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Adicionando proveedor: null
+11:50:09,409 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Interfaz
+11:50:09,410 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se aplica configuración indicada en el archivo de configuración
+11:50:09,425 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Tablas BD
+11:50:15,385 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Generando los VO de Proveedores
+11:59:03,809 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Interfaz
+11:59:03,810 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se aplica configuración indicada en el archivo de configuración
+11:59:03,826 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Tablas BD
+11:59:08,812 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Generando los VO de Ciudades
+11:59:09,049 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Generando los VO de Ciudades: 1 ciudades existentes
+11:59:18,876 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Generando los VO de Proveedores
+12:02:09,410 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Interfaz
+12:02:09,412 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se aplica configuración indicada en el archivo de configuración
+12:02:09,427 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Tablas BD
+12:02:18,605 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Generando los VO de Proveedores
+12:04:08,999 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Interfaz
+12:04:09,000 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se aplica configuración indicada en el archivo de configuración
+12:04:09,016 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Tablas BD
+12:04:14,526 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Generando los VO de Proveedores
+12:07:56,848 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Interfaz
+12:07:56,849 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se aplica configuración indicada en el archivo de configuración
+12:07:56,865 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Tablas BD
+12:08:03,616 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Generando los VO de Productos
+12:11:44,167 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Interfaz
+12:11:44,168 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se aplica configuración indicada en el archivo de configuración
+12:11:44,184 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Tablas BD
+12:11:51,385 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Generando los VO de Empresas
+12:11:51,609 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Generando los VO de Empresas: 1 empresas existentes
+12:12:18,104 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Generando los VO de Empresas
+12:12:18,121 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Generando los VO de Empresas: 2 empresas existentes
+12:12:29,737 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Generando los VO de Ciudades
+12:12:29,760 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Generando los VO de Ciudades: 1 ciudades existentes
+12:12:33,777 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Generando los VO de Empresas
+12:12:33,799 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Generando los VO de Empresas: 2 empresas existentes
+12:12:48,617 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Generando los VO de Productos
+12:19:40,923 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Interfaz
+12:19:40,924 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se aplica configuración indicada en el archivo de configuración
+12:19:40,940 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Tablas BD
+12:19:44,980 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Generando los VO de BODEGAL
+12:19:45,218 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Generando los VO de BODEGA: 3 existentes
+12:21:31,785 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Interfaz
+12:21:31,786 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se aplica configuración indicada en el archivo de configuración
+12:21:31,803 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Tablas BD
+12:21:38,012 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Generando los VO de Estantes
+12:34:07,916 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Interfaz
+12:34:07,916 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se aplica configuración indicada en el archivo de configuración
+12:34:07,932 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Tablas BD
+12:34:13,604 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Generando los VO de BODEGAL
+12:34:13,917 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Generando los VO de BODEGA: 3 existentes
+12:34:16,949 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Generando los VO de Ciudades
+12:34:16,980 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Generando los VO de Ciudades: 1 ciudades existentes
+12:34:19,494 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Generando los VO de Productos
+12:43:23,273 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Interfaz
+12:43:23,273 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se aplica configuración indicada en el archivo de configuración
+12:43:23,305 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Tablas BD
+12:43:28,810 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Generando los VO de BODEGAL
+12:43:29,059 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Generando los VO de BODEGA: 4 existentes
+12:43:54,715 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Generando los VO de BODEGAL
+12:43:54,731 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Generando los VO de BODEGA: 4 existentes
+12:44:15,885 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Generando los VO de Ciudades
+12:44:15,901 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Generando los VO de Ciudades: 1 ciudades existentes
+12:44:21,262 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Generando los VO de Productos

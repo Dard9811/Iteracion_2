@@ -423,13 +423,14 @@ import uniandes.isis2304.superAndes.negocio.Supermercado;
 		 * @param espacio - El espacio de la bodega 
 		 * @return Un objeto Bodega con la información dada. Null si ocurre alguna Excepción
 		 */
-		public Bodega adicionarBodega(long id, long espacio) 
+		public Bodega adicionarBodega(long espacio) 
 		{
 			PersistenceManager pm = pmf.getPersistenceManager();
 			Transaction tx=pm.currentTransaction();
 			try
 			{
 				tx.begin();
+				long id = nextval();
 				long tuplasInsertadas = sqlBodega.adicionarBodega (pm, id, espacio);
 				tx.commit();
 	
@@ -1847,9 +1848,9 @@ import uniandes.isis2304.superAndes.negocio.Supermercado;
 		 *****************************************************************/
 		
 		/**
-		 * Método que inserta, de manera transaccional, una tupla en la tabla EMPRESA
+		 * Método que inserta, de manera transaccional, una tupla en la tabla PROVEEDOR
 		 * Adiciona entradas al log de la aplicación
-		 * @param nombre - El nombre de la empresa
+		 * @param nombre - El nombre de la PROVEEDOR
 		 * @return El objeto Empresa adicionado. null si ocurre alguna Excepción
 		 */
 		public Proveedor adicionarProveedor(long nit, String nombre, long idSucursal) 
@@ -1868,7 +1869,7 @@ import uniandes.isis2304.superAndes.negocio.Supermercado;
 			}
 			catch (Exception e)
 			{
-				//        	e.printStackTrace();
+				        	e.printStackTrace();
 				log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
 				return null;
 			}
@@ -1975,7 +1976,7 @@ import uniandes.isis2304.superAndes.negocio.Supermercado;
 		 */
 		public Proveedor darProveedorPorNit (long nit)
 		{
-			return sqlProveedor.darProveedorPorId (pmf.getPersistenceManager(), nit);
+			return sqlProveedor.darProveedorPorNit (pmf.getPersistenceManager(), nit);
 		}
 	
 		/* ****************************************************************

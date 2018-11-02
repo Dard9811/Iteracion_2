@@ -123,7 +123,7 @@ public class Proveedor implements VOProveedor
 	 */
 	public String toString() 
 	{
-		return "Empresa [nit=" + nit + ", nombre=" + nombre + ", idSucursal=" + idSucursal + "]";
+		return "Proveedor [nit=" + nit + ", nombre=" + nombre + ", idSucursal=" + idSucursal + "]";
 	}
 	
 
