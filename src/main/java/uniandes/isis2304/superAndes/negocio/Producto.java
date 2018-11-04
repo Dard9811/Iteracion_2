@@ -59,17 +59,7 @@ public class Producto implements VOProducto
 	 * El local de ventas de la sucursal
 	 */
 	private String especificacion_empacado;
-	
-	/**
-	 * El local de ventas de la sucursal
-	 */
-	private long idBodega;
-	
-	/**
-	 * El local de ventas de la sucursal
-	 */
-	private long idEstante;
-	
+		
 	/**
 	 * El local de ventas de la sucursal
 	 */
@@ -93,8 +83,6 @@ public class Producto implements VOProducto
 		this.cantidad_presentacion = 0;
 		this.unidad_medida = "";
 		this.especificacion_empacado = "";
-		this.idBodega = 0;
-		this.idEstante = 0;
 		this.idProveedor = 0;
 		
 	}
@@ -105,7 +93,7 @@ public class Producto implements VOProducto
 	 * @param local_ventas - El nombre del sucursal
 	 * @param segmentacion_mercado - La sucursal del sucursal
 	 */
-	public Producto(String codigo_barras, String nombre, String marca, String categoria, int precio_unitario, int precio_medida, String presentacion, int cantidad_presentacion, String unidad_medida, String especificacion_empacado, long idBodega, long idEstante, long idProveedor) 
+	public Producto(String codigo_barras, String nombre, String marca, String categoria, long precio_unitario, long precio_medida, String presentacion, long cantidad_presentacion, String unidad_medida, String especificacion_empacado, long idProveedor) 
 	{
 		this.codigo_barras = codigo_barras;
 		this.nombre = nombre;
@@ -117,8 +105,6 @@ public class Producto implements VOProducto
 		this.cantidad_presentacion = cantidad_presentacion;
 		this.unidad_medida = unidad_medida;
 		this.especificacion_empacado = especificacion_empacado;
-		this.idBodega = idBodega;
-		this.idEstante = idEstante;
 		this.idProveedor = idProveedor;
 	}
 
@@ -158,7 +144,7 @@ public class Producto implements VOProducto
 		return precio_unitario;
 	}
 
-	public void setPrecio_unitario(int precio_unitario) {
+	public void setPrecio_unitario(long precio_unitario) {
 		this.precio_unitario = precio_unitario;
 	}
 
@@ -166,7 +152,7 @@ public class Producto implements VOProducto
 		return precio_medida;
 	}
 
-	public void setPrecio_medida(int precio_medida) {
+	public void setPrecio_medida(long precio_medida) {
 		this.precio_medida = precio_medida;
 	}
 
@@ -182,7 +168,7 @@ public class Producto implements VOProducto
 		return cantidad_presentacion;
 	}
 
-	public void setCantidad_presentacion(int cantidad_presentacion) {
+	public void setCantidad_presentacion(long cantidad_presentacion) {
 		this.cantidad_presentacion = cantidad_presentacion;
 	}
 
@@ -202,22 +188,6 @@ public class Producto implements VOProducto
 		this.especificacion_empacado = especificacion_empacado;
 	}
 
-	public long getIdBodega() {
-		return idBodega;
-	}
-
-	public void setIdBodega(long idBodega) {
-		this.idBodega = idBodega;
-	}
-
-	public long getIdEstante() {
-		return idEstante;
-	}
-
-	public void setIdEstante(long idEstante) {
-		this.idEstante = idEstante;
-	}
-
 	public long getIdProveedor() {
 		return idProveedor;
 	}
@@ -232,7 +202,7 @@ public class Producto implements VOProducto
 	@Override
 	public String toString() 
 	{
-		return "Sucursal [id=" + codigo_barras + ", nombre=" + nombre + ", marca=" + marca + ", categoria=" + categoria + ", precio_unitario=" + precio_unitario + ", precio_medida=" + precio_medida + ", presentación=" + presentacion + ", cantidad_presentación="+ cantidad_presentacion + ", unidad_medida=" + unidad_medida + ", especificación_empacado=" + especificacion_empacado + ", bodega=" + idBodega + ", estante=" + idEstante + ", proveedor=" + idProveedor + "]";
+		return "Sucursal [id=" + codigo_barras + ", nombre=" + nombre + ", marca=" + marca + ", categoria=" + categoria + ", precio_unitario=" + precio_unitario + ", precio_medida=" + precio_medida + ", presentación=" + presentacion + ", cantidad_presentación="+ cantidad_presentacion + ", unidad_medida=" + unidad_medida + ", especificación_empacado=" + especificacion_empacado + ", bodega=" + ", proveedor=" + idProveedor + "]";
 	}
 
 

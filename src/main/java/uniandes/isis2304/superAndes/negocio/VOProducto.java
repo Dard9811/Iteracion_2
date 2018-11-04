@@ -40,10 +40,6 @@ public interface VOProducto
 	
 	public String getEspecificacion_empacado();
 	
-	public long getIdBodega();
-	
-	public long getIdEstante();
-	
 	public long getIdProveedor();
 	
 	/**

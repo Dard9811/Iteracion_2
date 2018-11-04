@@ -47,10 +47,10 @@ class SQLProducto
 	 * @param pm - El manejador de persistencia
 	 * @return EL número de tuplas insertadas
 	 */
-	public long adicionarProducto (PersistenceManager pm, String codigo_barras, String nombre, String marca, String categoria, int precio_unitario, int precio_medida, String presentacion, int cantidad_presentacion, String unidad_medida, String especificacion_empacado, long idBodega, long idEstante, long idProveedor) 
+	public long adicionarProducto (PersistenceManager pm, String codigo_barras, String nombre, String marca, String categoria, long precio_unitario, long precio_medida, String presentacion, long cantidad_presentacion, String unidad_medida, String especificacion_empacado, long idProveedor) 
 	{
-        Query q = pm.newQuery(SQL, "INSERT INTO " + pp.darTablaProducto () + "(codigo_barras, nombre, marca, categoria, precio_unitario, precio_medida, presentacion, cantidad_presentacion, unidad_medida, especificacion_empacado, bodega, estante, proveedor) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-        q.setParameters(codigo_barras, nombre, marca, categoria, precio_unitario, precio_medida, presentacion, cantidad_presentacion, unidad_medida, especificacion_empacado, idBodega, idEstante, idProveedor);
+        Query q = pm.newQuery(SQL, "INSERT INTO " + pp.darTablaProducto () + "(codigo_barras, nombre, marca, categoria, precio_unitario, precio_medida, presentacion, cantidad_presentacion, unidad_medida, especificacion_empacado, proveedor) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        q.setParameters(codigo_barras, nombre, marca, categoria, precio_unitario, precio_medida, presentacion, cantidad_presentacion, unidad_medida, especificacion_empacado, idProveedor);
         return (long) q.executeUnique();
 	}
 

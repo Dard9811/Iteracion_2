@@ -247,7 +247,7 @@ public class InterfazSuperAndes extends JFrame implements ActionListener
         }        
         setJMenuBar ( menuBar );	
     }
-
+    
 	/* ****************************************************************
 	 * 			Métodos administrativos
 	 *****************************************************************/
@@ -379,10 +379,13 @@ public class InterfazSuperAndes extends JFrame implements ActionListener
 	
 	public void registrarProveedor()
 	{
-		long nit = 860554978;
+		long nit = Long.parseLong(JOptionPane.showInputDialog(this,"Ingrese el NIT: ", "SuperAndes", JOptionPane.QUESTION_MESSAGE));
+		String nombre = JOptionPane.showInputDialog(this,"Ingrese el nombre: ", "SuperAndes", JOptionPane.QUESTION_MESSAGE);
+		long sucursal = Long.parseLong(JOptionPane.showInputDialog(this,"Ingrese la sucursal de la cual es proveedor: ", "SuperAndes", JOptionPane.QUESTION_MESSAGE));
+
 		try 
 		{
-			VOProveedor nProv = superAndes.adicionarProveedor(nit, "Alpina", 1);
+			VOProveedor nProv = superAndes.adicionarProveedor(nit, nombre, sucursal);
 			String resultado = "Se registro el proveedor exitosamente.";
 			resultado += "\n" + nProv.toString();
 			panelDatos.actualizarInterfaz(resultado);
@@ -396,9 +399,21 @@ public class InterfazSuperAndes extends JFrame implements ActionListener
 	
 	public void registrarProducto()
 	{
+		String codigo_barras = JOptionPane.showInputDialog(this,"Ingrese el codigo de barras en hexadecimal: ", "SuperAndes", JOptionPane.QUESTION_MESSAGE);
+		String nombre = JOptionPane.showInputDialog(this,"Ingrese el nombre del producto: ", "SuperAndes", JOptionPane.QUESTION_MESSAGE);
+		String marca = JOptionPane.showInputDialog(this,"Ingrese la marca del producto: ", "SuperAndes", JOptionPane.QUESTION_MESSAGE);
+		String categoria = JOptionPane.showInputDialog(this,"Ingrese la categoria del producto: ", "SuperAndes", JOptionPane.QUESTION_MESSAGE);
+		long precioUnitario = Long.parseLong(JOptionPane.showInputDialog(this,"Ingrese el precio del producto: ", "SuperAndes", JOptionPane.QUESTION_MESSAGE));
+		long precioMedida = Long.parseLong(JOptionPane.showInputDialog(this,"Ingrese el precio por medida del producto: ", "SuperAndes", JOptionPane.QUESTION_MESSAGE));
+		String presentacion = JOptionPane.showInputDialog(this,"Ingrese la presentacion del producto: ", "SuperAndes", JOptionPane.QUESTION_MESSAGE);
+		long cantidadPresentacion = Long.parseLong(JOptionPane.showInputDialog(this,"Ingrese la cantidad que viene en la presentacion del producto: ", "SuperAndes", JOptionPane.QUESTION_MESSAGE));
+		String unidadMedida = JOptionPane.showInputDialog(this,"Ingrese la unidad de medida del producto: ", "SuperAndes", JOptionPane.QUESTION_MESSAGE);
+		String especificacionEmpacado = JOptionPane.showInputDialog(this,"Ingrese la especificacion de empacado del producto: ", "SuperAndes", JOptionPane.QUESTION_MESSAGE);
+		long proveedor = Long.parseLong(JOptionPane.showInputDialog(this,"Ingrese el nit del proveedor que distribuye el producto: ", "SuperAndes", JOptionPane.QUESTION_MESSAGE));		
+		
 		try 
 		{
-			VOProducto nProd = superAndes.adicionarProducto("2DED448F", "Leche Entera", "Alpina", "Perecederos", 2000, 2000, "Bolsa", 1, "ml", "Ninguna", 1 , 1, 860554978);
+			VOProducto nProd = superAndes.adicionarProducto(codigo_barras, nombre, marca, categoria, precioUnitario, precioMedida, presentacion, cantidadPresentacion, unidadMedida, especificacionEmpacado, proveedor);
 			String resultado = "Se registro el producto exitosamente.";
 			resultado += "\n" + nProd.toString();
 			panelDatos.actualizarInterfaz(resultado);
@@ -411,11 +426,16 @@ public class InterfazSuperAndes extends JFrame implements ActionListener
 	}
 	
 	
-	public void registrarCliente()
+	public void registrarPersonaNat()
 	{
+		long numDoc = Long.parseLong(JOptionPane.showInputDialog(this,"Ingrese el numero de documento: ", "SuperAndes", JOptionPane.QUESTION_MESSAGE));
+		String tipoDoc = JOptionPane.showInputDialog(this,"Ingrese las iniciales del tipo de documento en mayusculas: ", "SuperAndes", JOptionPane.QUESTION_MESSAGE);
+		String nombre = JOptionPane.showInputDialog(this,"Ingrese el nombre: ", "SuperAndes", JOptionPane.QUESTION_MESSAGE);
+		String correo = JOptionPane.showInputDialog(this,"Ingrese el correo: ", "SuperAndes", JOptionPane.QUESTION_MESSAGE);
+
 		try 
 		{
-			VOPersonaNat nPersonanat = superAndes.adicionarPersonaNat(1, "CC", "Juan", "juan@gmail.com");
+			VOPersonaNat nPersonanat = superAndes.adicionarPersonaNat(numDoc, tipoDoc, nombre, correo);
 			String resultado = "Se registro la persona natural exitosamente.";
 			resultado += "\n" + nPersonanat.toString();
 			panelDatos.actualizarInterfaz(resultado);
@@ -429,11 +449,37 @@ public class InterfazSuperAndes extends JFrame implements ActionListener
 	
 	public void registrarSucursal()
 	{
+		String localVentas = JOptionPane.showInputDialog(this,"Ingrese el nombre del local de ventas: ", "SuperAndes", JOptionPane.QUESTION_MESSAGE);
+		String segmentacionMercado = JOptionPane.showInputDialog(this,"Ingrese la segmentacion del mercado ", "SuperAndes", JOptionPane.QUESTION_MESSAGE);
+		String tamanioInstalacion = JOptionPane.showInputDialog(this,"Ingrese el tamaño del local de ventas: ", "SuperAndes", JOptionPane.QUESTION_MESSAGE);
+		long ciudad = Long.parseLong(JOptionPane.showInputDialog(this,"Ingrese el identificador de la ciudad: ", "SuperAndes", JOptionPane.QUESTION_MESSAGE));
+		long supermercado = Long.parseLong(JOptionPane.showInputDialog(this,"Ingrese el identificador del supermercado: ", "SuperAndes", JOptionPane.QUESTION_MESSAGE));
+
 		try 
 		{
-			VOSucursal nSuc = superAndes.adicionarSucursal( "Principal", "Canasta Familiar", "Grande", 1, 1);
+			VOSucursal nSuc = superAndes.adicionarSucursal( localVentas, segmentacionMercado, tamanioInstalacion, ciudad, supermercado);
 			String resultado = "Se registro la persona natural exitosamente.";
 			resultado += "\n" + nSuc.toString();
+			panelDatos.actualizarInterfaz(resultado);
+		} 
+		catch (Exception e) 
+		{
+			String resultado = generarMensajeError(e);
+			panelDatos.actualizarInterfaz(resultado);
+		}
+	}
+	
+	public void registrarBodega()
+	{
+		long espacio = Long.parseLong(JOptionPane.showInputDialog(this,"Ingrese el espacio de la bodega: ", "SuperAndes", JOptionPane.QUESTION_MESSAGE));
+		long idSucursal = Long.parseLong(JOptionPane.showInputDialog(this,"Ingrese el identificador de la sucursal: ", "SuperAndes", JOptionPane.QUESTION_MESSAGE));
+		long cantidadMin = Long.parseLong(JOptionPane.showInputDialog(this,"Ingrese la cantidad minima de productos que acepta la bodega: ", "SuperAndes", JOptionPane.QUESTION_MESSAGE));
+		
+		try 
+		{
+			VOBodega nBod = superAndes.adicionarBodega(espacio, idSucursal, cantidadMin);
+			String resultado = "Se registro la bodega exitosamente.";
+			resultado += "\n" + nBod.toString();
 			panelDatos.actualizarInterfaz(resultado);
 		} 
 		catch (Exception e) 

@@ -66,10 +66,10 @@ class SQLBodega
 	 * @param espacio - espacio de la bodega
 	 * @return EL número de tuplas insertadas
 	 */
-	public long adicionarBodega(PersistenceManager pm, long id, long espacio) 
+	public long adicionarBodega(PersistenceManager pm, long id, long espacio, long idSucursal, long cantidadMin) 
 	{
-        Query q = pm.newQuery(SQL, "INSERT INTO " + pp.darTablaBodega () + "(id, espacio) values (?, ?)");
-        q.setParameters(id, espacio);
+        Query q = pm.newQuery(SQL, "INSERT INTO " + pp.darTablaBodega () + "(id, espacio, idsucursal, cantidad_minima_prod) values (?, ?, ?, ?)");
+        q.setParameters(id, espacio, idSucursal, cantidadMin);
         return (long) q.executeUnique();
 	}
 

@@ -1,11 +1,11 @@
 {
 	"title": "SuperAndes",
 	"frameH": 600,
-	"frameW": 1000,
+	"frameW": 800,
 	"bannerPath": "./src/main/resources/config/logo.png",
 	"menuBar":
 	[
-		{ "menuTitle": "Req. Funcionales",
+		{ "menuTitle": "Req. Funcionales Iteación 1",
 		  "options":
 			[
 				{
@@ -18,174 +18,37 @@
 				},
 				{
 					"label": "RF3",
-					"event": "registrarCliente"
+					"event": "registrarPersonaNat"
 				},
 				{
 					"label": "RF4",
 					"event": "registrarSucursal"
+				},
+				{
+					"label": "RF5",
+					"event": "registrarBodega"
 				}							
 			]
 		},
-		{ "menuTitle": "Bodega",
+		{ "menuTitle": "Req. Funcionales Iteación 2",
 		  "options":
 			[
 				{
-					"label": "Listar",
-					"event": "listarBodega"
-				}
-			]
-		},		
-		{ "menuTitle": "Bodega-Producto",
-		  "options":
-			[
-				{
-					"label": "CRD Bodega-Producto",
-					"event": "demoBodega-Producto"
+					"label": "RF12",
+					"event": "registrarProveedor"
 				},
 				{
-					"label": "Eliminar Productos de bodegas",
-					"event": "demoElimProductoDeBodega"
-				}
-			]
-		},
-		{ "menuTitle": "Ciudad",
-		  "options":
-			[
-				{
-					"label": "CRD Ciudad",
-					"event": "demoCiudad"
+					"label": "RF13",
+					"event": "registrarProducto"
 				},
 				{
-					"label": "Listar",
-					"event": "listarCiudades"
+					"label": "RF14",
+					"event": "registrarCliente"
 				},
 				{
-					"label": "Mostrar ciudades",
-					"event": "mostrarListaCiudades"
-				}
-			]
-		},
-		{ "menuTitle": "Empresa",
-		  "options":
-			[
-				{
-					"label": "Listar",
-					"event": "listarEmpresa"
-				},
-				{
-					"label": "Cambiar ciudad",
-					"event": "demoCambiarCiudadBebedor"
-				},
-				{
-					"label": "Bebedor y cuántas visita realiza",
-					"event": "demoBebedoresYNumVisitasRealizadas"
-				},
-				{
-					"label": "Bebedores de una ciudad",
-					"event": "demoBebedoresDeCiudad"
-				},
-				{
-					"label": "Dar Bebedor Completo",
-					"event": "demoDarBebedorCompleto"
-				},
-				{
-					"label": "* Eliminar Bebedor y sus visitas 1",
-					"event": "demoEliminarBebedorYVisitas_v1"
-				},
-				{
-					"label": "* Eliminar Bebedor y sus visitas 2",
-					"event": "demoEliminarBebedorYVisitas_v2"
-				}
-			]
-		},
-		{ "menuTitle": "Empresa-Producto",
-		  "options":
-			[
-				{
-					"label": "CRD Empresa-Producto",
-					"event": "demoGustan"
-				}
-			]
-		},
-		{ "menuTitle": "Estante",
-		  "options":
-			[
-				{
-					"label": "Listar",
-					"event": "listarEstante"
-				}
-			]
-		},
-		{ "menuTitle": "Estante-Producto",
-		  "options":
-			[
-				{
-					"label": "CRD Estante-Producto",
-					"event": "demoVisitan"
-				}			
-			]
-		},
-		{ "menuTitle": "Orden De Pedido",
-		  "options":
-			[
-				{
-					"label": "CRD Orden De Pedido",
-					"event": "demoVisitan"
-				}			
-			]
-		},
-		{ "menuTitle": "Persona Natural",
-		  "options":
-			[
-				{
-					"label": "CRD Persona Natural",
-					"event": "demoVisitan"
-				}			
-			]
-		},		
-		{ "menuTitle": "Producto",
-		  "options":
-			[
-				{
-					"label": "Listar",
-					"event": "listarProducto"
-				}			
-			]
-		},		
-		{ "menuTitle": "Promoción",
-		  "options":
-			[
-				{
-					"label": "CRD Promoción",
-					"event": "demoVisitan"
-				}			
-			]
-		},
-		{ "menuTitle": "Proveedor",
-		  "options":
-			[
-				{
-					"label": "Listar",
-					"event": "listarProveedores"
-				}			
-			]
-		},
-		{ "menuTitle": "Sucursal",
-		  "options":
-			[
-				{
-					"label": "CRD Sucursal",
-					"event": "demoVisitan"
-				}			
-			]
-		},
-		{ "menuTitle": "Supermercado",
-		  "options":
-			[
-				{
-					"label": "CRD Supermercado",
-					"event": "demoVisitan"
-				}			
+					"label": "RF15",
+					"event": "registrarSucursal"
+				}							
 			]
 		},
 		{ "menuTitle": "Mantenimiento",

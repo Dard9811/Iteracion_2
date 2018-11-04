@@ -263,3 +263,36 @@ ORA-00904: "SEGMENTACION_MERCADO": identificador no válido
 17:14:31,890 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Adicionando sucursal: null
 17:16:05,025 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Adicionando sucursal: Principal
 17:16:05,208 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Adicionando sucursal: Sucursal [id=23, local_ventas=Principal, segmentacion_mercado=Canasta Familiar, tamanio_instalacion=Grande, idCiudad=1, idSupermercado=1]
+22:48:11,143 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Interfaz
+22:48:11,154 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se aplica configuración indicada en el archivo de configuración
+22:48:11,329 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Tablas BD
+23:45:30,222 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Interfaz
+23:45:30,241 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se aplica configuración indicada en el archivo de configuración
+23:45:30,463 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Tablas BD
+23:55:37,636 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Interfaz
+23:55:37,639 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se aplica configuración indicada en el archivo de configuración
+23:55:37,767 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Tablas BD
+00:08:40,795 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Interfaz
+00:08:40,797 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se aplica configuración indicada en el archivo de configuración
+00:08:40,853 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Tablas BD
+00:09:14,763 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Adicionando proveedor: colombina
+00:09:15,535 (AWT-EventQueue-0) ERROR [uniandes.isis2304.superAndes.persistencia.PersistenciaSuperAndes] - Exception : Error con la ejecucion de Query de SQL "INSERT INTO PRODUCTO(nit, nombre, sucursal) values (?, ?, ?)".
+ORA-00904: "SUCURSAL": identificador no válido
+
+00:09:15,571 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Adicionando proveedor: null
+00:28:04,980 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Interfaz
+00:28:04,982 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se aplica configuración indicada en el archivo de configuración
+00:28:05,038 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Tablas BD
+00:28:21,033 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Adicionando proveedor: colombina
+00:28:21,722 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Adicionando proveedor: Proveedor [nit=55, nombre=colombina, idSucursal=1]
+01:00:08,017 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Interfaz
+01:00:08,019 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se aplica configuración indicada en el archivo de configuración
+01:00:08,063 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Tablas BD
+01:00:26,176 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Interfaz
+01:00:26,177 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se aplica configuración indicada en el archivo de configuración
+01:00:26,351 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Tablas BD
+01:00:54,267 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Adicionando bodega: 21
+01:00:55,795 (AWT-EventQueue-0) ERROR [uniandes.isis2304.superAndes.persistencia.PersistenciaSuperAndes] - Exception : Error con la ejecucion de Query de SQL "INSERT INTO BODEGA(id, espacio, idsucursal, cantidad_minima_prod) values (?, ?, ?, ?)".
+ORA-01502: el índice 'ISIS2304B291820.BODEGA_PK' o una partición del mismo están en estado inutilizable
+
+01:00:55,827 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Adicionando bodega: null

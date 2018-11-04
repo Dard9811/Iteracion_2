@@ -80,10 +80,10 @@ public class SuperAndes
 	 * 			Métodos para manejar las BODEGA
 	 *****************************************************************/
 	
-	public Bodega adicionarBodega(long espacio)
+	public Bodega adicionarBodega(long espacio, long idSucursal, long cantidadMin)
 	{
         log.info ("Adicionando bodega: " + espacio);
-        Bodega bodega = pp.adicionarBodega(espacio);		
+        Bodega bodega = pp.adicionarBodega(espacio, idSucursal, cantidadMin);		
         log.info ("Adicionando bodega: " + bodega);
         return bodega;
 	}
@@ -364,7 +364,7 @@ public class SuperAndes
 	 * @param nombre - El nombre del ciudad
 	 * @return El objeto CIUDAD adicionado. null si ocurre alguna Excepción
 	 */
-	public Estante adicionarEstante (int espacio, long idBodega)
+	public Estante adicionarEstante (long espacio, long idBodega)
 	{
         log.info ("Adicionando estante: " + idBodega);
         Estante estante = pp.adicionarEstante (espacio, idBodega);
@@ -516,10 +516,10 @@ public class SuperAndes
 	 * @param nombre - El nombre del ciudad
 	 * @return El objeto CIUDAD adicionado. null si ocurre alguna Excepción
 	 */
-	public Producto adicionarProducto (String codigo_barras, String nombre, String marca, String categoria, int precio_unitario, int precio_medida, String presentacion, int cantidad_presentacion, String unidad_medida, String especificacion_empacado, long idBodega, long idEstante, long idProveedor)
+	public Producto adicionarProducto (String codigo_barras, String nombre, String marca, String categoria, long precio_unitario, long precio_medida, String presentacion, long cantidad_presentacion, String unidad_medida, String especificacion_empacado, long idProveedor)
 	{
         log.info ("Adicionando producto: " + codigo_barras);
-        Producto producto = pp.adicionarProducto (codigo_barras, nombre, marca, categoria, precio_unitario, precio_medida, presentacion, cantidad_presentacion, unidad_medida, especificacion_empacado, idBodega, idEstante, idProveedor);
+        Producto producto = pp.adicionarProducto (codigo_barras, nombre, marca, categoria, precio_unitario, precio_medida, presentacion, cantidad_presentacion, unidad_medida, especificacion_empacado, idProveedor);
         log.info ("Adicionando producto: " + producto);
         return producto;
 	}
@@ -1001,6 +1001,8 @@ public class SuperAndes
         log.info ("Generando los VO de Ventas: " + voVenta.size() + " ventas existentes");
        return voVenta;
 	}
+	
+	//Aqui voy
 	
 	/* ****************************************************************
 	 * 			Métodos para administración
