@@ -47,10 +47,10 @@ class SQLSucursal
 	 * @param pm - El manejador de persistencia
 	 * @return EL número de tuplas insertadas
 	 */
-	public long adicionarSucursal (PersistenceManager pm, long idSucursal, String local_ventas, String segmentacion_mercado, String productos_ofrecidos, String tamanio_instalacion, long idCiudad, long idSupermercado) 
+	public long adicionarSucursal (PersistenceManager pm, long idSucursal, String local_ventas, String segmentacion_mercado, String tamanio_instalacion, long idCiudad, long idSupermercado) 
 	{
-        Query q = pm.newQuery(SQL, "INSERT INTO " + pp.darTablaSucursal () + "(id, local_ventas, segmentacion_mercado, productos_ofrecidos, tamanio_instalacion, ciudad, supermercado) values (?, ?, ?, ?, ?, ?, ?)");
-        q.setParameters(idSucursal, local_ventas, segmentacion_mercado,productos_ofrecidos, tamanio_instalacion, idCiudad, idSupermercado);
+        Query q = pm.newQuery(SQL, "INSERT INTO " + pp.darTablaSucursal () + "(id, local_ventas, segmentacion_mercado, tamanio_instalacion, ciudad, supermercado) values (?, ?, ?, ?, ?, ?)");
+        q.setParameters(idSucursal, local_ventas, segmentacion_mercado, tamanio_instalacion, idCiudad, idSupermercado);
         return (long) q.executeUnique();
 	}
 

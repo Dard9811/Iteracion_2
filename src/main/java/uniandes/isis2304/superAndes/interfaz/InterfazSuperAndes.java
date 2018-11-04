@@ -56,10 +56,8 @@ import uniandes.isis2304.superAndes.negocio.VOPromocion;
 import uniandes.isis2304.superAndes.negocio.VOProveedor;
 import uniandes.isis2304.superAndes.negocio.VOSucursal;
 import uniandes.isis2304.superAndes.negocio.VOBodega;
-import uniandes.isis2304.superAndes.negocio.VONivelDeReorden;
 import uniandes.isis2304.superAndes.negocio.VOPersonaNat;
 import uniandes.isis2304.superAndes.negocio.VOProducto;
-import uniandes.isis2304.superAndes.negocio.VOProductoSucursal;
 import uniandes.isis2304.superAndes.negocio.VOSupermercado;
 
 /**
@@ -433,7 +431,7 @@ public class InterfazSuperAndes extends JFrame implements ActionListener
 	{
 		try 
 		{
-			VOSucursal nSuc = superAndes.adicionarSucursal( "Principal", "Canasta Familiar", "Canasta Familiar", "Grande", 1, 1);
+			VOSucursal nSuc = superAndes.adicionarSucursal( "Principal", "Canasta Familiar", "Grande", 1, 1);
 			String resultado = "Se registro la persona natural exitosamente.";
 			resultado += "\n" + nSuc.toString();
 			panelDatos.actualizarInterfaz(resultado);
@@ -563,21 +561,6 @@ public class InterfazSuperAndes extends JFrame implements ActionListener
 	/* ****************************************************************
 	 * 			Métodos privados para la presentación de resultados y otras operaciones
 	 *****************************************************************/
-    /**
-     * Genera una cadena de caracteres con la lista de los tipos de bebida recibida: una línea por cada tipo de bebida
-     * @param lista - La lista con los tipos de bebida
-     * @return La cadena con una líea para cada tipo de bebida recibido
-     */
-    private String listarTiposBebida(List<VOProductoSucursal> lista) 
-    {
-    	String resp = "Los tipos de bebida existentes son:\n";
-    	int i = 1;
-        for (VOProductoSucursal tb : lista)
-        {
-        	resp += i++ + ". " + tb.toString() + "\n";
-        }
-        return resp;
-	}
     
     private String listarBodega (List<VOBodega> lista) 
     {
@@ -692,22 +675,6 @@ public class InterfazSuperAndes extends JFrame implements ActionListener
     	String resp = "Los gustan existentes son:\n";
     	int i = 1;
         for (VOBodega serv : lista)
-        {
-        	resp += i++ + ". " + serv.toString() + "\n";
-        }
-        return resp;
-	}
-
-    /**
-     * Genera una cadena de caracteres con la lista de sirven recibida: una línea por cada sirven
-     * @param lista - La lista con los sirven
-     * @return La cadena con una líea para cada sirven recibido
-     */
-    private String listarSirven (List<VONivelDeReorden> lista) 
-    {
-    	String resp = "Los sirven existentes son:\n";
-    	int i = 1;
-        for (VONivelDeReorden serv : lista)
         {
         	resp += i++ + ". " + serv.toString() + "\n";
         }

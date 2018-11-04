@@ -26,11 +26,6 @@ public class Sucursal implements VOSucursal
 	private String segmentacion_mercado;
 	
 	/**
-	 * El local de ventas de la sucursal
-	 */
-	private String productos_ofrecidos;
-	
-	/**
 	 * La segmentación del mercado de la sucursal
 	 */
 	private String tamanio_instalacion;
@@ -57,7 +52,6 @@ public class Sucursal implements VOSucursal
 		this.id = 0;
 		this.local_ventas = "";
 		this.segmentacion_mercado = "";
-		this.productos_ofrecidos = "";
 		this.tamanio_instalacion = "";
 		this.idCiudad = 0;
 		this.idSupermercado = 0;
@@ -70,12 +64,11 @@ public class Sucursal implements VOSucursal
 	 * @param local_ventas - El nombre del sucursal
 	 * @param segmentacion_mercado - La sucursal del sucursal
 	 */
-	public Sucursal(long id, String local_ventas, String segmentacion_mercado, String productos_ofrecidos, String tamanio_instalacion, long idCiudad, long idSupermercado) 
+	public Sucursal(long id, String local_ventas, String segmentacion_mercado, String tamanio_instalacion, long idCiudad, long idSupermercado) 
 	{
 		this.id = id;
 		this.local_ventas = local_ventas;
 		this.segmentacion_mercado = segmentacion_mercado;
-		this.productos_ofrecidos = productos_ofrecidos;
 		this.tamanio_instalacion = tamanio_instalacion;
 		this.idCiudad = idCiudad;
 		this.idSupermercado = idSupermercado;
@@ -105,14 +98,6 @@ public class Sucursal implements VOSucursal
 
 	public void setSegmentacion_mercado(String segmentacion_mercado) {
 		this.segmentacion_mercado = segmentacion_mercado;
-	}
-
-	public String getProductos_ofrecidos() {
-		return productos_ofrecidos;
-	}
-
-	public void setProductos_ofrecidos(String productos_ofrecidos) {
-		this.productos_ofrecidos = productos_ofrecidos;
 	}
 
 	public String getTamanio_instalacion() {
@@ -145,7 +130,7 @@ public class Sucursal implements VOSucursal
 	@Override
 	public String toString() 
 	{
-		return "Sucursal [id=" + id + ", local_ventas=" + local_ventas + ", segmentacion_mercado=" + segmentacion_mercado + ", productos_ofrecidos=" + productos_ofrecidos + ", tamanio_instalacion=" + tamanio_instalacion + ", idCiudad=" + idCiudad + ", idSupermercado=" + idSupermercado + "]";
+		return "Sucursal [id=" + id + ", local_ventas=" + local_ventas + ", segmentacion_mercado=" + segmentacion_mercado + ", tamanio_instalacion=" + tamanio_instalacion + ", idCiudad=" + idCiudad + ", idSupermercado=" + idSupermercado + "]";
 	}
 
 

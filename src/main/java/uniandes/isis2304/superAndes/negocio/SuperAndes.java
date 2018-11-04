@@ -625,55 +625,6 @@ public class SuperAndes
 	}
 	
 	/* ****************************************************************
-	 * 			Métodos para manejar los PRODUCTO SUCURSAL
-	 *****************************************************************/
-	
-	/**
-	 * Adiciona de manera persistente un producto sucursal 
-	 * Adiciona entradas al log de la aplicación
-	 * @param nombre - El nombre del producto sucursal
-	 * @return El objeto ProductoSucursal adicionado. null si ocurre alguna Excepción
-	 */
-	public ProductoSucursal adicionarProductoSucursal (long idSucursal, String codProducto)
-	{
-        log.info ("Adicionando producto sucursal: " + idSucursal + " y codProducto: " + codProducto);
-        ProductoSucursal productoSucursal = pp.adicionarProductoSucursal(idSucursal, codProducto);	
-        log.info ("Adicionando producto sucursal: " + productoSucursal);
-        return productoSucursal;
-	}
-
-	
-	/**
-	 * Encuentra todos los PRODUCTO SUCURSAL en SuperAndes
-	 * Adiciona entradas al log de la aplicación
-	 * @return Una lista de objetos ProductoSucursal con todos los PRODUCTO SUCURSAL que conoce la aplicación, llenos con su información básica
-	 */
-	public List<ProductoSucursal> darProductoSucursal ()
-	{
-		log.info ("Consultando PRODUCTO SUCURSAL");
-        List<ProductoSucursal> productosSucursal = pp.darProductosSucursales();	
-        log.info ("Consultando PRODUCTO SUCURSAL: " + productosSucursal.size() + " existentes");
-        return productosSucursal;
-	}
-
-	/**
-	 * Encuentra todos los PRODUCTO SUCURSAL en SuperAndes y los devuelve como una lista de VOProductoSucursal
-	 * Adiciona entradas al log de la aplicación
-	 * @return Una lista de objetos VOProductoSucursal con todos los PRODUCTO SUCURSAL que conoce la aplicación, llenos con su información básica
-	 */
-	public List<VOProductoSucursal> darVOproductosSucursal ()
-	{
-		log.info ("Generando los VO de PRODUCTO SUCURSAL");        
-        List<VOProductoSucursal> voTipos = new LinkedList<VOProductoSucursal> ();
-        for (ProductoSucursal tb : pp.darProductosSucursales())
-        {
-        	voTipos.add (tb);
-        }
-        log.info ("Generando los VO de PRODUCTO SUCURSAL: " + voTipos.size() + " existentes");
-        return voTipos;
-	}
-	
-	/* ****************************************************************
 	 * 			Métodos para manejar las PROMOCIONES
 	 *****************************************************************/
 	
@@ -831,10 +782,10 @@ public class SuperAndes
 	 * @param nombre - El nombre del ciudad
 	 * @return El objeto CIUDAD adicionado. null si ocurre alguna Excepción
 	 */
-	public Sucursal adicionarSucursal (String local_ventas, String segmentacion_mercado, String productos_ofrecidos, String tamanio_instalacion, long idCiudad, long idSupermercado)
+	public Sucursal adicionarSucursal (String local_ventas, String segmentacion_mercado, String tamanio_instalacion, long idCiudad, long idSupermercado)
 	{
         log.info ("Adicionando sucursal: " + local_ventas);
-        Sucursal sucursal = pp.adicionarSucursal (local_ventas,segmentacion_mercado, productos_ofrecidos, tamanio_instalacion, idCiudad, idSupermercado);
+        Sucursal sucursal = pp.adicionarSucursal (local_ventas,segmentacion_mercado, tamanio_instalacion, idCiudad, idSupermercado);
         log.info ("Adicionando sucursal: " + sucursal);
         return sucursal;
 	}

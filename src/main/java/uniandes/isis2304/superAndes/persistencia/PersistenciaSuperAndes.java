@@ -21,15 +21,11 @@ import uniandes.isis2304.superAndes.negocio.Bodega;
 import uniandes.isis2304.superAndes.negocio.BodegaProducto;
 import uniandes.isis2304.superAndes.negocio.Cuidad;
 import uniandes.isis2304.superAndes.negocio.Empresa;
-import uniandes.isis2304.superAndes.negocio.EmpresaProducto;
 import uniandes.isis2304.superAndes.negocio.Estante;
 import uniandes.isis2304.superAndes.negocio.EstanteProducto;
-import uniandes.isis2304.superAndes.negocio.NivelDeReorden;
 import uniandes.isis2304.superAndes.negocio.OrdenDePedido;
 import uniandes.isis2304.superAndes.negocio.PersonaNat;
-import uniandes.isis2304.superAndes.negocio.PersonanatProducto;
 import uniandes.isis2304.superAndes.negocio.Producto;
-import uniandes.isis2304.superAndes.negocio.ProductoSucursal;
 import uniandes.isis2304.superAndes.negocio.Promocion;
 import uniandes.isis2304.superAndes.negocio.Proveedor;
 import uniandes.isis2304.superAndes.negocio.Sucursal;
@@ -104,11 +100,6 @@ import uniandes.isis2304.superAndes.negocio.Supermercado;
 		private SQLEmpresa sqlEmpresa;
 	
 		/**
-		 * Atributo para el acceso a la tabla EMPRESA PRODUCTO de la base de datos
-		 */
-		private SQLEmpresaProducto sqlEmpresaProducto;
-	
-		/**
 		 * Atributo para el acceso a la tabla ESTANTE de la base de datos
 		 */
 		private SQLEstante sqlEstante;
@@ -117,11 +108,6 @@ import uniandes.isis2304.superAndes.negocio.Supermercado;
 		 * Atributo para el acceso a la tabla ESTANTE de la base de datos
 		 */
 		private SQLEstanteProducto sqlEstanteProducto;
-	
-		/**
-		 * Atributo para el acceso a la tabla NIVEL DE REORDEN de la base de datos
-		 */
-		private SQLNivelDeReorden sqlNivelDeReorden;
 	
 		/**
 		 * Atributo para el acceso a la tabla ORDEN DE PEDIDO de la base de datos
@@ -134,19 +120,9 @@ import uniandes.isis2304.superAndes.negocio.Supermercado;
 		private SQLPersonaNat sqlPersonaNat;
 	
 		/**
-		 * Atributo para el acceso a la tabla PERSONANAT PRODUCTO de la base de datos
-		 */
-		private SQLPersonanatProducto sqlPersonanatProducto;
-	
-		/**
 		 * Atributo para el acceso a la tabla PRODUCTO de la base de datos
 		 */
 		private SQLProducto sqlProducto;
-	
-		/**
-		 * Atributo para el acceso a la tabla PRODUCTO SUCURSAL de la base de datos
-		 */
-		private SQLProductoSucursal sqlProductoSucursal;
 	
 		/**
 		 * Atributo para el acceso a la tabla PROMOCION de la base de datos
@@ -279,15 +255,11 @@ import uniandes.isis2304.superAndes.negocio.Supermercado;
 			sqlBodegaProducto = new SQLBodegaProducto(this);
 			sqlCiudad = new SQLCiudad(this);
 			sqlEmpresa = new SQLEmpresa(this);
-			sqlEmpresaProducto = new SQLEmpresaProducto(this);
 			sqlEstante= new SQLEstante(this);
 			sqlEstanteProducto = new SQLEstanteProducto(this);
-			sqlNivelDeReorden = new SQLNivelDeReorden(this);
 			sqlOrdenDePedido = new SQLOrdenDePedido(this);
 			sqlPersonaNat = new SQLPersonaNat(this);		
-			sqlPersonanatProducto = new SQLPersonanatProducto(this);
 			sqlProducto = new SQLProducto(this);
-			sqlProductoSucursal = new SQLProductoSucursal(this);
 			sqlPromocion = new SQLPromocion(this);
 			sqlProveedor = new SQLProveedor(this);
 			sqlSucursal = new SQLSucursal(this);
@@ -854,110 +826,6 @@ import uniandes.isis2304.superAndes.negocio.Supermercado;
 			return sqlEmpresa.darEmpresaPorId (pmf.getPersistenceManager(), nit);
 		}
 	
-	
-		/* ****************************************************************
-		 * 			Métodos para manejar las EMPRESAS PRODUCTO
-		 *****************************************************************/
-	
-		/**
-		 * Método que inserta, de manera transaccional, una tupla en la tabla EMPRESA
-		 * Adiciona entradas al log de la aplicación
-		 * @param codProducto - El nombre de la empresa
-		 * @return El objeto Empresa adicionado. null si ocurre alguna Excepción
-		 */
-		public EmpresaProducto adicionarEmpresaProducto(long nitEmpresa, String codProducto) 
-		{
-			PersistenceManager pm = pmf.getPersistenceManager();
-			Transaction tx=pm.currentTransaction();
-			try
-			{
-				tx.begin();
-				long tuplasInsertadas = sqlEmpresaProducto.adicionarEmpresaProducto(pm, nitEmpresa, codProducto);
-				tx.commit();
-	
-				log.trace ("Inserción de Empresa: " + codProducto + ": " + tuplasInsertadas + " tuplas insertadas");
-	
-				return new EmpresaProducto(nitEmpresa, codProducto);
-			}
-			catch (Exception e)
-			{
-				//        	e.printStackTrace();
-				log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
-				return null;
-			}
-			finally
-			{
-				if (tx.isActive())
-				{
-					tx.rollback();
-				}
-				pm.close();
-			}
-		}
-	
-		/**
-		 * Método que elimina, de manera transaccional, una tupla en la tabla EMPRESA, dado el nombre de la empresa
-		 * Adiciona entradas al log de la aplicación
-		 * @param nombreBar - El nombre del bar
-		 * @return El número de tuplas eliminadas. -1 si ocurre alguna Excepción
-		 */
-		public long eliminarEmpresaProductoPorNIT (long nit) 
-		{
-			PersistenceManager pm = pmf.getPersistenceManager();
-			Transaction tx=pm.currentTransaction();
-			try
-			{
-				tx.begin();
-				long resp = sqlEmpresaProducto.eliminarEmpresaProductoPorNIT(pm, nit);
-				tx.commit();
-	
-				return resp;
-			}
-			catch (Exception e)
-			{
-				//        	e.printStackTrace();
-				log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
-				return -1;
-			}
-			finally
-			{
-				if (tx.isActive())
-				{
-					tx.rollback();
-				}
-				pm.close();
-			}
-		}
-	
-		/**
-		 * Método que consulta todas las tuplas en la tabla BAR
-		 * @return La lista de objetos BAR, construidos con base en las tuplas de la tabla BAR
-		 */
-		public List<EmpresaProducto> darEmpresasProducto ()
-		{
-			return sqlEmpresaProducto.darEmpresasProducto(pmf.getPersistenceManager());
-		}
-	
-		/**
-		 * Método que consulta todas las tuplas en la tabla BAR que tienen el nombre dado
-		 * @param nombreBar - El nombre del bar
-		 * @return La lista de objetos BAR, construidos con base en las tuplas de la tabla BAR
-		 */
-		public List<EmpresaProducto> darEmpresasProductoPorNIT (long nit)
-		{
-			return sqlEmpresaProducto.darEmpresasProductoPorNit(pmf.getPersistenceManager(), nit);
-		}
-	
-		/**
-		 * Método que consulta todas las tuplas en la tabla BAR que tienen el identificador dado
-		 * @param idBar - El identificador del bar
-		 * @return El objeto BAR, construido con base en la tuplas de la tabla BAR, que tiene el identificador dado
-		 */
-		public List<EmpresaProducto> darEmpresaProductoPorCodProducto (String codProducto)
-		{
-			return sqlEmpresaProducto.darEmpresasProductoPorCodProducto(pmf.getPersistenceManager(), codProducto);
-		}
-	
 		/* ****************************************************************
 		 * 			Métodos para manejar la relación ESTANTE
 		 *****************************************************************/
@@ -1125,92 +993,7 @@ import uniandes.isis2304.superAndes.negocio.Supermercado;
 		{
 			return sqlEstanteProducto.darEstantesProductos(pmf.getPersistenceManager());
 		}
-	
-		/* ****************************************************************
-		 * 			Métodos para manejar la relación NIVEL DE REORDEN
-		 *****************************************************************/
-	
-		/**
-		 * Método que inserta, de manera transaccional, una tupla en la tabla NivelDeReorden
-		 * Adiciona entradas al log de la aplicación
-		 * @param idBodega - El identificador del bar - Debe haber un bar con ese identificador
-		 * @param idSucursal - El identificador de la bebida - Debe haber una bebida con ese identificador
-		 * @param cantidadMin - El hororio en que se sirve (DIURNO, NOCTURNO, TODOS)
-		 * @return Un objeto NivelDeReorden con la información dada. Null si ocurre alguna Excepción
-		 */
-		public NivelDeReorden adicionarNivelDeReorden (long idBodega, long idSucursal, long cantidadMin, long cantidadRecompra) 
-		{
-			PersistenceManager pm = pmf.getPersistenceManager();
-			Transaction tx=pm.currentTransaction();
-			try
-			{
-				tx.begin();
-				long tuplasInsertadas = sqlNivelDeReorden.adicionarNivelDeReorden (pmf.getPersistenceManager(), idBodega, idSucursal, cantidadMin, cantidadRecompra);
-				tx.commit();
-	
-				log.trace ("Inserción de Bodega: [" + idBodega + ", " + idSucursal + "]. " + tuplasInsertadas + " tuplas insertadas");
-	
-				return new NivelDeReorden (idBodega, idSucursal, cantidadMin, cantidadRecompra);
-			}
-			catch (Exception e)
-			{
-				//        	e.printStackTrace();
-				log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
-				return null;
-			}
-			finally
-			{
-				if (tx.isActive())
-				{
-					tx.rollback();
-				}
-				pm.close();
-			}
-		}
-	
-		/**
-		 * Método que elimina, de manera transaccional, una tupla en la tabla NivelDeReorden, dados los identificadores de bar y bebida
-		 * @param idBar - El identificador del bar
-		 * @param idBebida - El identificador de la bebida
-		 * @return El número de tuplas eliminadas. -1 si ocurre alguna Excepción
-		 */
-		public long eliminarNivelDeReorden (long idBar, long idBebida) 
-		{
-			PersistenceManager pm = pmf.getPersistenceManager();
-			Transaction tx=pm.currentTransaction();
-			try
-			{
-				tx.begin();
-				long resp = sqlNivelDeReorden.eliminarNivelDeReorden (pm, idBar, idBebida);	            
-				tx.commit();
-	
-				return resp;
-			}
-			catch (Exception e)
-			{
-				//	        	e.printStackTrace();
-				log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
-				return -1;
-			}
-			finally
-			{
-				if (tx.isActive())
-				{
-					tx.rollback();
-				}
-				pm.close();
-			}
-		}
-	
-		/**
-		 * Método que consulta todas las tuplas en la tabla NivelDeReorden
-		 * @return La lista de objetos NivelDeReorden, construidos con base en las tuplas de la tabla NivelDeReorden
-		 */
-		public List<NivelDeReorden> darNivelDeReorden ()
-		{
-			return sqlNivelDeReorden.darNivelDeReorden (pmf.getPersistenceManager());
-		}
-	
+
 		/* ****************************************************************
 		 * 			Métodos para manejar la relación ORDEN DE PEDIDO
 		 *****************************************************************/
@@ -1424,141 +1207,6 @@ import uniandes.isis2304.superAndes.negocio.Supermercado;
 		}
 	
 		/* ****************************************************************
-		 * 			Métodos para manejar los PERSONANAT PRODUCTO
-		 *****************************************************************/
-	
-		/**
-		 * Método que inserta, de manera transaccional, una tupla en la tabla ProductoSucursal
-		 * Adiciona entradas al log de la aplicación
-		 * @param nombre - El nombre del tipo de bebida
-		 * @return El objeto ProductoSucursal adicionado. null si ocurre alguna Excepción
-		 */
-		public PersonanatProducto adicionarPersonanatProducto(long personanatNumDoc, String personanatTipoDoc, String codProducto)
-		{
-			PersistenceManager pm = pmf.getPersistenceManager();
-			Transaction tx=pm.currentTransaction();
-			try
-			{
-				tx.begin();
-				long tuplasInsertadas = sqlPersonanatProducto.adicionarPersonanatProducto(pm, personanatNumDoc, personanatTipoDoc, codProducto);
-				tx.commit();
-	
-				log.trace ("Inserción de prodcuto sucursal: " + codProducto + ": " + tuplasInsertadas + " tuplas insertadas");
-	
-				return new PersonanatProducto(personanatNumDoc, personanatTipoDoc, codProducto);
-			}
-			catch (Exception e)
-			{
-				//        	e.printStackTrace();
-				log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
-				return null;
-			}
-			finally
-			{
-				if (tx.isActive())
-				{
-					tx.rollback();
-				}
-				pm.close();
-			}
-		}
-	
-		/**
-		 * Método que elimina, de manera transaccional, una tupla en la tabla ProductoSucursal, dado el nombre del tipo de bebida
-		 * Adiciona entradas al log de la aplicación
-		 * @param nombre - El nombre del tipo de bebida
-		 * @return El número de tuplas eliminadas. -1 si ocurre alguna Excepción
-		 */
-		public long eliminarPersonanatProductoPorNombre (String nombre) 
-		{
-			PersistenceManager pm = pmf.getPersistenceManager();
-			Transaction tx=pm.currentTransaction();
-			try
-			{
-				tx.begin();
-				long resp = sqlPersonanatProducto.eliminarPersonanatProductoPorNombre(pm, nombre);
-				tx.commit();
-				return resp;
-			}
-			catch (Exception e)
-			{
-				//        	e.printStackTrace();
-				log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
-				return -1;
-			}
-			finally
-			{
-				if (tx.isActive())
-				{
-					tx.rollback();
-				}
-				pm.close();
-			}
-		}
-	
-		/**
-		 * Método que elimina, de manera transaccional, una tupla en la tabla ProductoSucursal, dado el identificador del tipo de bebida
-		 * Adiciona entradas al log de la aplicación
-		 * @param idPersonanatProducto - El identificador del tipo de bebida
-		 * @return El número de tuplas eliminadas. -1 si ocurre alguna Excepción
-		 */
-		public long eliminarPersonanatProductoPorId (long idPersonanatProducto) 
-		{
-			PersistenceManager pm = pmf.getPersistenceManager();
-			Transaction tx=pm.currentTransaction();
-			try
-			{
-				tx.begin();
-				long resp = sqlPersonanatProducto.eliminarPersonanatProductoPorId(pm, idPersonanatProducto);
-				tx.commit();
-				return resp;
-			}
-			catch (Exception e)
-			{
-				//        	e.printStackTrace();
-				log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
-				return -1;
-			}
-			finally
-			{
-				if (tx.isActive())
-				{
-					tx.rollback();
-				}
-				pm.close();
-			}
-		}
-	
-		/**
-		 * Método que consulta todas las tuplas en la tabla ProductoSucursal
-		 * @return La lista de objetos ProductoSucursal, construidos con base en las tuplas de la tabla PersonanatProducto
-		 */
-		public List<ProductoSucursal> darTiposBebida ()
-		{
-			return sqlPersonanatProducto.darTiposBebida (pmf.getPersistenceManager());
-		}
-	
-		/**
-		 * Método que consulta todas las tuplas en la tabla ProductoSucursal que tienen el nombre dado
-		 * @param nombre - El nombre del tipo de bebida
-		 * @return La lista de objetos ProductoSucursal, construidos con base en las tuplas de la tabla PersonanatProducto
-		 */
-		public List<ProductoSucursal> darPersonanatProductoPorNombre (String nombre)
-		{
-			return sqlPersonanatProducto.darTiposBebidaPorNombre (pmf.getPersistenceManager(), nombre);
-		}
-	
-		/**
-		 * Método que consulta todas las tuplas en la tabla ProductoSucursal con un identificador dado
-		 * @param idPersonanatProducto - El identificador del tipo de bebida
-		 * @return El objeto ProductoSucursal, construido con base en las tuplas de la tabla PersonanatProducto con el identificador dado
-		 */
-		public ProductoSucursal darPersonanatProductoPorId (long idPersonanatProducto)
-		{
-			return sqlPersonanatProducto.darPersonanatProductoPorId (pmf.getPersistenceManager(), idPersonanatProducto);
-		}
-	
-		/* ****************************************************************
 		 * 			Métodos para manejar los PRODUCTOS
 		 *****************************************************************/
 	
@@ -1678,84 +1326,6 @@ import uniandes.isis2304.superAndes.negocio.Supermercado;
 		public List<Producto> darProductos ()
 		{
 			return sqlProducto.darProductos (pmf.getPersistenceManager());
-		}
-		
-		/* ****************************************************************
-		 * 			Métodos para manejar los PRODUCTO SUCURSAL
-		 *****************************************************************/
-	
-		/**
-		 * Método que inserta, de manera transaccional, una tupla en la tabla CIUDAD
-		 * Adiciona entradas al log de la aplicación
-		 * @param codProducto - El nombre del bebedor
-		 * @return El objeto CIUDAD adicionado. null si ocurre alguna Excepción
-		 */
-		public ProductoSucursal adicionarProductoSucursal(long idSucursal, String codProducto) 
-		{
-			PersistenceManager pm = pmf.getPersistenceManager();
-			Transaction tx=pm.currentTransaction();
-			try
-			{
-				tx.begin();
-				long tuplasInsertadas = sqlProductoSucursal.adicionarProductoSucursal(pmf.getPersistenceManager(), idSucursal, codProducto);
-				tx.commit();
-	
-				log.trace ("Inserción de producto: " + idSucursal + ": " + tuplasInsertadas + " tuplas insertadas");
-	
-				return new ProductoSucursal(idSucursal, codProducto);
-			}
-			catch (Exception e)
-			{
-				//        	e.printStackTrace();
-				log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
-				return null;
-			}
-			finally
-			{
-				if (tx.isActive())
-				{
-					tx.rollback();
-				}
-				pm.close();
-			}
-		}
-	
-		/**
-		 * Método que elimina, de manera transaccional, una tupla en la tabla CIUDAD, dado el identificador del ciudad
-		 * Adiciona entradas al log de la aplicación
-		 * @param idProducto - El identificador del ciudad
-		 * @return El número de tuplas eliminadas. -1 si ocurre alguna Excepción
-		 */
-		public long eliminarProductoSucursal(long idSucursal, String codBarras) 
-		{
-			PersistenceManager pm = pmf.getPersistenceManager();
-			Transaction tx=pm.currentTransaction();
-			try
-			{
-				tx.begin();
-				long resp = sqlProductoSucursal.eliminarProductoSucursal(pm,idSucursal, codBarras);
-				tx.commit();
-				return resp;
-			}
-			catch (Exception e)
-			{
-				//        	e.printStackTrace();
-				log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
-				return -1;
-			}
-			finally
-			{
-				if (tx.isActive())
-				{
-					tx.rollback();
-				}
-				pm.close();
-			}
-		}
-	
-		public List<ProductoSucursal> darProductosSucursales () 
-		{
-			return sqlProductoSucursal.darProductoSucursal(pmf.getPersistenceManager());
 		}
 		
 		/* ****************************************************************
@@ -1989,7 +1559,7 @@ import uniandes.isis2304.superAndes.negocio.Supermercado;
 		 * @param nombre - El nombre del bebedor
 		 * @return El objeto CIUDAD adicionado. null si ocurre alguna Excepción
 		 */
-		public Sucursal adicionarSucursal(String local_ventas, String segmentacion_mercado, String productos_ofrecidos, String tamanio_instalacion, long idCiudad, long idSupermercado) 
+		public Sucursal adicionarSucursal(String local_ventas, String segmentacion_mercado, String tamanio_instalacion, long idCiudad, long idSupermercado) 
 		{
 			PersistenceManager pm = pmf.getPersistenceManager();
 			Transaction tx=pm.currentTransaction();
@@ -1997,12 +1567,12 @@ import uniandes.isis2304.superAndes.negocio.Supermercado;
 			{
 				tx.begin();
 				long idSucursal = nextval ();
-				long tuplasInsertadas = sqlSucursal.adicionarSucursal(pmf.getPersistenceManager(), idSucursal, local_ventas, segmentacion_mercado, productos_ofrecidos, tamanio_instalacion, idCiudad, idSupermercado);
+				long tuplasInsertadas = sqlSucursal.adicionarSucursal(pmf.getPersistenceManager(), idSucursal, local_ventas, segmentacion_mercado, tamanio_instalacion, idCiudad, idSupermercado);
 				tx.commit();
 	
 				log.trace ("Inserción de sucursal: " + idSucursal + ": " + tuplasInsertadas + " tuplas insertadas");
 	
-				return new Sucursal (idSucursal, local_ventas, segmentacion_mercado, productos_ofrecidos, tamanio_instalacion, idCiudad, idSupermercado);
+				return new Sucursal (idSucursal, local_ventas, segmentacion_mercado, tamanio_instalacion, idCiudad, idSupermercado);
 			}
 			catch (Exception e)
 			{

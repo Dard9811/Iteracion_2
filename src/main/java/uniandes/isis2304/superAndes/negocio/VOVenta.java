@@ -15,37 +15,34 @@
 
 package uniandes.isis2304.superAndes.negocio;
 
+import java.sql.Timestamp;
+
 /**
- * Interfaz para los métodos get de SIRVEN.
+ * Interfaz para los métodos get de VISITAN.
  * Sirve para proteger la información del negocio de posibles manipulaciones desde la interfaz 
  * 
  * @author Germán Bravo
  */
-public interface VONivelDeReorden 
+public interface VOVenta 
 {
 	/* ****************************************************************
 	 * 			Métodos
 	 *****************************************************************/
 	/**
-	 * @return El idBar
+	 * @return El idBebedor
 	 */
-	public long getIdBodega();
+	public long getId();
 
 	/**
-	 * @return El idBebida
+	 * @return El valor de la venta
 	 */
-	public long getIdSucursal();
-
-	/**
-	 * @return El horario en que el bar sirve la bebida
-	 */
-	public long getCantidadMin();
-
-	/**
-	 * @return El horario en que el bar sirve la bebida
-	 */
-	public long getCantidadRecompra();
+	public long getValor();
 	
+	/**
+	 * @return La fecha de la venta
+	 */
+	public Timestamp getFecha();
+
 	/** 
 	 * @return Una cadena con la información básica
 	 */

@@ -16,36 +16,32 @@
 package uniandes.isis2304.superAndes.negocio;
 
 /**
- * Interfaz para los métodos get de BAR.
- * Sirve para proteger la información del negocio de posibles manipulaciones desde la interfaz 
- * 
- * @author Germán Bravo
+ * @author Daniel Ramirez - Juan Gutierrez
  */
-public interface VOPersonanatProducto 
+public interface VOVentaPersonaNat 
 {
 	/* ****************************************************************
-	 * 			Métodos 
+	 * 			Métodos
 	 *****************************************************************/
-     /**
-	 * @return El identificador de persona natural	
-	 */
-	public long getPersonaNatNumDoc();
-	
 	/**
-	 * @return El identificador de persona natural
+	 * @return El número de documento de una persona natural
 	 */
-	public long getPersonaNatTipoDoc();
-	
-	/**
-	 * @return el nombre del bar
-	 */
-	public String getCodProducto();
-		
+	public long getNumDoc();
 
-	@Override
 	/**
-	 * @return Una cadena de caracteres con todos los atributos del bar
+	 * @return El identificador de la venta
 	 */
+	public long getIdVenta();
+	
+	/**
+	 * @return El tipo de documento de una persona natural.
+	 */
+	public String getTipoDoc();
+
+	/** 
+	 * @return Una cadena con la información básica
+	 */
+	@Override
 	public String toString();
 
 }

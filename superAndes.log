@@ -245,3 +245,21 @@ ORA-00904: "SEGMENTACION_MERCADO": identificador no válido
 ORA-00904: "SEGMENTACION_MERCADO": identificador no válido
 
 13:55:46,499 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Adicionando sucursal: null
+17:05:09,418 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Interfaz
+17:05:09,430 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se aplica configuración indicada en el archivo de configuración
+17:05:09,571 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Tablas BD
+17:05:20,321 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Adicionando sucursal: Principal
+17:05:20,856 (AWT-EventQueue-0) ERROR [uniandes.isis2304.superAndes.persistencia.PersistenciaSuperAndes] - Exception : Error con la ejecucion de Query de SQL "INSERT INTO SUCURSAL(id, local_ventas, segmentacion_mercado, productos_ofrecidos, tamanio_instalacion, ciudad, supermercado) values (?, ?, ?, ?, ?, ?, ?)".
+ORA-00904: "PRODUCTOS_OFRECIDOS": identificador no válido
+
+17:05:20,862 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Adicionando sucursal: null
+17:14:22,513 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Interfaz
+17:14:22,515 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se aplica configuración indicada en el archivo de configuración
+17:14:22,721 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Tablas BD
+17:14:31,404 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Adicionando sucursal: Principal
+17:14:31,884 (AWT-EventQueue-0) ERROR [uniandes.isis2304.superAndes.persistencia.PersistenciaSuperAndes] - Exception : Error con la ejecucion de Query de SQL "INSERT INTO SUCURSAL(id, local_ventas, segmentacion_mercado, tamanio_instalacion, ciudad, supermercado) values (?, ?, ?, ?, ?, ?)".
+ORA-00904: "SEGMENTACION_MERCADO": identificador no válido
+
+17:14:31,890 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Adicionando sucursal: null
+17:16:05,025 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Adicionando sucursal: Principal
+17:16:05,208 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Adicionando sucursal: Sucursal [id=23, local_ventas=Principal, segmentacion_mercado=Canasta Familiar, tamanio_instalacion=Grande, idCiudad=1, idSupermercado=1]

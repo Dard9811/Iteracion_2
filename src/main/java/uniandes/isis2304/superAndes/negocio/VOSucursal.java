@@ -25,8 +25,6 @@ public interface VOSucursal
 	 * @return La ciudad del bebedor
 	 */
 	public String getSegmentacion_mercado();
-
-	public String getProductos_ofrecidos();
 	
 	public String getTamanio_instalacion();
 	

@@ -16,37 +16,27 @@
 package uniandes.isis2304.superAndes.negocio;
 
 /**
- * Interfaz para los métodos get de TIPOBEBIDA.
+ * Interfaz para los métodos get de PROMOCION PRODUCTO.
  * Sirve para proteger la información del negocio de posibles manipulaciones desde la interfaz 
  * 
  * @author Germán Bravo
  */
-public interface VOProductoSucursal 
+public interface VOPromocionProducto 
 {
-	/* ****************************************************************
-	 * 			Métodos
-	 *****************************************************************/
 	/**
-	 * @return El id del tipo de bebida
+	 * @return El id de la promocion
 	 */
-	public long getIdSucursal();
+	public long getIdProducto();
 
 	/**
-	 * @return El nombre del tipo de bebida
+	 * @return El nombre de la promocion
 	 */
-	public String getCodProducto();
+	public long getIdPromocion();
 
 	/**
-	 * @return Una cadena de caracteres con la información del tipo de bebida
+	 * @return Una cadena con la información básica de la promocion
 	 */
 	@Override
-	public String toString(); 
+	public String toString();
 
-	/**
-	 * Define la igualdad dos Tipos de bebida
-	 * @param tb - El tipo de bebida a comparar
-	 * @return true si tienen el mismo identificador y el mismo nombre
-	 */
-	@Override
-	public boolean equals (Object tb); 
 }

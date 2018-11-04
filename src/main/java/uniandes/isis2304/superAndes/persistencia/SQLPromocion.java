@@ -6,7 +6,6 @@ import java.util.List;
 import javax.jdo.PersistenceManager;
 import javax.jdo.Query;
 
-import uniandes.isis2304.superAndes.negocio.ProductoSucursal;
 import uniandes.isis2304.superAndes.negocio.Promocion;
 
 /**
@@ -81,7 +80,7 @@ class SQLPromocion
 	public Promocion darPromoPorId (PersistenceManager pm, long idPromo) 
 	{
 		Query q = pm.newQuery(SQL, "SELECT * FROM " + pp.darTablaPromocion() + " WHERE id = ?");
-		q.setResultClass(ProductoSucursal.class);
+		q.setResultClass(Promocion.class);
 		q.setParameters(idPromo);
 		return (Promocion) q.executeUnique();
 	}
