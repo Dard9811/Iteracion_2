@@ -128,6 +128,11 @@ import uniandes.isis2304.superAndes.negocio.Supermercado;
 		 * Atributo para el acceso a la tabla PROMOCION de la base de datos
 		 */
 		private SQLPromocion sqlPromocion;
+		
+		/**
+		 * Atributo para el acceso a la tabla PROMOCIONPRODUCTO de la base de datos
+		 */
+		private SQLPromocionProducto sqlPromocionProducto;
 	
 		/**
 		 * Atributo para el acceso a la tabla PROVEEDOR de la base de datos
@@ -143,7 +148,27 @@ import uniandes.isis2304.superAndes.negocio.Supermercado;
 		 * Atributo para el acceso a la tabla SUPERMERCADO de la base de datos
 		 */
 		private SQLSupermercado sqlSupermercado;
-	
+		
+		/**
+		 * Atributo para el acceso a la tabla VENTA de la base de datos
+		 */
+		private SQLVenta sqlVenta;
+		
+		/**
+		 * Atributo para el acceso a la tabla VENTA de la base de datos
+		 */
+		private SQLVentaEmpresa sqlVentaEmpresa;
+		
+		/**
+		 * Atributo para el acceso a la tabla VENTA de la base de datos
+		 */
+		private SQLVentaPersonaNat sqlVentaPersonaNat;
+		
+		/**
+		 * Atributo para el acceso a la tabla VENTA de la base de datos
+		 */
+		private SQLVentaProducto sqlVentaProducto;
+		
 		/* ****************************************************************
 		 * 			Métodos del MANEJADOR DE PERSISTENCIA
 		 *****************************************************************/
@@ -163,19 +188,20 @@ import uniandes.isis2304.superAndes.negocio.Supermercado;
 			tablas.add("BODEGA_PRODUCTO");
 			tablas.add ("CIUDAD");
 			tablas.add ("EMPRESA");
-			tablas.add ("EMPRESA_PRODUCTO");
 			tablas.add ("ESTANTE");
 			tablas.add("ESTANTE_PRODUCTO");
-			tablas.add ("NIVEL_DE_REORDEN");
 			tablas.add ("ORDEN_DE_PEDIDO");
 			tablas.add ("PERSONANAT");
-			tablas.add ("PERSONANAT_PRODUCTO");
 			tablas.add ("PRODUCTO");
-			tablas.add ("PRODUCTO_SUCURSAL");
 			tablas.add ("PROMOCION");
+			tablas.add ("PROMOCION_PRODUCTO");
 			tablas.add ("PROVEEDOR");
 			tablas.add("SUCURSAL");
 			tablas.add("SUPERMERCADO");
+			tablas.add ("VENTA");
+			tablas.add ("VENTA_EMPRESA");
+			tablas.add ("VENTA_PERSONA_NAT");
+			tablas.add ("VENTA_PRODUCTO");
 		}
 	
 		/**
@@ -261,9 +287,14 @@ import uniandes.isis2304.superAndes.negocio.Supermercado;
 			sqlPersonaNat = new SQLPersonaNat(this);		
 			sqlProducto = new SQLProducto(this);
 			sqlPromocion = new SQLPromocion(this);
+			sqlPromocionProducto = new SQLPromocionProducto(this);
 			sqlProveedor = new SQLProveedor(this);
 			sqlSucursal = new SQLSucursal(this);
 			sqlSupermercado = new SQLSupermercado(this);
+			sqlVenta = new SQLVenta(this);
+			sqlVentaEmpresa = new SQLVentaEmpresa(this);
+			sqlVentaPersonaNat = new SQLVentaPersonaNat(this);
+			sqlVentaProducto = new SQLVentaProducto(this);
 		}
 	
 		public String darTablaBodega()
@@ -286,69 +317,74 @@ import uniandes.isis2304.superAndes.negocio.Supermercado;
 			return tablas.get(4);
 		}
 	
-		public String darTablaEmpresaProducto()
+		public String darTablaEstante()
 		{
 			return tablas.get(5);
 		}
 	
-		public String darTablaEstante()
+		public String darTablaEstanteProducto()
 		{
 			return tablas.get(6);
 		}
 	
-		public String darTablaEstanteProducto()
+		public String darTablaOrdenDePedido()
 		{
 			return tablas.get(7);
 		}
 	
-		public String darTablaNivelDeReorden()
+		public String darTablaPersonaNat()
 		{
 			return tablas.get(8);
 		}
 	
-		public String darTablaOrdenDePedido()
+		public String darTablaProducto()
 		{
 			return tablas.get(9);
 		}
 	
-		public String darTablaPersonaNat()
+		public String darTablaPromocion()
 		{
 			return tablas.get(10);
 		}
-	
-		public String darTablaPersonanatProducto()
+		
+		public String darTablaPromocionProducto()
 		{
 			return tablas.get(11);
 		}
 	
-		public String darTablaProducto()
+		public String darTablaProveedor()
 		{
 			return tablas.get(12);
 		}
 	
-		public String darTablaProductoSucursal()
+		public String darTablaSucursal()
 		{
 			return tablas.get(13);
 		}
 	
-		public String darTablaPromocion()
+		public String darTablaSupermercado()
 		{
 			return tablas.get(14);
 		}
-	
-		public String darTablaProveedor()
+		
+		public String darTablaVenta()
 		{
 			return tablas.get(15);
 		}
-	
-		public String darTablaSucursal()
+		
+		public String darTablaVentaEmpresa()
 		{
 			return tablas.get(16);
 		}
-	
-		public String darTablaSupermercado()
+		
+		public String darTablaVentaPersonaNat()
 		{
 			return tablas.get(17);
+		}
+		
+		public String darTablaVentaProducto()
+		{
+			return tablas.get(18);
 		}
 	
 		public String darSeqSuperAndes()

@@ -81,42 +81,48 @@ class SQLUtil
         Query qBodegaProducto = pm.newQuery(SQL, "DELETE FROM " + pp.darTablaBodegaProducto ());   
         Query qCiudad = pm.newQuery(SQL, "DELETE FROM " + pp.darTablaCiudad());
         Query qEmpresa = pm.newQuery(SQL, "DELETE FROM " + pp.darTablaEmpresa());
-        Query qEmpresaProducto = pm.newQuery(SQL, "DELETE FROM " + pp.darTablaEmpresaProducto());
         Query qEstante = pm.newQuery(SQL, "DELETE FROM " + pp.darTablaEstante());
         Query qEstanteProducto = pm.newQuery(SQL, "DELETE FROM " + pp.darTablaEstanteProducto ());   
-        Query qNivelDeReorden = pm.newQuery(SQL, "DELETE FROM " + pp.darTablaNivelDeReorden());
         Query qOrdenDePedido = pm.newQuery(SQL, "DELETE FROM " + pp.darTablaOrdenDePedido());
         Query qPersonaNat = pm.newQuery(SQL, "DELETE FROM " + pp.darTablaPersonaNat());
-        Query qPersonanatProducto = pm.newQuery(SQL, "DELETE FROM " + pp.darTablaPersonanatProducto());
         Query qProducto = pm.newQuery(SQL, "DELETE FROM " + pp.darTablaProducto());
-        Query qProductoSucursal = pm.newQuery(SQL, "DELETE FROM " + pp.darTablaProductoSucursal());
         Query qPromocion = pm.newQuery(SQL, "DELETE FROM " + pp.darTablaPromocion());
+        Query qPromocionProducto = pm.newQuery(SQL, "DELETE FROM " + pp.darTablaPromocionProducto());    
         Query qProveedor = pm.newQuery(SQL, "DELETE FROM " + pp.darTablaProveedor());
         Query qSucursal = pm.newQuery(SQL, "DELETE FROM " + pp.darTablaSucursal());
         Query qSupermercado = pm.newQuery(SQL, "DELETE FROM " + pp.darTablaSupermercado());
-        		
+        Query qVenta = pm.newQuery(SQL, "DELETE FROM " + pp.darTablaVenta());
+        Query qVentaEmpresa = pm.newQuery(SQL, "DELETE FROM " + pp.darTablaVentaEmpresa());
+        Query qVentaPersonaNat = pm.newQuery(SQL, "DELETE FROM " + pp.darTablaVentaPersonaNat());
+        Query qVentaProducto = pm.newQuery(SQL, "DELETE FROM " + pp.darTablaVentaProducto());
+
+
+
         		
         long BodegaEliminados = (long) qBodega.executeUnique ();
         long BodegaProductoEliminados = (long) qBodegaProducto.executeUnique ();
         long CiudadEliminados = (long) qCiudad.executeUnique ();
         long EmpresaEliminados = (long) qEmpresa.executeUnique ();
-        long EmpresaProductoEliminados = (long) qEmpresaProducto.executeUnique ();
         long EstanteEliminados = (long) qEstante.executeUnique ();
         long EstanteProductoEliminados = (long) qEstanteProducto.executeUnique ();
-        long NivelDeReordenEliminados = (long) qNivelDeReorden.executeUnique ();
         long OrdenDePedidoEliminados = (long) qOrdenDePedido.executeUnique ();
         long PersonaNatEliminados = (long) qPersonaNat.executeUnique ();
-        long PersonanatProductoEliminados = (long) qPersonanatProducto.executeUnique ();
         long ProductoEliminados = (long) qProducto.executeUnique ();
-        long ProductoSucursalEliminadas = (long) qProductoSucursal.executeUnique ();
         long PromocionEliminados = (long) qPromocion.executeUnique ();
+        long PromocionProductoEliminados = (long) qPromocionProducto.executeUnique ();
         long ProveedorEliminados = (long) qProveedor.executeUnique ();
         long SucursalEliminados = (long) qSucursal.executeUnique ();
         long SupermercadoEliminados = (long) qSupermercado.executeUnique ();
-        return new long[] {BodegaEliminados, CiudadEliminados, EmpresaEliminados, EmpresaProductoEliminados,
-        		EstanteEliminados, NivelDeReordenEliminados, OrdenDePedidoEliminados, PersonaNatEliminados,
-        		PersonanatProductoEliminados, ProductoEliminados, ProductoSucursalEliminadas, PromocionEliminados,
-        		ProveedorEliminados, SucursalEliminados,SupermercadoEliminados};
+        long VentaEliminados = (long) qVenta.executeUnique ();
+        long VentaEmpresaEliminados = (long) qVentaEmpresa.executeUnique ();
+        long VentaPersonaNatEliminados = (long) qVentaPersonaNat.executeUnique ();
+        long VentaProductoEliminados = (long) qVentaProducto.executeUnique ();
+        return new long[] {BodegaEliminados, CiudadEliminados, EmpresaEliminados,
+        		EstanteEliminados, OrdenDePedidoEliminados, PersonaNatEliminados,
+        		ProductoEliminados, PromocionEliminados, PromocionProductoEliminados,
+        		ProveedorEliminados, SucursalEliminados,SupermercadoEliminados,
+        		VentaEliminados, VentaEmpresaEliminados, VentaPersonaNatEliminados,
+        		VentaProductoEliminados};
 	}
 
 }
