@@ -5,7 +5,7 @@
 	"bannerPath": "./src/main/resources/config/logo.png",
 	"menuBar":
 	[
-		{ "menuTitle": "Req. Funcionales Iteación 1",
+		{ "menuTitle": "Req. Fun. Iter. 1",
 		  "options":
 			[
 				{
@@ -19,6 +19,34 @@
 				{
 					"label": "RF3",
 					"event": "registrarPersonaNat"
+				},
+				{
+					"label": "RF4",
+					"event": "registrarSucursal"
+				},
+				{
+					"label": "RF5",
+					"event": "registrarBodega"
+				}							
+			]
+		},		{ "menuTitle": "Req. Fun. De Consulta Iter. 1",
+		  "options":
+			[
+				{
+					"label": "RFC1",
+					"event": "darDineroRecolectado"
+				},
+				{
+					"label": "RF2",
+					"event": "registrarProducto"
+				},
+				{
+					"label": "RFC3",
+					"event":  "darIndiceDeOcupacionBod"
+				},
+				{
+					"label": "RFC3.1",
+					"event":  "darIndiceDeOcupacionEst"
 				},
 				{
 					"label": "RF4",

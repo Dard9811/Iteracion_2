@@ -54,6 +54,9 @@ import uniandes.isis2304.superAndes.negocio.VOEstante;
 import uniandes.isis2304.superAndes.negocio.VOCiudad;
 import uniandes.isis2304.superAndes.negocio.VOPromocion;
 import uniandes.isis2304.superAndes.negocio.VOProveedor;
+import uniandes.isis2304.superAndes.negocio.VOReqFunCon1;
+import uniandes.isis2304.superAndes.negocio.VOReqFunCon3;
+import uniandes.isis2304.superAndes.negocio.VOReqFunCon3p1;
 import uniandes.isis2304.superAndes.negocio.VOSucursal;
 import uniandes.isis2304.superAndes.negocio.VOBodega;
 import uniandes.isis2304.superAndes.negocio.VOPersonaNat;
@@ -489,6 +492,63 @@ public class InterfazSuperAndes extends JFrame implements ActionListener
 		}
 	}
 	
+	public void darDineroRecolectado()
+	{
+		try 
+		{
+			List<VOReqFunCon1> lista = superAndes.darVoDineroRecolectado();
+
+			String resultado = "El dinero recolectado por sucursal es: ";
+			resultado +=  "\n" + listarDineroRecolectado(lista);
+			panelDatos.actualizarInterfaz(resultado);
+			resultado += "\n Operación terminada";
+		} 
+		catch (Exception e)
+		{
+			e.printStackTrace();
+			String resultado = generarMensajeError(e);
+			panelDatos.actualizarInterfaz(resultado);
+		}
+	}
+	
+	public void darIndiceDeOcupacionBod()
+	{
+		try 
+		{
+			List<VOReqFunCon3> lista = superAndes.darVoIndiceDeOcupacionBod();
+
+			String resultado = "El indice de ocupación de la bodega es: ";
+			resultado +=  "\n" + listarIndiceDeOcupacionBod(lista);
+			panelDatos.actualizarInterfaz(resultado);
+			resultado += "\n Operación terminada";
+		} 
+		catch (Exception e)
+		{
+			e.printStackTrace();
+			String resultado = generarMensajeError(e);
+			panelDatos.actualizarInterfaz(resultado);
+		}
+	}
+	
+	public void darIndiceDeOcupacionEst()
+	{
+		try 
+		{
+			List<VOReqFunCon3p1> lista = superAndes.darVoIndiceDeOcupacionEst();
+
+			String resultado = "El indice de ocupación de los estantes es: ";
+			resultado +=  "\n" + listarIndiceDeOcupacionEst(lista);
+			panelDatos.actualizarInterfaz(resultado);
+			resultado += "\n Operación terminada";
+		} 
+		catch (Exception e)
+		{
+			e.printStackTrace();
+			String resultado = generarMensajeError(e);
+			panelDatos.actualizarInterfaz(resultado);
+		}
+	}
+	
 	public void listarBodega()
 	{
 		try 
@@ -662,7 +722,40 @@ public class InterfazSuperAndes extends JFrame implements ActionListener
         }
         return resp;
 	}
-
+    
+    private String listarDineroRecolectado(List<VOReqFunCon1> lista)
+    {
+    	String resp = "El dinero recolectado es:\n";
+    	int i = 1;
+        for (VOReqFunCon1 rfc : lista)
+        {
+        	resp += i++ + ". " + rfc.toString() + "\n";
+        }
+        return resp;
+    }
+    
+    private String listarIndiceDeOcupacionBod(List<VOReqFunCon3> lista)
+    {
+    	String resp = "El indice de ocupacion de la bodega es:\n";
+    	int i = 1;
+        for (VOReqFunCon3 rfc : lista)
+        {
+        	resp += i++ + ". " + rfc.toString() + "\n";
+        }
+        return resp;
+    }
+    
+    private String listarIndiceDeOcupacionEst(List<VOReqFunCon3p1> lista)
+    {
+    	String resp = "El indice de ocupacion de los estantes es:\n";
+    	int i = 1;
+        for (VOReqFunCon3p1 rfc : lista)
+        {
+        	resp += i++ + ". " + rfc.toString() + "\n";
+        }
+        return resp;
+    }
+      
     /**
      * Genera una cadena de caracteres con la lista de bebidas recibida: una línea por cada bebida
      * @param lista - La lista con las bebidas

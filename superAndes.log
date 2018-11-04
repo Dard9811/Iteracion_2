@@ -296,3 +296,113 @@ ORA-00904: "SUCURSAL": identificador no válido
 ORA-01502: el índice 'ISIS2304B291820.BODEGA_PK' o una partición del mismo están en estado inutilizable
 
 01:00:55,827 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Adicionando bodega: null
+13:57:02,471 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Interfaz
+13:57:02,507 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se aplica configuración indicada en el archivo de configuración
+13:57:02,582 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Tablas BD
+13:57:17,906 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Generando el RFC1
+13:59:31,086 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Interfaz
+13:59:31,087 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se aplica configuración indicada en el archivo de configuración
+13:59:31,291 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Tablas BD
+13:59:39,285 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Generando el RFC1
+14:00:34,697 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Interfaz
+14:00:34,699 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se aplica configuración indicada en el archivo de configuración
+14:00:34,725 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Tablas BD
+14:00:41,590 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Generando el RFC1
+14:05:09,951 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Interfaz
+14:05:09,953 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se aplica configuración indicada en el archivo de configuración
+14:05:09,998 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Tablas BD
+14:05:16,785 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Generando el RFC1
+14:08:34,957 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Interfaz
+14:08:34,958 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se aplica configuración indicada en el archivo de configuración
+14:08:34,984 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Tablas BD
+14:08:42,359 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Generando el RFC1
+14:11:22,695 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Interfaz
+14:11:22,697 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se aplica configuración indicada en el archivo de configuración
+14:11:22,743 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Tablas BD
+14:11:29,800 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Generando el RFC1
+14:11:30,181 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Generando el RFC1: 2 tuplas existentes
+14:20:45,362 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Interfaz
+14:20:45,364 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se aplica configuración indicada en el archivo de configuración
+14:20:45,410 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Tablas BD
+14:20:52,599 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Generando el RFC1
+14:23:13,352 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Interfaz
+14:23:13,353 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se aplica configuración indicada en el archivo de configuración
+14:23:13,399 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Tablas BD
+14:23:20,503 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Generando el RFC1
+14:24:32,929 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Interfaz
+14:24:32,931 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se aplica configuración indicada en el archivo de configuración
+14:24:32,981 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Tablas BD
+14:24:40,146 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Generando el RFC1
+14:28:32,511 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Interfaz
+14:28:32,513 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se aplica configuración indicada en el archivo de configuración
+14:28:32,557 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Tablas BD
+14:28:39,609 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Generando el RFC1
+14:29:27,543 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Interfaz
+14:29:27,559 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se aplica configuración indicada en el archivo de configuración
+14:29:27,705 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Tablas BD
+14:29:34,272 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Interfaz
+14:29:34,274 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se aplica configuración indicada en el archivo de configuración
+14:29:34,476 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Tablas BD
+14:29:44,773 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Generando el RFC1
+14:30:03,024 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Interfaz
+14:30:03,026 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se aplica configuración indicada en el archivo de configuración
+14:30:03,073 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Tablas BD
+14:32:16,186 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Interfaz
+14:32:16,188 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se aplica configuración indicada en el archivo de configuración
+14:32:16,234 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Tablas BD
+14:32:23,588 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Generando el RFC1
+14:35:58,571 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Interfaz
+14:35:58,573 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se aplica configuración indicada en el archivo de configuración
+14:35:58,619 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Tablas BD
+14:36:05,499 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Generando el RFC1
+14:36:05,849 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Generando el RFC1: 2 tuplas existentes
+14:37:30,170 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Interfaz
+14:37:30,172 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se aplica configuración indicada en el archivo de configuración
+14:37:30,219 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Tablas BD
+14:37:37,247 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Generando el RFC1
+14:37:37,565 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Generando el RFC1: 2 tuplas existentes
+14:38:48,917 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Interfaz
+14:38:48,919 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se aplica configuración indicada en el archivo de configuración
+14:38:48,964 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Tablas BD
+14:40:03,833 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Interfaz
+14:40:03,835 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se aplica configuración indicada en el archivo de configuración
+14:40:03,881 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Tablas BD
+14:40:15,229 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Generando el RFC1
+14:40:15,553 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Generando el RFC1: 2 tuplas existentes
+17:01:45,613 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Interfaz
+17:01:45,615 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se aplica configuración indicada en el archivo de configuración
+17:03:05,066 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Interfaz
+17:03:05,068 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se aplica configuración indicada en el archivo de configuración
+17:03:05,114 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Tablas BD
+17:03:18,857 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Interfaz
+17:03:18,859 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se aplica configuración indicada en el archivo de configuración
+17:03:18,907 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Tablas BD
+17:03:29,551 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Generando el RFC3
+17:03:30,062 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Generando el RFC3: 2 tuplas existentes
+17:06:06,274 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Interfaz
+17:06:06,277 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se aplica configuración indicada en el archivo de configuración
+17:06:06,325 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Tablas BD
+17:06:13,322 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Generando el RFC3
+17:06:13,655 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Generando el RFC3: 2 tuplas existentes
+17:06:23,125 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Generando el RFC3p1
+17:09:14,960 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Interfaz
+17:09:14,962 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se aplica configuración indicada en el archivo de configuración
+17:09:15,009 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Tablas BD
+17:09:22,131 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Generando el RFC3
+17:09:22,494 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Generando el RFC3: 2 tuplas existentes
+17:10:09,366 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Interfaz
+17:10:09,368 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se aplica configuración indicada en el archivo de configuración
+17:10:09,413 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Tablas BD
+17:10:18,009 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Generando el RFC3
+17:10:18,332 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Generando el RFC3: 2 tuplas existentes
+17:10:34,410 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Generando el RFC3p1
+17:10:34,491 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Generando el RFC3p1: 3 tuplas existentes
+17:12:19,359 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Interfaz
+17:12:19,361 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se aplica configuración indicada en el archivo de configuración
+17:12:19,408 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Tablas BD
+17:12:26,571 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Generando el RFC3
+17:12:26,923 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Generando el RFC3: 2 tuplas existentes
+17:12:30,515 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Generando el RFC3p1
+17:12:30,574 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Generando el RFC3p1: 3 tuplas existentes
+17:12:44,761 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Generando el RFC1
+17:12:44,826 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Generando el RFC1: 2 tuplas existentes

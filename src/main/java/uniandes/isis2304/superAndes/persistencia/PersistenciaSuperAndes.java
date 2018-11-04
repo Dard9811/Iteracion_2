@@ -28,6 +28,9 @@ import uniandes.isis2304.superAndes.negocio.Producto;
 import uniandes.isis2304.superAndes.negocio.Promocion;
 import uniandes.isis2304.superAndes.negocio.PromocionProducto;
 import uniandes.isis2304.superAndes.negocio.Proveedor;
+import uniandes.isis2304.superAndes.negocio.ReqFunCon1;
+import uniandes.isis2304.superAndes.negocio.ReqFunCon3;
+import uniandes.isis2304.superAndes.negocio.ReqFunCon3p1;
 import uniandes.isis2304.superAndes.negocio.Sucursal;
 import uniandes.isis2304.superAndes.negocio.Supermercado;
 import uniandes.isis2304.superAndes.negocio.Venta;
@@ -179,6 +182,8 @@ public class PersistenciaSuperAndes
 	 */
 	private SQLVentaSucursal sqlVentaSucursal;
 
+	private SQLReqFunCon sqlReqFunCons;
+
 	/* ****************************************************************
 	 * 			Métodos del MANEJADOR DE PERSISTENCIA
 	 *****************************************************************/
@@ -300,6 +305,7 @@ public class PersistenciaSuperAndes
 		sqlPromocion = new SQLPromocion(this);
 		sqlPromocionProducto = new SQLPromocionProducto(this);
 		sqlProveedor = new SQLProveedor(this);
+		sqlReqFunCons = new SQLReqFunCon(this);
 		sqlSucursal = new SQLSucursal(this);
 		sqlSupermercado = new SQLSupermercado(this);
 		sqlVenta = new SQLVenta(this);
@@ -2307,6 +2313,24 @@ public class PersistenciaSuperAndes
 		return sqlVentaSucursal.darVentaSucursales(pmf.getPersistenceManager());
 	}
 
+	/* ****************************************************************
+	 * 			Métodos para manejar los RFC
+	 *****************************************************************/
+
+	public List<ReqFunCon1> darDineroRecolectado()
+	{
+		return sqlReqFunCons.RFC1(pmf.getPersistenceManager());
+	}
+
+	public List<ReqFunCon3> darIndiceDeOcupacionBod()
+	{
+		return sqlReqFunCons.RFC3(pmf.getPersistenceManager());
+	}
+
+	public List<ReqFunCon3p1> darIndiceDeOcupacionEst()
+	{
+		return sqlReqFunCons.RFC3p1(pmf.getPersistenceManager());
+	}
 
 	/**
 	 * Elimina todas las tuplas de todas las tablas de la base de datos de Parranderos
