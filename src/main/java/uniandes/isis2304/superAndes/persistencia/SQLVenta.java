@@ -1,5 +1,6 @@
 package uniandes.isis2304.superAndes.persistencia;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 import javax.jdo.PersistenceManager;
@@ -38,15 +39,11 @@ public class SQLVenta {
 		this.pp = pp;
 	}
 	
-	/**
-	 * Crea y ejecuta la sentencia SQL para adicionar un CIUDAD a la base de datos de SuperAndes
-	 * @param pm - El manejador de persistencia
-	 * @return EL número de tuplas insertadas
-	 */
-	public long adicionarVenta (PersistenceManager pm, long id) 
+	
+	public long adicionarVenta (PersistenceManager pm, long id, long valor, Timestamp fecha) 
 	{
-        Query q = pm.newQuery(SQL, "INSERT INTO " + pp.darTablaVenta() + "(id) values (?)");
-        q.setParameters(id);
+        Query q = pm.newQuery(SQL, "INSERT INTO " + pp.darTablaVenta() + "(id, valor, fecha) values (?, ?, ?)");
+        q.setParameters(id, valor, fecha);
         return (long) q.executeUnique();
 	}
 

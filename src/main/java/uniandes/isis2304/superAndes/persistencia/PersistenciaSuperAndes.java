@@ -16,6 +16,7 @@
 	import com.google.gson.JsonElement;
 	import com.google.gson.JsonObject;
 	import com.sun.org.apache.xpath.internal.operations.Or;
+import com.sun.xml.internal.ws.developer.ValidationErrorHandler;
 
 import uniandes.isis2304.superAndes.negocio.Bodega;
 import uniandes.isis2304.superAndes.negocio.BodegaProducto;
@@ -27,9 +28,14 @@ import uniandes.isis2304.superAndes.negocio.OrdenDePedido;
 import uniandes.isis2304.superAndes.negocio.PersonaNat;
 import uniandes.isis2304.superAndes.negocio.Producto;
 import uniandes.isis2304.superAndes.negocio.Promocion;
+import uniandes.isis2304.superAndes.negocio.PromocionProducto;
 import uniandes.isis2304.superAndes.negocio.Proveedor;
 import uniandes.isis2304.superAndes.negocio.Sucursal;
 import uniandes.isis2304.superAndes.negocio.Supermercado;
+import uniandes.isis2304.superAndes.negocio.Venta;
+import uniandes.isis2304.superAndes.negocio.VentaEmpresa;
+import uniandes.isis2304.superAndes.negocio.VentaPersonaNat;
+import uniandes.isis2304.superAndes.negocio.VentaProducto;
 	
 	/**
 	 * Clase para el manejador de persistencia del proyecto SuperAndes
@@ -1450,6 +1456,90 @@ import uniandes.isis2304.superAndes.negocio.Supermercado;
 		}
 	
 		/* ****************************************************************
+		 * 			Métodos para manejar las PROOCIONES
+		 *****************************************************************/
+	
+		/**
+		 * Método que inserta, de manera transaccional, una tupla en la tabla Bebida
+		 * Adiciona entradas al log de la aplicación
+		 * @param nombre - El nombre de la bebida
+		 * @param idPersonanatProducto - El identificador del tipo de bebida (Debe existir en la tabla ProductoSucursal)
+		 * @param gradoAlcohol - El grado de alcohol de la bebida (mayor que 0)
+		 * @return El objeto Bebida adicionado. null si ocurre alguna Excepción
+		 */
+		public PromocionProducto adicionarPromoProd (long idProd, long idPromo) 
+		{
+			PersistenceManager pm = pmf.getPersistenceManager();
+			Transaction tx=pm.currentTransaction();
+			try
+			{
+				tx.begin();            
+				long tuplasInsertadas = sqlPromocionProducto.adicionarPromoProd(pm, idProd, idPromo);
+				tx.commit();
+	
+				log.trace ("Inserción promociónProd: " + idPromo + ": " + tuplasInsertadas + " tuplas insertadas");
+				return new PromocionProducto(idProd, idPromo);
+			}
+			catch (Exception e)
+			{
+				//        	e.printStackTrace();
+				log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+				return null;
+			}
+			finally
+			{
+				if (tx.isActive())
+				{
+					tx.rollback();
+				}
+				pm.close();
+			}
+		}
+	
+		/**
+		 * Método que elimina, de manera transaccional, una tupla en la tabla Bebida, dado el identificador de la bebida
+		 * Adiciona entradas al log de la aplicación
+		 * @param idProd - El identificador de la bebida
+		 * @return El número de tuplas eliminadas. -1 si ocurre alguna Excepción
+		 */
+		public long eliminarPromoProdPorIdProducto (long idProd) 
+		{
+			PersistenceManager pm = pmf.getPersistenceManager();
+			Transaction tx=pm.currentTransaction();
+			try
+			{
+				tx.begin();
+				long resp = sqlPromocionProducto.eliminarPromoProdPorIdProd(pm, idProd);
+				tx.commit();
+	
+				return resp;
+			}
+			catch (Exception e)
+			{
+				//        	e.printStackTrace();
+				log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+				return -1;
+			}
+			finally
+			{
+				if (tx.isActive())
+				{
+					tx.rollback();
+				}
+				pm.close();
+			}
+		}
+	
+		/**
+		 * Método que consulta todas las tuplas en la tabla Promocion
+		 * @return La lista de objetos Bebida, construidos con base en las tuplas de la tabla PROMOCION
+		 */
+		public List<PromocionProducto> darPromoProds ()
+		{
+			return sqlPromocionProducto.darPromoProd(pmf.getPersistenceManager());
+		}
+		
+		/* ****************************************************************
 		 * 			Métodos para manejar los PROVEEDORES
 		 *****************************************************************/
 		
@@ -1721,7 +1811,7 @@ import uniandes.isis2304.superAndes.negocio.Supermercado;
 				long tuplasInsertadas = sqlSupermercado.adicionarSupermercado(pm, id, nombre);
 				tx.commit();
 	
-				log.trace ("Inserción de Bodega: [" + id + "]. " + tuplasInsertadas + " tuplas insertadas");
+				log.trace ("Inserción de Supermercado: [" + id + "]. " + tuplasInsertadas + " tuplas insertadas");
 	
 				return new Supermercado (id, nombre);
 			}
@@ -1783,7 +1873,260 @@ import uniandes.isis2304.superAndes.negocio.Supermercado;
 		{
 			return sqlSupermercado.darSupermercados (pmf.getPersistenceManager());
 		}	
+		
+		/* ****************************************************************
+		 * 			Métodos para manejar las VENTAS
+		 *****************************************************************/
 	
+		/**
+		 * Método que inserta, de manera transaccional, una tupla en la tabla Bebida
+		 * Adiciona entradas al log de la aplicación
+		 * @param nombre - El nombre de la bebida
+		 * @param idPersonanatProducto - El identificador del tipo de bebida (Debe existir en la tabla ProductoSucursal)
+		 * @param gradoAlcohol - El grado de alcohol de la bebida (mayor que 0)
+		 * @return El objeto Bebida adicionado. null si ocurre alguna Excepción
+		 */
+		public Venta adicionarVenta (long valor, Timestamp fecha) 
+		{
+			PersistenceManager pm = pmf.getPersistenceManager();
+			Transaction tx=pm.currentTransaction();
+			try
+			{
+				tx.begin(); 
+				long id = nextval();
+				long tuplasInsertadas = sqlVenta.adicionarVenta(pm, id, valor, fecha);
+				tx.commit();
+	
+				log.trace ("Inserción venta: " + id + ": " + tuplasInsertadas + " tuplas insertadas");
+				return new Venta(id, valor, fecha);
+			}
+			catch (Exception e)
+			{
+				//        	e.printStackTrace();
+				log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+				return null;
+			}
+			finally
+			{
+				if (tx.isActive())
+				{
+					tx.rollback();
+				}
+				pm.close();
+			}
+		}
+	
+		/**
+		 * Método que elimina, de manera transaccional, una tupla en la tabla Bebida, dado el identificador de la bebida
+		 * Adiciona entradas al log de la aplicación
+		 * @param id - El identificador de la bebida
+		 * @return El número de tuplas eliminadas. -1 si ocurre alguna Excepción
+		 */
+		public long eliminarVentaPorId (long id) 
+		{
+			PersistenceManager pm = pmf.getPersistenceManager();
+			Transaction tx=pm.currentTransaction();
+			try
+			{
+				tx.begin();
+				long resp = sqlVenta.eliminarVentaPorId(pm, id);
+				tx.commit();
+	
+				return resp;
+			}
+			catch (Exception e)
+			{
+				//        	e.printStackTrace();
+				log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+				return -1;
+			}
+			finally
+			{
+				if (tx.isActive())
+				{
+					tx.rollback();
+				}
+				pm.close();
+			}
+		}
+	
+		/**
+		 * Método que consulta todas las tuplas en la tabla Promocion
+		 * @return La lista de objetos Bebida, construidos con base en las tuplas de la tabla PROMOCION
+		 */
+		public List<Venta> darVentas ()
+		{
+			return sqlVenta.darVentas(pmf.getPersistenceManager());
+		}
+	
+		/* ****************************************************************
+		 * 			Métodos para manejar las VENTAS - EMPRESAS
+		 *****************************************************************/
+	
+		/**
+		 * Método que inserta, de manera transaccional, una tupla en la tabla Bebida
+		 * Adiciona entradas al log de la aplicación
+		 * @param nombre - El nombre de la bebida
+		 * @param idPersonanatProducto - El identificador del tipo de bebida (Debe existir en la tabla ProductoSucursal)
+		 * @param gradoAlcohol - El grado de alcohol de la bebida (mayor que 0)
+		 * @return El objeto Bebida adicionado. null si ocurre alguna Excepción
+		 */
+		public VentaEmpresa adicionarVentaEmpresa (long nit, long idVenta) 
+		{
+			PersistenceManager pm = pmf.getPersistenceManager();
+			Transaction tx=pm.currentTransaction();
+			try
+			{
+				tx.begin(); 
+				long tuplasInsertadas = sqlVentaEmpresa.adicionarVentaEmpresa(pm, nit, idVenta);
+				tx.commit();
+	
+				log.trace ("Inserción VentaEmpresa: " + nit + ": " + tuplasInsertadas + " tuplas insertadas");
+				return new VentaEmpresa(nit, idVenta);
+			}
+			catch (Exception e)
+			{
+				//        	e.printStackTrace();
+				log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+				return null;
+			}
+			finally
+			{
+				if (tx.isActive())
+				{
+					tx.rollback();
+				}
+				pm.close();
+			}
+		}
+	
+		/**
+		 * Método que elimina, de manera transaccional, una tupla en la tabla Bebida, dado el identificador de la bebida
+		 * Adiciona entradas al log de la aplicación
+		 * @param idVenta - El identificador de la bebida
+		 * @return El número de tuplas eliminadas. -1 si ocurre alguna Excepción
+		 */
+		public long eliminarVentaEmpresaPorIdVenta (long idVenta) 
+		{
+			PersistenceManager pm = pmf.getPersistenceManager();
+			Transaction tx=pm.currentTransaction();
+			try
+			{
+				tx.begin();
+				long resp = sqlVentaEmpresa.eliminarVentaEmpresaPorIdVenta(pm, idVenta);
+				tx.commit();
+	
+				return resp;
+			}
+			catch (Exception e)
+			{
+				//        	e.printStackTrace();
+				log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+				return -1;
+			}
+			finally
+			{
+				if (tx.isActive())
+				{
+					tx.rollback();
+				}
+				pm.close();
+			}
+		}
+	
+		/**
+		 * Método que consulta todas las tuplas en la tabla Promocion
+		 * @return La lista de objetos Bebida, construidos con base en las tuplas de la tabla PROMOCION
+		 */
+		public List<VentaEmpresa> darVentaEmpresas ()
+		{
+			return sqlVentaEmpresa.darVentaEmpresas(pmf.getPersistenceManager());
+		}
+		
+		/* ****************************************************************
+		 * 			Métodos para manejar las VENTAS - PERSONANATS
+		 *****************************************************************/
+	
+		/**
+		 * Método que inserta, de manera transaccional, una tupla en la tabla Bebida
+		 * Adiciona entradas al log de la aplicación
+		 * @param nombre - El nombre de la bebida
+		 * @param idPersonanatProducto - El identificador del tipo de bebida (Debe existir en la tabla ProductoSucursal)
+		 * @param gradoAlcohol - El grado de alcohol de la bebida (mayor que 0)
+		 * @return El objeto Bebida adicionado. null si ocurre alguna Excepción
+		 */
+		public VentaPersonaNat adicionarVentaPersonaNat (long numDoc, long idVenta, String tipoDoc) 
+		{
+			PersistenceManager pm = pmf.getPersistenceManager();
+			Transaction tx=pm.currentTransaction();
+			try
+			{
+				tx.begin(); 
+				long tuplasInsertadas = sqlVentaPersonaNat.adicionarVentaPersonaNat(pm, numDoc, idVenta, tipoDoc);
+				tx.commit();
+	
+				log.trace ("Inserción ventaPersonaNat: " + idVenta + ": " + tuplasInsertadas + " tuplas insertadas");
+				return new VentaPersonaNat(idVenta, numDoc, tipoDoc);
+			}
+			catch (Exception e)
+			{
+				//        	e.printStackTrace();
+				log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+				return null;
+			}
+			finally
+			{
+				if (tx.isActive())
+				{
+					tx.rollback();
+				}
+				pm.close();
+			}
+		}
+	
+		/**
+		 * Método que elimina, de manera transaccional, una tupla en la tabla Bebida, dado el identificador de la bebida
+		 * Adiciona entradas al log de la aplicación
+		 * @param idVenta - El identificador de la bebida
+		 * @return El número de tuplas eliminadas. -1 si ocurre alguna Excepción
+		 */
+		public long eliminarVentaPersonaNatPorIdVenta (long idVenta) 
+		{
+			PersistenceManager pm = pmf.getPersistenceManager();
+			Transaction tx=pm.currentTransaction();
+			try
+			{
+				tx.begin();
+				long resp = sqlVentaPersonaNat.eliminarVentaPersonaNatPorIdVenta(pm, idVenta);
+				tx.commit();
+	
+				return resp;
+			}
+			catch (Exception e)
+			{
+				//        	e.printStackTrace();
+				log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+				return -1;
+			}
+			finally
+			{
+				if (tx.isActive())
+				{
+					tx.rollback();
+				}
+				pm.close();
+			}
+		}
+	
+		/**
+		 * Método que consulta todas las tuplas en la tabla Promocion
+		 * @return La lista de objetos Bebida, construidos con base en las tuplas de la tabla PROMOCION
+		 */
+		public List<VentaPersonaNat> darVentaPersonaNats ()
+		{
+			return sqlVentaPersonaNat.darVentaPersonaNats(pmf.getPersistenceManager());
+		}
+		
 		/**
 		 * Elimina todas las tuplas de todas las tablas de la base de datos de Parranderos
 		 * Crea y ejecuta las sentencias SQL para cada tabla de la base de datos - EL ORDEN ES IMPORTANTE 
@@ -1817,6 +2160,90 @@ import uniandes.isis2304.superAndes.negocio.Supermercado;
 				pm.close();
 			}
 	
+		}
+		
+		/* ****************************************************************
+		 * 			Métodos para manejar las VENTAS - PRODUCTOS
+		 *****************************************************************/
+	
+		/**
+		 * Método que inserta, de manera transaccional, una tupla en la tabla Bebida
+		 * Adiciona entradas al log de la aplicación
+		 * @param nombre - El nombre de la bebida
+		 * @param idPersonanatProducto - El identificador del tipo de bebida (Debe existir en la tabla ProductoSucursal)
+		 * @param gradoAlcohol - El grado de alcohol de la bebida (mayor que 0)
+		 * @return El objeto Bebida adicionado. null si ocurre alguna Excepción
+		 */
+		public VentaProducto adicionarVentaProd (long idVenta, String codProd, long cantidad) 
+		{
+			PersistenceManager pm = pmf.getPersistenceManager();
+			Transaction tx=pm.currentTransaction();
+			try
+			{
+				tx.begin(); 
+				long tuplasInsertadas = sqlVentaProducto.adicionarVentaProducto(pm, idVenta, codProd, cantidad);
+				tx.commit();
+	
+				log.trace ("Inserción ventaPersonaNat: " + idVenta + ": " + tuplasInsertadas + " tuplas insertadas");
+				return new VentaProducto(idVenta, codProd, cantidad);
+			}
+			catch (Exception e)
+			{
+				//        	e.printStackTrace();
+				log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+				return null;
+			}
+			finally
+			{
+				if (tx.isActive())
+				{
+					tx.rollback();
+				}
+				pm.close();
+			}
+		}
+	
+		/**
+		 * Método que elimina, de manera transaccional, una tupla en la tabla Bebida, dado el identificador de la bebida
+		 * Adiciona entradas al log de la aplicación
+		 * @param idVenta - El identificador de la bebida
+		 * @return El número de tuplas eliminadas. -1 si ocurre alguna Excepción
+		 */
+		public long eliminarVentaProduPorIdVenta (long idVenta) 
+		{
+			PersistenceManager pm = pmf.getPersistenceManager();
+			Transaction tx=pm.currentTransaction();
+			try
+			{
+				tx.begin();
+				long resp = sqlVentaProducto.eliminarVentaProductoPorIdVenta(pm, idVenta);
+				tx.commit();
+	
+				return resp;
+			}
+			catch (Exception e)
+			{
+				//        	e.printStackTrace();
+				log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+				return -1;
+			}
+			finally
+			{
+				if (tx.isActive())
+				{
+					tx.rollback();
+				}
+				pm.close();
+			}
+		}
+	
+		/**
+		 * Método que consulta todas las tuplas en la tabla Promocion
+		 * @return La lista de objetos Bebida, construidos con base en las tuplas de la tabla PROMOCION
+		 */
+		public List<VentaProducto> darVentaProductos ()
+		{
+			return sqlVentaProducto.darVentaProductos(pmf.getPersistenceManager());
 		}
 	
 	}

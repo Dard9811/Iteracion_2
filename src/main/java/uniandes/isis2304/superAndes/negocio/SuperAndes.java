@@ -687,6 +687,70 @@ public class SuperAndes
         log.info ("Generando los VO de las promociones: " + voPromociones.size() + " existentes");
         return voPromociones;
 	}
+	
+	/* ****************************************************************
+	 * 			Métodos para manejar las PROMOCIONES-PRODUCTO
+	 *****************************************************************/
+	
+	/**
+	 * Adiciona de manera persistente una bebida 
+	 * Adiciona entradas al log de la aplicación
+	 * @param nombre - El nombre la bebida
+	 * @param idTipoBebida - El identificador del producto sucursal de la bebida - Debe existir un TIPOBEBIDA con este identificador
+	 * @param gradoAlcohol - El grado de alcohol de la bebida (Mayor que 0)
+	 * @return El objeto Bebida adicionado. null si ocurre alguna Excepción
+	 */
+	public PromocionProducto adicionarPromoProd (long idProd, long idPromo)
+	{
+		log.info ("Adicionando promoProd ");
+		PromocionProducto promoProd = pp.adicionarPromoProd(idProd, idPromo);
+        log.info ("Adicionando promoProd: " + promoProd);
+        return promoProd;
+	}
+	
+	/**
+	 * Elimina una bebida por su identificador
+	 * Adiciona entradas al log de la aplicación
+	 * @param idPromo - El identificador de la bebida a eliminar
+	 * @return El número de tuplas eliminadas (1 o 0)
+	 */
+	public long eliminarPromoProdPorId (long idProd)
+	{
+        log.info ("Eliminando promo por id: " + idProd);
+        long resp = pp.eliminarPromoProdPorIdProducto(idProd);
+        log.info ("Eliminando promo por id: " + resp + " tuplas eliminadas");
+        return resp;
+	}
+	
+	/**
+	 * Encuentra todas las bebida en SuperAndes
+	 * Adiciona entradas al log de la aplicación
+	 * @return Una lista de objetos Bebida con todos las bebidas que conoce la aplicación, llenos con su información básica
+	 */
+	public List<PromocionProducto> darPromoProductos ()
+	{
+        log.info ("Consultando promociones");
+        List<PromocionProducto> promoProds = pp.darPromoProds();	
+        log.info ("Consultando promociones: " + promoProds.size() + " promociones existentes");
+        return promoProds;
+	}
+
+	/**
+	 * Encuentra todos los PRODUCTO SUCURSAL en SuperAndes y los devuelve como una lista de VOProductoSucursal
+	 * Adiciona entradas al log de la aplicación
+	 * @return Una lista de objetos VOBebida con todos las bebidas que conoce la aplicación, llenos con su información básica
+	 */
+	public List<VOPromocionProducto> darVOPromocionesProductos ()
+	{
+		log.info ("Generando los VO de las promociones");       
+        List<VOPromocionProducto> voPromocionesProductos = new LinkedList<VOPromocionProducto> ();
+        for (PromocionProducto promoProd : pp.darPromoProds())
+        {
+        	voPromocionesProductos.add (promoProd);
+        }
+        log.info ("Generando los VO de las promociones: " + voPromocionesProductos.size() + " existentes");
+        return voPromocionesProductos;
+	}
 
 	/* ****************************************************************
 	 * 			Métodos para manejar las PROVEEDOR
@@ -876,6 +940,67 @@ public class SuperAndes
        return voSucursales;
 	}
 	
+	/* ****************************************************************
+	 * 			Métodos para manejar las VENTAS
+	 *****************************************************************/
+	
+	/**
+	 * Adiciona de manera persistente un ciudad 
+	 * Adiciona entradas al log de la aplicación
+	 * @param nombre - El nombre del ciudad
+	 * @return El objeto CIUDAD adicionado. null si ocurre alguna Excepción
+	 */
+	public Venta adicionarVenta (long valor, Timestamp fecha)
+	{
+        log.info ("Adicionando venta: " + valor);
+        Venta venta = pp.adicionarVenta(valor, fecha);
+        log.info ("Adicionando venta: " + venta);
+        return venta;
+	}
+
+	/**
+	 * Elimina un ciudad por su identificador
+	 * Adiciona entradas al log de la aplicación
+	 * @param idSucursal - El identificador del ciudad a eliminar
+	 * @return El número de tuplas eliminadas
+	 */
+	public long eliminarVentaPorId (long id)
+	{
+        log.info ("Eliminando venta por id: " + id);
+        long resp = pp.eliminarVentaPorId(id);
+        log.info ("Eliminando venta por Id: " + resp + " tuplas eliminadas");
+        return resp;
+	}
+
+	/**
+	 * Encuentra todos los bebedores en SuperAndes
+	 * Adiciona entradas al log de la aplicación
+	 * @return Una lista de objetos Bebedor con todos las bebedores que conoce la aplicación, llenos con su información básica
+	 */
+	public List<Venta> darVentas ()
+	{
+        log.info ("Listando Ventas");
+        List<Venta> ventas = pp.darVentas();	
+        log.info ("Listando ventas: " + ventas.size() + " ventas existentes");
+        return ventas;
+	}
+	
+	/**
+	 * Encuentra todos los bebedores en SuperAndes y los devuelve como VOBebedor
+	 * Adiciona entradas al log de la aplicación
+	 * @return Una lista de objetos VOBebedor con todos las bebedores que conoce la aplicación, llenos con su información básica
+	 */
+	public List<VOVenta> darVOVentas ()
+	{
+        log.info ("Generando los VO de Ventas");
+         List<VOVenta> voVenta = new LinkedList<VOVenta> ();
+        for (Venta venta : pp.darVentas())
+        {
+        	voVenta.add (venta);
+        }
+        log.info ("Generando los VO de Ventas: " + voVenta.size() + " ventas existentes");
+       return voVenta;
+	}
 	
 	/* ****************************************************************
 	 * 			Métodos para administración
