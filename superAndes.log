@@ -296,3 +296,27 @@ ORA-00904: "SUCURSAL": identificador no válido
 ORA-01502: el índice 'ISIS2304B291820.BODEGA_PK' o una partición del mismo están en estado inutilizable
 
 01:00:55,827 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Adicionando bodega: null
+08:43:45,193 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Interfaz
+08:43:45,193 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se aplica configuración indicada en el archivo de configuración
+08:43:45,209 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Tablas BD
+09:42:31,015 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Adicionando proveedor: Alpina
+09:42:31,442 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Adicionando proveedor: Proveedor [nit=1, nombre=Alpina, idSucursal=1]
+09:44:20,757 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Adicionando producto: 123456789
+09:44:20,788 (AWT-EventQueue-0) ERROR [uniandes.isis2304.superAndes.persistencia.PersistenciaSuperAndes] - Exception : Error executing SQL query "INSERT INTO PRODUCTO(codigo_barras, nombre, marca, categoria, precio_unitario, precio_medida, presentacion, cantidad_presentacion, unidad_medida, especificacion_empacado, proveedor) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)".
+ORA-02290: check constraint (ISIS2304B291820.CODIGO_CK) violated
+
+09:44:20,788 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Adicionando producto: null
+17:23:48,381 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Interfaz
+17:23:48,381 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se aplica configuración indicada en el archivo de configuración
+17:23:48,412 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Tablas BD
+18:38:06,117 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Interfaz
+18:38:06,117 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se aplica configuración indicada en el archivo de configuración
+18:38:06,133 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Tablas BD
+18:43:12,917 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Interfaz
+18:43:12,917 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se aplica configuración indicada en el archivo de configuración
+18:43:12,933 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Tablas BD
+18:43:27,422 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Generando los VO de Productos
+18:52:16,811 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Interfaz
+18:52:16,811 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se aplica configuración indicada en el archivo de configuración
+18:52:16,827 (main) INFO  [uniandes.isis2304.superAndes.interfaz.InterfazSuperAndes] - Se encontró un archivo de configuración válido: Tablas BD
+18:52:28,236 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superAndes.negocio.SuperAndes] - Generando los VO de Productos

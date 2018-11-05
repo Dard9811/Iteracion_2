@@ -48,6 +48,8 @@ public class SuperAndes
 	 */
 	private PersistenciaSuperAndes pp;
 	
+	private Carrito carrito;
+	
 	/* ****************************************************************
 	 * 			Métodos
 	 *****************************************************************/
@@ -57,6 +59,7 @@ public class SuperAndes
 	public SuperAndes ()
 	{
 		pp = PersistenciaSuperAndes.getInstance ();
+		carrito = null;
 	}
 	
 	/**
@@ -66,6 +69,7 @@ public class SuperAndes
 	public SuperAndes (JsonObject tableConfig)
 	{
 		pp = PersistenciaSuperAndes.getInstance (tableConfig);
+		carrito = null;
 	}
 	
 	/**
@@ -622,6 +626,41 @@ public class SuperAndes
         }
         log.info ("Generando los VO de Productos: " + voProductos.size() + " productos existentes");
        return voProductos;
+	}
+	
+	public Carrito darCarrito()
+	{
+		return carrito;
+	}
+	
+	public Carrito agregarAlCarritoNuevo(String codProducto)
+	{
+		log.info("Carrito creado");
+		carrito = new Carrito();
+		Producto prod = pp.darProductoPorCodBarras(codProducto);
+		
+		carrito.agregarProducto(prod);
+		pp.agregarAlCarrito(carrito, codProducto);
+		return carrito;
+	}
+	
+	public Carrito agregarAlCarritoExistente(String codProducto)
+	{
+		Producto prod = pp.darProductoPorCodBarras(codProducto);
+		
+		carrito.agregarProducto(prod);
+		pp.agregarAlCarrito(carrito, codProducto);
+		return carrito;
+	}
+	
+	public void comprar(String tipoDoc, long numDoc, long idSucursal)
+	{
+		pp.comprar(carrito, tipoDoc, numDoc, idSucursal);
+	}
+	
+	public void abandonarCarrito()
+	{
+		pp.abandonarCarrito(carrito);
 	}
 	
 	/* ****************************************************************

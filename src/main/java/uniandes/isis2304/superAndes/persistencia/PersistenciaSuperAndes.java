@@ -18,6 +18,7 @@ import com.google.gson.JsonObject;
 
 import uniandes.isis2304.superAndes.negocio.Bodega;
 import uniandes.isis2304.superAndes.negocio.BodegaProducto;
+import uniandes.isis2304.superAndes.negocio.Carrito;
 import uniandes.isis2304.superAndes.negocio.Cuidad;
 import uniandes.isis2304.superAndes.negocio.Empresa;
 import uniandes.isis2304.superAndes.negocio.Estante;
@@ -98,6 +99,8 @@ public class PersistenciaSuperAndes
 	 * Atributo para el acceso a la tabla CIUDAD de la base de datos
 	 */
 	private SQLCiudad sqlCiudad;
+	
+	private SQLCarrito sqlCarrito;
 
 	/**
 	 * Atributo para el acceso a la tabla EMPRESA de la base de datos
@@ -1379,6 +1382,45 @@ public class PersistenciaSuperAndes
 	public List<Producto> darProductos ()
 	{
 		return sqlProducto.darProductos (pmf.getPersistenceManager());
+	}
+	
+	public Carrito agregarAlCarrito(Carrito carrito, String codProd)
+	{
+		PersistenceManager pm = pmf.getPersistenceManager();
+		Transaction tx=pm.currentTransaction();
+		try
+		{
+			tx.begin();
+			Carrito carritoActual = sqlCarrito.agregarAlCarrito(pmf.getPersistenceManager(), carrito, codProd);
+			tx.commit();
+
+			return carritoActual;
+		}
+		catch (Exception e)
+		{
+			//	        	e.prlongStackTrace();
+			log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+			return null;
+		}
+		finally
+		{
+			if (tx.isActive())
+			{
+				tx.rollback();
+			}
+			pm.close();
+		}
+		
+	}
+	
+	public void abandonarCarrito(Carrito carrito)
+	{
+		sqlCarrito.abandonarCarrito(pmf.getPersistenceManager());
+	}
+	
+	public void comprar(Carrito carrito, String tipoDoc, long numDoc, long idSucursal)
+	{
+		sqlCarrito.comprar(pmf.getPersistenceManager(), tipoDoc, numDoc, idSucursal);
 	}
 
 	/* ****************************************************************

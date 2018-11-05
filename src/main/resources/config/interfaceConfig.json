@@ -27,7 +27,19 @@
 				{
 					"label": "RF5",
 					"event": "registrarBodega"
-				}							
+				},
+				{
+					"label": "RF6",
+					"event": "registrarEstante"
+				},
+				{
+					"label": "RF7",
+					"event": "registrarPromoción"
+				},
+				{
+					"label": "RF8",
+					"event": "finalizarPromoción"
+				}			
 			]
 		},
 		{ "menuTitle": "Req. Funcionales Iteación 2",
@@ -35,19 +47,23 @@
 			[
 				{
 					"label": "RF12",
-					"event": "registrarProveedor"
+					"event": "agregarAlCarritoNuevo"
 				},
 				{
 					"label": "RF13",
-					"event": "registrarProducto"
+					"event": "agregarAlCarrito"
 				},
 				{
 					"label": "RF14",
-					"event": "registrarCliente"
+					"event": "QuitarDelCarrito"
 				},
 				{
 					"label": "RF15",
-					"event": "registrarSucursal"
+					"event": "comprar"
+				},
+				{
+					"label": "RF16",
+					"event": "abandonarCarrito"
 				}							
 			]
 		},

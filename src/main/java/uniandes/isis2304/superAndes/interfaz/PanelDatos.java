@@ -58,7 +58,7 @@ public class PanelDatos extends JPanel
         setBorder (new TitledBorder ("Traza de las demostraciones"));
         setLayout( new BorderLayout( ) );
         
-        textArea = new JTextArea("Aquí sale el resultado de la ejecución de las demos");
+        textArea = new JTextArea("Aquí sale el resultado de la consulta");
         textArea.setEditable(false);
         add (new JScrollPane(textArea), BorderLayout.CENTER);
     }

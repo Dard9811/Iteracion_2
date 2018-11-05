@@ -48,6 +48,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.stream.JsonReader;
 
 import javafx.geometry.VPos;
+import uniandes.isis2304.superAndes.negocio.Carrito;
 import uniandes.isis2304.superAndes.negocio.SuperAndes;
 import uniandes.isis2304.superAndes.negocio.VOEmpresa;
 import uniandes.isis2304.superAndes.negocio.VOEstante;
@@ -602,6 +603,75 @@ public class InterfazSuperAndes extends JFrame implements ActionListener
 		}
 	}
 	
+	public void agregarAlCarritoNuevo()
+	{
+		String codProducto = JOptionPane.showInputDialog(this,"Ingrese el codigo de barras del producto: ", "SuperAndes", JOptionPane.QUESTION_MESSAGE);
+		
+		
+		try 
+		{
+			List <VOProducto> lista = superAndes.darVOProductos();
+			Carrito carrito = superAndes.agregarAlCarritoNuevo(codProducto);
+
+			String resultado = "Lista de productos";
+			resultado +=  "\n" + listarProductos(lista) + "\n";
+			resultado += "Lista de productos en el carrito";
+			resultado += "\n" + listarProductosCarrito(carrito);
+			panelDatos.actualizarInterfaz(resultado);
+			resultado += "\n Operación terminada";
+		} 
+		catch (Exception e)
+		{
+//			e.printStackTrace();
+			String resultado = generarMensajeError(e);
+			panelDatos.actualizarInterfaz(resultado);
+		}
+	}
+	
+	public void agregarAlCarrito()
+	{
+		String codProducto = JOptionPane.showInputDialog(this,"Ingrese el codigo de barras del producto: ", "SuperAndes", JOptionPane.QUESTION_MESSAGE);
+		
+		
+		try 
+		{
+			List <VOProducto> lista = superAndes.darVOProductos();
+			Carrito carrito = superAndes.agregarAlCarritoExistente(codProducto);
+
+			String resultado = "Lista de productos";
+			resultado +=  "\n" + listarProductos(lista) + "\n";
+			resultado += "Lista de productos en el carrito";
+			resultado += "\n" + listarProductosCarrito(carrito);
+			panelDatos.actualizarInterfaz(resultado);
+			resultado += "\n Operación terminada";
+		} 
+		catch (Exception e)
+		{
+//			e.printStackTrace();
+			String resultado = generarMensajeError(e);
+			panelDatos.actualizarInterfaz(resultado);
+		}
+	}
+	
+	public void comprar()
+	{
+		long numDoc = Long.parseLong(JOptionPane.showInputDialog(this,"Ingrese el numero de documento: ", "SuperAndes", JOptionPane.QUESTION_MESSAGE));
+		String tipoDoc = JOptionPane.showInputDialog(this,"Ingrese las iniciales del tipo de documento en mayusculas: ", "SuperAndes", JOptionPane.QUESTION_MESSAGE);
+		long idSucursal = Long.parseLong(JOptionPane.showInputDialog(this,"Ingrese el identificador del sucursal: ", "SuperAndes", JOptionPane.QUESTION_MESSAGE));
+		
+		int a = JOptionPane.showConfirmDialog(this, "Desea confirmar la compra?");
+		if (a ==0) {
+			superAndes.comprar(tipoDoc, numDoc, idSucursal);
+		}
+	}
+	
+	public void abandonarCarrito()
+	{
+		int a = JOptionPane.showConfirmDialog(this, "Desea abandonar el carrito?");
+		if (a == 0) {
+			superAndes.abandonarCarrito();
+		}
+	}
     
 
 	/* ****************************************************************
@@ -659,6 +729,17 @@ public class InterfazSuperAndes extends JFrame implements ActionListener
         for (VOProveedor proveedor : lista)
         {
         	resp += i++ + ". " + proveedor.toString() + "\n";
+        }
+        return resp;
+	}
+    
+    private String listarProductosCarrito(Carrito carrito) 
+    {
+    	String resp = "Los productos en el carrito son:\n";
+    	int i = 1;
+        for (VOProducto producto : carrito.getProductos())
+        {
+        	resp += i++ + ". " + producto.toString() + "\n";
         }
         return resp;
 	}

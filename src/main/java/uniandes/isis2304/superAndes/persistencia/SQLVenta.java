@@ -74,7 +74,7 @@ public class SQLVenta {
 		q.setParameters(id);
 		return (Venta) q.executeUnique();
 	}
-
+	
 	/**
 	 * Crea y ejecuta la sentencia SQL para encontrar la información de LOS CIUDADES de la 
 	 * base de datos de SuperAndes
@@ -84,6 +84,13 @@ public class SQLVenta {
 	public List<Venta> darVentas (PersistenceManager pm)
 	{
 		Query q = pm.newQuery(SQL, "SELECT * FROM " + pp.darTablaVenta());
+		q.setResultClass(Venta.class);
+		return (List<Venta>) q.executeList();
+	}
+	
+	public List<Venta> darVentasPorSucursal (PersistenceManager pm, long idSucursal)
+	{
+		Query q = pm.newQuery(SQL, "SELECT * FROM " + pp.darTablaVenta() + "WHERE IDSUCURSAL = "+ idSucursal);
 		q.setResultClass(Venta.class);
 		return (List<Venta>) q.executeList();
 	}
