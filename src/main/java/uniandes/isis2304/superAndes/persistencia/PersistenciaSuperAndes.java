@@ -29,6 +29,9 @@ import uniandes.isis2304.superAndes.negocio.Producto;
 import uniandes.isis2304.superAndes.negocio.Promocion;
 import uniandes.isis2304.superAndes.negocio.PromocionProducto;
 import uniandes.isis2304.superAndes.negocio.Proveedor;
+import uniandes.isis2304.superAndes.negocio.ReqFunCon1;
+import uniandes.isis2304.superAndes.negocio.ReqFunCon3;
+import uniandes.isis2304.superAndes.negocio.ReqFunCon3p1;
 import uniandes.isis2304.superAndes.negocio.Sucursal;
 import uniandes.isis2304.superAndes.negocio.Supermercado;
 import uniandes.isis2304.superAndes.negocio.Venta;
@@ -182,6 +185,8 @@ public class PersistenciaSuperAndes
 	 */
 	private SQLVentaSucursal sqlVentaSucursal;
 
+	private SQLReqFunCon sqlReqFunCons;
+
 	/* ****************************************************************
 	 * 			Métodos del MANEJADOR DE PERSISTENCIA
 	 *****************************************************************/
@@ -303,6 +308,7 @@ public class PersistenciaSuperAndes
 		sqlPromocion = new SQLPromocion(this);
 		sqlPromocionProducto = new SQLPromocionProducto(this);
 		sqlProveedor = new SQLProveedor(this);
+		sqlReqFunCons = new SQLReqFunCon(this);
 		sqlSucursal = new SQLSucursal(this);
 		sqlSupermercado = new SQLSupermercado(this);
 		sqlVenta = new SQLVenta(this);
@@ -464,7 +470,7 @@ public class PersistenciaSuperAndes
 
 			log.trace ("Inserción de Bodega: [" + id + ", " + espacio + "]. " + tuplasInsertadas + " tuplas insertadas");
 
-			return new Bodega (id, espacio);
+			return new Bodega (id, espacio, idSucursal, cantidadMin);
 		}
 		catch (Exception e)
 		{
@@ -892,7 +898,7 @@ public class PersistenciaSuperAndes
 	 * @param nombre - El nombre del bebedor
 	 * @return El objeto CIUDAD adicionado. null si ocurre alguna Excepción
 	 */
-	public Estante adicionarEstante(long espacio, long idBodega) 
+	public Estante adicionarEstante(long espacio, long idBodega, long cantidadMin) 
 	{
 		PersistenceManager pm = pmf.getPersistenceManager();
 		Transaction tx=pm.currentTransaction();
@@ -900,12 +906,12 @@ public class PersistenciaSuperAndes
 		{
 			tx.begin();
 			long idEstante = nextval ();
-			long tuplasInsertadas = sqlEstante.adicionarEstante(pmf.getPersistenceManager(), idEstante, espacio, idBodega);
+			long tuplasInsertadas = sqlEstante.adicionarEstante(pmf.getPersistenceManager(), idEstante, espacio, idBodega, cantidadMin);
 			tx.commit();
 
 			log.trace ("Inserción de estante: " + idEstante + ": " + tuplasInsertadas + " tuplas insertadas");
 
-			return new Estante (idEstante, espacio, idBodega);
+			return new Estante (idEstante, espacio, idBodega, cantidadMin);
 		}
 		catch (Exception e)
 		{
@@ -1435,7 +1441,7 @@ public class PersistenciaSuperAndes
 	 * @param gradoAlcohol - El grado de alcohol de la bebida (mayor que 0)
 	 * @return El objeto Bebida adicionado. null si ocurre alguna Excepción
 	 */
-	public Promocion adicionarPromo(Timestamp tiempo_oferta) 
+	public Promocion adicionarPromo(Timestamp fechaInic, Timestamp fechaFin, String tipoPromo, String estado) 
 	{
 		PersistenceManager pm = pmf.getPersistenceManager();
 		Transaction tx=pm.currentTransaction();
@@ -1443,11 +1449,11 @@ public class PersistenciaSuperAndes
 		{
 			tx.begin();            
 			long idPromo = nextval ();
-			long tuplasInsertadas = sqlPromocion.adicionarPromo(pm, idPromo, tiempo_oferta);
+			long tuplasInsertadas = sqlPromocion.adicionarPromo(pm, idPromo, fechaInic, fechaFin, tipoPromo, estado);
 			tx.commit();
 
 			log.trace ("Inserción promoción: " + idPromo + ": " + tuplasInsertadas + " tuplas insertadas");
-			return new Promocion (idPromo, tiempo_oferta);
+			return new Promocion (idPromo, fechaInic, fechaFin, tipoPromo, estado);
 		}
 		catch (Exception e)
 		{
@@ -1488,6 +1494,37 @@ public class PersistenciaSuperAndes
 			//        	e.prlongStackTrace();
 			log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
 			return -1;
+		}
+		finally
+		{
+			if (tx.isActive())
+			{
+				tx.rollback();
+			}
+			pm.close();
+		}
+	}
+	
+	public Promocion actualizarPromo (long idPromo) 
+	{
+		PersistenceManager pm = pmf.getPersistenceManager();
+		Transaction tx=pm.currentTransaction();
+		try
+		{
+			tx.begin();
+			long resp = sqlPromocion.actualizarPromo(pm, idPromo);
+//			Promocion promo = sqlPromocion.darPromoPorId(pm, idPromo);
+//			eliminarPromoPorId(promo.getId());
+			tx.commit();
+
+			log.trace ("Actualizada la promoción: " + resp + " tuplas actualizadas");
+			return sqlPromocion.darPromoPorId(pm, idPromo);
+		}
+		catch (Exception e)
+		{
+			//        	e.prlongStackTrace();
+			log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+			return null;
 		}
 		finally
 		{
@@ -2349,6 +2386,24 @@ public class PersistenciaSuperAndes
 		return sqlVentaSucursal.darVentaSucursales(pmf.getPersistenceManager());
 	}
 
+	/* ****************************************************************
+	 * 			Métodos para manejar los RFC
+	 *****************************************************************/
+
+	public List<ReqFunCon1> darDineroRecolectado()
+	{
+		return sqlReqFunCons.RFC1(pmf.getPersistenceManager());
+	}
+
+	public List<ReqFunCon3> darIndiceDeOcupacionBod()
+	{
+		return sqlReqFunCons.RFC3(pmf.getPersistenceManager());
+	}
+
+	public List<ReqFunCon3p1> darIndiceDeOcupacionEst()
+	{
+		return sqlReqFunCons.RFC3p1(pmf.getPersistenceManager());
+	}
 
 	/**
 	 * Elimina todas las tuplas de todas las tablas de la base de datos de Parranderos

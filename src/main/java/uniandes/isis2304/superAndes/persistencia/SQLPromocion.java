@@ -50,10 +50,10 @@ class SQLPromocion
 	 * @param tiempo_oferta - El tiempo de la oferta
 	 * @return EL número de tuplas insertadas
 	 */
-	public long adicionarPromo (PersistenceManager pm, long idPromo, Timestamp tiempo_oferta) 
+	public long adicionarPromo (PersistenceManager pm, long idPromo, Timestamp fechaInic, Timestamp fechaFin, String tipoPromo, String estado) 
 	{
-        Query q = pm.newQuery(SQL, "INSERT INTO " + pp.darTablaPromocion() + "(id, tiempo_oferta) values (?, ?)");
-        q.setParameters(idPromo, tiempo_oferta);
+        Query q = pm.newQuery(SQL, "INSERT INTO " + pp.darTablaPromocion() + "(id, fecha_inic, fecha_fin, tipo_oferta, estado) values (?, ?, ?, ?, ?)");
+        q.setParameters(idPromo, fechaInic, fechaFin, tipoPromo, estado);
         return (long) q.executeUnique();            
 	}
 
@@ -68,6 +68,13 @@ class SQLPromocion
         Query q = pm.newQuery(SQL, "DELETE FROM " + pp.darTablaPromocion() + " WHERE id = ?");
         q.setParameters(idPromo);
         return (long) q.executeUnique();            
+	}
+	
+	public long actualizarPromo (PersistenceManager pm, long idPromo)
+	{
+        Query q = pm.newQuery(SQL, "UPDATE " + pp.darTablaPromocion() + " SET estado = 'Finalizado'" + " WHERE id = ?");
+        q.setParameters(idPromo);
+        return (long) q.executeUnique();  
 	}
 
 	/**

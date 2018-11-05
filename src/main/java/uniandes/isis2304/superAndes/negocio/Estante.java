@@ -21,9 +21,14 @@ public class Estante implements VOEstante
 	private long espacio;
 	
 	/**
-	 * La direccion en la ciudad
+	 * El identificador de la sucursal
 	 */
-	private long idBodega;
+	private long idSucursal;
+	
+	/**
+	 * La cantidad minima que acepta el estante
+	 */
+	private long cantidadMin;
 
 	
 	/* ****************************************************************
@@ -36,7 +41,8 @@ public class Estante implements VOEstante
 	{
 		this.id = 0;
 		this.espacio = 0;
-		this.idBodega = 0;
+		this.idSucursal = 0;
+		this.cantidadMin = 0;
 		
 	}
 
@@ -46,12 +52,12 @@ public class Estante implements VOEstante
 	 * @param nombre - El nombre del ciudad
 	 * @param direccion - La ciudad del ciudad
 	 */
-	public Estante(long id, long espacio, long idBodega) 
+	public Estante(long id, long espacio, long idBodega, long cantidadMin) 
 	{
 		this.id = id;
 		this.espacio = espacio;
-		this.idBodega = idBodega;
-		
+		this.idSucursal = idBodega;
+		this.cantidadMin = cantidadMin;
 	}
 
 	/**
@@ -78,12 +84,20 @@ public class Estante implements VOEstante
 		this.espacio = espacio;
 	}
 
-	public long getIdBodega() {
-		return idBodega;
+	public long getIdSucursal() {
+		return idSucursal;
 	}
 
-	public void setIdBodega(long idBodega) {
-		this.idBodega = idBodega;
+	public void setIdSucursal(long idSucursal) {
+		this.idSucursal = idSucursal;
+	}
+
+	public long getCantidadMin() {
+		return cantidadMin;
+	}
+
+	public void setCantidadMin(long cantidadMin) {
+		this.cantidadMin = cantidadMin;
 	}
 
 	/**
@@ -92,7 +106,7 @@ public class Estante implements VOEstante
 	@Override
 	public String toString() 
 	{
-		return "Estante [id=" + id + ", espacio=" + espacio + ", idBodega=" + idBodega + "]";
+		return "Estante [id=" + id + ", espacio=" + espacio + ", idSucursal=" + idSucursal + ", Cantidad minima=" + cantidadMin + "]";
 	}
 
 

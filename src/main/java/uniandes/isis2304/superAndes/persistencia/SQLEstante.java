@@ -47,10 +47,10 @@ class SQLEstante
 	 * @param pm - El manejador de persistencia
 	 * @return EL número de tuplas insertadas
 	 */
-	public long adicionarEstante (PersistenceManager pm, long idEstante, long espacio, long idBodega) 
+	public long adicionarEstante (PersistenceManager pm, long idEstante, long espacio, long idSucursal, long cantidadMin) 
 	{
-        Query q = pm.newQuery(SQL, "INSERT INTO " + pp.darTablaEstante () + "(id, espacio, bodega) values (?, ?, ?)");
-        q.setParameters(idEstante, espacio, idBodega);
+        Query q = pm.newQuery(SQL, "INSERT INTO " + pp.darTablaEstante () + "(id, espacio, idSucursal, cantidad_minima) values (?, ?, ?, ?)");
+        q.setParameters(idEstante, espacio, idSucursal, cantidadMin);
         return (long) q.executeUnique();
 	}
 

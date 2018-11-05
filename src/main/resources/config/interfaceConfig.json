@@ -5,7 +5,7 @@
 	"bannerPath": "./src/main/resources/config/logo.png",
 	"menuBar":
 	[
-		{ "menuTitle": "Req. Funcionales Iteación 1",
+		{ "menuTitle": "Req. Fun. Iter. 1",
 		  "options":
 			[
 				{
@@ -39,7 +39,36 @@
 				{
 					"label": "RF8",
 					"event": "finalizarPromoción"
-				}			
+				}										
+			]
+		},		
+		{ "menuTitle": "Req. Fun. De Consulta Iter. 1",
+		  "options":
+			[
+				{
+					"label": "RFC1",
+					"event": "darDineroRecolectado"
+				},
+				{
+					"label": "RFC2",
+					"event": ""
+				},
+				{
+					"label": "RFC3",
+					"event":  "darIndiceDeOcupacionBod"
+				},
+				{
+					"label": "RFC3.1",
+					"event":  "darIndiceDeOcupacionEst"
+				},
+				{
+					"label": "RFC4",
+					"event": ""
+				},
+				{
+					"label": "RFC5",
+					"event": ""
+				}							
 			]
 		},
 		{ "menuTitle": "Req. Funcionales Iteación 2",
@@ -65,6 +94,19 @@
 					"label": "RF16",
 					"event": "abandonarCarrito"
 				}							
+			]
+		},
+		{ "menuTitle": "Req. Fun. De Consulta Iter. 2",
+		  "options":
+			[
+				{
+					"label": "RFC7",
+					"event": ""
+				},
+				{
+					"label": "RFC8",
+					"event": ""
+				}						
 			]
 		},
 		{ "menuTitle": "Mantenimiento",
@@ -96,27 +138,7 @@
 		  "options":
 			[
 				{
-					"label": "Presentación general",
-					"event": "mostrarPresentacionGeneral"
-				},
-				{
-					"label": "Modelo conceptual",
-					"event": "mostrarModeloConceptual"
-				},
-				{
-					"label": "Esquema de la BD",
-					"event": "mostrarEsquemaBD"
-				},
-				{
-					"label": "Script creación de la BD",
-					"event": "mostrarScriptBD"
-				},
-				{
-					"label": "Arquitectura de referencia",
-					"event": "mostrarArqRef"
-				},
-				{
-					"label": "Javadoc Parranderos",
+					"label": "Javadoc SuperAndes",
 					"event": "mostrarJavadoc"
 				}
 			]
