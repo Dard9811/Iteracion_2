@@ -37,12 +37,12 @@ public class PromocionProducto implements VOPromocionProducto
 	 * Constructor con valores
 	 * @param idBodega - El idBodega del sucursal
 	 * @param codigoProducto - El nombre del sucursal
-	 * @param idPromoción - La sucursal del sucursal
+	 * @param idPromocion - La sucursal del sucursal
 	 */
-	public PromocionProducto(long id, long idPromoción) 
+	public PromocionProducto(long id, long idPromocion) 
 	{
 		this.idProducto = id;
-		this.idPromocion = idPromoción;
+		this.idPromocion = idPromocion;
 	}
 	
 	@Override
@@ -59,8 +59,8 @@ public class PromocionProducto implements VOPromocionProducto
 		return idPromocion;
 	}
 
-	public void setIdPromoción(long idPromoción) {
-		this.idPromocion = idPromoción;
+	public void setIdPromocion(long idPromocion) {
+		this.idPromocion = idPromocion;
 	}
 
 	/**

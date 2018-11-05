@@ -27,9 +27,22 @@
 				{
 					"label": "RF5",
 					"event": "registrarBodega"
-				}							
+				},
+				{
+					"label": "RF6",
+					"event": "registrarEstante"
+				},
+				{
+					"label": "RF7",
+					"event": "registrarPromocion"
+				},
+				{
+					"label": "RF8",
+					"event": "finalizarPromocion"
+				}								
 			]
-		},		{ "menuTitle": "Req. Fun. De Consulta Iter. 1",
+		},		
+		{ "menuTitle": "Req. Fun. De Consulta Iter. 1",
 		  "options":
 			[
 				{
@@ -37,8 +50,8 @@
 					"event": "darDineroRecolectado"
 				},
 				{
-					"label": "RF2",
-					"event": "registrarProducto"
+					"label": "RFC2",
+					"event": ""
 				},
 				{
 					"label": "RFC3",
@@ -49,12 +62,12 @@
 					"event":  "darIndiceDeOcupacionEst"
 				},
 				{
-					"label": "RF4",
-					"event": "registrarSucursal"
+					"label": "RFC4",
+					"event": ""
 				},
 				{
-					"label": "RF5",
-					"event": "registrarBodega"
+					"label": "RFC5",
+					"event": ""
 				}							
 			]
 		},
@@ -63,20 +76,33 @@
 			[
 				{
 					"label": "RF12",
-					"event": "registrarProveedor"
+					"event": ""
 				},
 				{
 					"label": "RF13",
-					"event": "registrarProducto"
+					"event": ""
 				},
 				{
 					"label": "RF14",
-					"event": "registrarCliente"
+					"event": ""
 				},
 				{
 					"label": "RF15",
-					"event": "registrarSucursal"
+					"event": ""
 				}							
+			]
+		},
+		{ "menuTitle": "Req. Fun. De Consulta Iter. 2",
+		  "options":
+			[
+				{
+					"label": "RFC7",
+					"event": ""
+				},
+				{
+					"label": "RFC8",
+					"event": ""
+				}						
 			]
 		},
 		{ "menuTitle": "Mantenimiento",
@@ -108,27 +134,7 @@
 		  "options":
 			[
 				{
-					"label": "Presentación general",
-					"event": "mostrarPresentacionGeneral"
-				},
-				{
-					"label": "Modelo conceptual",
-					"event": "mostrarModeloConceptual"
-				},
-				{
-					"label": "Esquema de la BD",
-					"event": "mostrarEsquemaBD"
-				},
-				{
-					"label": "Script creación de la BD",
-					"event": "mostrarScriptBD"
-				},
-				{
-					"label": "Arquitectura de referencia",
-					"event": "mostrarArqRef"
-				},
-				{
-					"label": "Javadoc Parranderos",
+					"label": "Javadoc SuperAndes",
 					"event": "mostrarJavadoc"
 				}
 			]

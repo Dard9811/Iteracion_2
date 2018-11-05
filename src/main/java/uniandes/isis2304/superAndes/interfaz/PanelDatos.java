@@ -22,12 +22,6 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
 
-/**
- * Clase de interfaz para mostrar los resultados de la ejecución de las 
- * demostraciones implementadas
- *
- * @author Germán Bravo
- */
 @SuppressWarnings("serial")
 public class PanelDatos extends JPanel
 {
@@ -40,7 +34,7 @@ public class PanelDatos extends JPanel
     // Atributos de interfaz
     // -----------------------------------------------------------------
 	/**
-	 * Área de texto con barras de deslizamiento
+	 * Area de texto con barras de deslizamiento
 	 */
 	private JTextArea textArea;
 	

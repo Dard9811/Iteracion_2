@@ -30,14 +30,18 @@ public class Bodega implements VOBodega
 	 * 			Atributos
 	 *****************************************************************/
 	/**
-	 * El identificador del bebedor que gusta de la bebida
+	 * El identificador de la bodega
 	 */
 	private long id;
 
 	/**
-	 * El identificador de la bebida que gusta al bebedor
+	 * El espacio de la bodega
 	 */
 	private long espacio;
+	
+	private long idSucursal;
+	
+	private long cantidadMin;
 
 	/* ****************************************************************
 	 * 			Métodos
@@ -49,6 +53,8 @@ public class Bodega implements VOBodega
 	{
 		this.id = 0;
 		this.espacio = 0;
+		this.idSucursal = 0;
+		this.cantidadMin = 0;
 	}
 
 	/**
@@ -56,39 +62,29 @@ public class Bodega implements VOBodega
 	 * @param id - El identificador del bebedor. Debe exixtir un bebedor con dicho identificador
 	 * @param espacio - El identificador de la bebida. Debe existir una bebida con dicho identificador
 	 */
-	public Bodega(long idBebedor, long idBebida) 
+	public Bodega(long id, long espacio, long idSucursal, long cantidadMin) 
 	{
-		this.id = idBebedor;
-		this.espacio = idBebida;
+		this.id = id;
+		this.espacio = espacio;
+		this.idSucursal = idSucursal;
+		this.cantidadMin = cantidadMin;
 	}
 
-	/**
-	 * @return El id
-	 */
 	public long getId() 
 	{
 		return id;
 	}
 
-	/**
-	 * @param id - El nuevo id. Debe existir un bebedor con dicho identificador
-	 */
 	public void setId(long idBebedor) 
 	{
 		this.id = idBebedor;
 	}
 
-	/**
-	 * @return El espacio
-	 */
 	public long getEspacio() 
 	{
 		return espacio;
 	}
 
-	/**
-	 * @param espacio - El nuevo identificador de bebida. Debe existir una bebida con dicho identificador
-	 */
 	public void setEspacio(long idBebida) 
 	{
 		this.espacio = idBebida;
@@ -100,7 +96,7 @@ public class Bodega implements VOBodega
 	@Override
 	public String toString() 
 	{
-		return "Bodega [id=" + id + ", espacio=" + espacio + "]";
+		return "Bodega [id=" + id + ", espacio=" + espacio + ", id sucursal=" + idSucursal + ", cantidad minima=" + cantidadMin + "]";
 	}
 	
 }

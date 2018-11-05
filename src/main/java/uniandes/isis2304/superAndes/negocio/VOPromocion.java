@@ -31,10 +31,25 @@ public interface VOPromocion
 	public long getId();
 
 	/**
-	 * @return El nombre de la promocion
+	 * @return La fecha de inicio de la promoción
 	 */
-	public Timestamp getTiempoOferta();
+	public Timestamp getFechaInic();
+	
+	/**
+	 * @return La fecha de fin de la promoción
+	 */
+	public Timestamp getFechaFin();
+	
+	/**
+	 * @return El tipo de la promoción 
+	 */
+	public String getTipoPromo();
 
+	/**
+	 * @return El estado de la promoción 
+	 */
+	public String getEstado();
+	
 	/**
 	 * @return Una cadena con la información básica de la promocion
 	 */

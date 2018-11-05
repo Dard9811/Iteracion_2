@@ -492,6 +492,65 @@ public class InterfazSuperAndes extends JFrame implements ActionListener
 		}
 	}
 	
+	public void registrarEstante()
+	{
+		long espacio = Long.parseLong(JOptionPane.showInputDialog(this,"Ingrese el espacio del estante: ", "SuperAndes", JOptionPane.QUESTION_MESSAGE));
+		long idSucursal = Long.parseLong(JOptionPane.showInputDialog(this,"Ingrese el identificador de la sucursal: ", "SuperAndes", JOptionPane.QUESTION_MESSAGE));
+		long cantidadMin = Long.parseLong(JOptionPane.showInputDialog(this,"Ingrese la cantidad minima de productos que acepta el estante: ", "SuperAndes", JOptionPane.QUESTION_MESSAGE));
+		
+		try 
+		{
+			VOEstante nEst = superAndes.adicionarEstante(espacio, idSucursal, cantidadMin);
+			String resultado = "Se registro el estante exitosamente.";
+			resultado += "\n" + nEst.toString();
+			panelDatos.actualizarInterfaz(resultado);
+		}  	
+		catch (Exception e) 
+		{
+			String resultado = generarMensajeError(e);
+			panelDatos.actualizarInterfaz(resultado);
+		}
+	}
+	
+	public void registrarPromocion()
+	{
+		Timestamp fechaInic = Timestamp.valueOf(JOptionPane.showInputDialog(this,"Ingrese la fecha de inicio de la promoción: ", "SuperAndes", JOptionPane.QUESTION_MESSAGE));
+		Timestamp fechaFin = Timestamp.valueOf(JOptionPane.showInputDialog(this,"Ingrese la fecha de fin de la promoción: ", "SuperAndes", JOptionPane.QUESTION_MESSAGE));
+		String tipoPromo = JOptionPane.showInputDialog(this,"Ingrese el tipo de la promoción: ", "SuperAndes", JOptionPane.QUESTION_MESSAGE);
+		String estado = JOptionPane.showInputDialog(this,"Ingrese el estado de la promocion: ", "SuperAndes", JOptionPane.QUESTION_MESSAGE);		
+		
+		try 
+		{
+			VOPromocion nProm = superAndes.adicionarPromo(fechaInic,fechaFin,tipoPromo, estado);
+			String resultado = "Se registro la promoción exitosamente.";
+			resultado += "\n" + nProm.toString();
+			panelDatos.actualizarInterfaz(resultado);
+		}  	
+		catch (Exception e) 
+		{
+			String resultado = generarMensajeError(e);
+			panelDatos.actualizarInterfaz(resultado);
+		}
+	}
+	
+	public void finalizarPromocion()
+	{
+		long idPromo = Long.parseLong(JOptionPane.showInputDialog(this,"Ingrese el identificador de la promocion a actualizar: ", "SuperAndes", JOptionPane.QUESTION_MESSAGE));
+		
+		try 
+		{
+			VOPromocion nProm = superAndes.actualizarPromo(idPromo);
+			String resultado = "Se actualizao la promoción exitosamente.";
+			resultado += "\n" + nProm.toString();
+			panelDatos.actualizarInterfaz(resultado);
+		}  	
+		catch (Exception e) 
+		{
+			String resultado = generarMensajeError(e);
+			panelDatos.actualizarInterfaz(resultado);
+		}
+	}
+	
 	public void darDineroRecolectado()
 	{
 		try 

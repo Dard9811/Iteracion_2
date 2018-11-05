@@ -13,19 +13,24 @@ public interface VOEstante
 	 * 			Métodos
 	 *****************************************************************/
 	/**
-	 * @return El id del bebedor
+	 * @return El id del estante
 	 */
 	public long getId();
 
 	/**
-	 * @return El nombre del bebedor
+	 * @return El espacio del estante
 	 */
 	public long getEspacio();
 
 	/**
-	 * @return La ciudad del bebedor
+	 * @return El estante de la sucursal
 	 */
-	public long getIdBodega();
+	public long getIdSucursal();
+	
+	/**
+	 * @return La cantidad minima que acepta el estante
+	 */
+	public long getCantidadMin();
 
 	/**
 	 * @return Una cadena de caracteres con la información básica del bebedor

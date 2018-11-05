@@ -364,10 +364,10 @@ public class SuperAndes
 	 * @param nombre - El nombre del ciudad
 	 * @return El objeto CIUDAD adicionado. null si ocurre alguna Excepción
 	 */
-	public Estante adicionarEstante (long espacio, long idBodega)
+	public Estante adicionarEstante (long espacio, long idBodega, long cantidadMin)
 	{
 		log.info ("Adicionando estante: " + idBodega);
-		Estante estante = pp.adicionarEstante (espacio, idBodega);
+		Estante estante = pp.adicionarEstante (espacio, idBodega, cantidadMin);
 		log.info ("Adicionando estante: " + estante);
 		return estante;
 	}
@@ -636,10 +636,10 @@ public class SuperAndes
 	 * @param gradoAlcohol - El grado de alcohol de la bebida (Mayor que 0)
 	 * @return El objeto Bebida adicionado. null si ocurre alguna Excepción
 	 */
-	public Promocion adicionarPromo (Timestamp tiempo_oferta)
+	public Promocion adicionarPromo (Timestamp fechaInic, Timestamp fechaFin, String tipoPromo, String estado )
 	{
 		log.info ("Adicionando promo ");
-		Promocion promo = pp.adicionarPromo (tiempo_oferta);
+		Promocion promo = pp.adicionarPromo (fechaInic, fechaFin, tipoPromo, estado);
 		log.info ("Adicionando promo: " + promo);
 		return promo;
 	}
@@ -655,6 +655,14 @@ public class SuperAndes
 		log.info ("Eliminando promo por id: " + idPromo);
 		long resp = pp.eliminarPromoPorId (idPromo);
 		log.info ("Eliminando promo por id: " + resp + " tuplas eliminadas");
+		return resp;
+	}
+	
+	public Promocion actualizarPromo( long idPromo )
+	{
+		log.info ("Actualizando promo por id: " + idPromo);
+		Promocion resp = pp.actualizarPromo(idPromo);
+		log.info ("Actualizando promo por id: " + idPromo + " tupla actualizada");
 		return resp;
 	}
 
