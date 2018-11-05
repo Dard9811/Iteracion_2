@@ -1371,11 +1371,6 @@ public class PersistenciaSuperAndes
 		return sqlProducto.darProductosPorEstante (pmf.getPersistenceManager(), idProveedor);
 	}
 
-	/**
-	 * Método que consulta todas las tuplas en la tabla BEBEDOR que tienen el identificador dado
-	 * @param idBebedor - El identificador del bebedor
-	 * @return El objeto BEBEDOR, construido con base en la tuplas de la tabla BEBEDOR, que tiene el identificador dado
-	 */
 	public Producto darProductoPorCodBarras (String codBarras) 
 	{
 		return (Producto) sqlProducto.darProductoPorCodBarras (pmf.getPersistenceManager(), codBarras);
@@ -1390,14 +1385,14 @@ public class PersistenciaSuperAndes
 		return sqlProducto.darProductos (pmf.getPersistenceManager());
 	}
 	
-	public Carrito agregarAlCarrito(Carrito carrito, String codProd)
+	public Carrito agregarAlCarrito(Carrito carrito, String codProd, long cantidad)
 	{
 		PersistenceManager pm = pmf.getPersistenceManager();
 		Transaction tx=pm.currentTransaction();
 		try
 		{
 			tx.begin();
-			Carrito carritoActual = sqlCarrito.agregarAlCarrito(pmf.getPersistenceManager(), carrito, codProd);
+			Carrito carritoActual = sqlCarrito.agregarAlCarrito(pmf.getPersistenceManager(), carrito, codProd, cantidad);
 			tx.commit();
 
 			return carritoActual;

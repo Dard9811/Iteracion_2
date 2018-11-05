@@ -1,7 +1,7 @@
 {
 	"title": "SuperAndes",
 	"frameH": 600,
-	"frameW": 800,
+	"frameW": 1000,
 	"bannerPath": "./src/main/resources/config/logo.png",
 	"menuBar":
 	[
@@ -151,7 +151,20 @@
 					"event": "acercaDe"
 				}
 			]
-		}		
+		}, 		
+		{ "menuTitle": "Carrito",
+		  "options":
+			[
+				{
+					"label": "Agregar Primer Producto",
+					"event": "agregarAlCarritoNuevo"
+				},
+				{
+					"label": "Agregar más Producto",
+					"event": "agregarAlCarrito"
+				}
+			]
+		}			
 	]
 }
 	

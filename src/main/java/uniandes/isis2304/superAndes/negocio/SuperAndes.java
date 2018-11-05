@@ -634,23 +634,23 @@ public class SuperAndes
 		return carrito;
 	}
 	
-	public Carrito agregarAlCarritoNuevo(String codProducto)
+	public Carrito agregarAlCarritoNuevo(String codProducto, long cantidad)
 	{
 		log.info("Carrito creado");
 		carrito = new Carrito();
 		Producto prod = pp.darProductoPorCodBarras(codProducto);
 		
 		carrito.agregarProducto(prod);
-		pp.agregarAlCarrito(carrito, codProducto);
+		pp.agregarAlCarrito(carrito, codProducto, cantidad);
 		return carrito;
 	}
 	
-	public Carrito agregarAlCarritoExistente(String codProducto)
+	public Carrito agregarAlCarritoExistente(String codProducto, long cantidad)
 	{
 		Producto prod = pp.darProductoPorCodBarras(codProducto);
 		
 		carrito.agregarProducto(prod);
-		pp.agregarAlCarrito(carrito, codProducto);
+		pp.agregarAlCarrito(carrito, codProducto, cantidad);
 		return carrito;
 	}
 	

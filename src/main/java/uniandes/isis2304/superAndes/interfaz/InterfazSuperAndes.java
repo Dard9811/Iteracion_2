@@ -723,21 +723,22 @@ public class InterfazSuperAndes extends JFrame implements ActionListener
 	}
 	
 	public void agregarAlCarritoNuevo()
-	{
-		String codProducto = JOptionPane.showInputDialog(this,"Ingrese el codigo de barras del producto: ", "SuperAndes", JOptionPane.QUESTION_MESSAGE);
-		
-		
+	{		
 		try 
 		{
-			List <VOProducto> lista = superAndes.darVOProductos();
-			Carrito carrito = superAndes.agregarAlCarritoNuevo(codProducto);
-
-			String resultado = "Lista de productos";
-			resultado +=  "\n" + listarProductos(lista) + "\n";
-			resultado += "Lista de productos en el carrito";
+//			List <VOProducto> lista = superAndes.darVOProductos();
+//
+//			String resultado = "Lista de productos";
+//			resultado +=  "\n" + listarProductos(lista) + "\n";
+//			panelDatos.actualizarInterfaz(resultado);
+//			resultado += "\n Operación terminada";
+			
+			String codProducto = JOptionPane.showInputDialog(this,"Ingrese el codigo de barras del producto: ", "SuperAndes", JOptionPane.QUESTION_MESSAGE);
+			long cantidad = Long.parseLong(JOptionPane.showInputDialog(this,"Ingrese la cantidad del producto: ", "SuperAndes", JOptionPane.QUESTION_MESSAGE));
+			Carrito carrito = superAndes.agregarAlCarritoNuevo(codProducto, cantidad);
+			String resultado = "Lista de productos en el carrito";
 			resultado += "\n" + listarProductosCarrito(carrito);
 			panelDatos.actualizarInterfaz(resultado);
-			resultado += "\n Operación terminada";
 		} 
 		catch (Exception e)
 		{
@@ -750,12 +751,12 @@ public class InterfazSuperAndes extends JFrame implements ActionListener
 	public void agregarAlCarrito()
 	{
 		String codProducto = JOptionPane.showInputDialog(this,"Ingrese el codigo de barras del producto: ", "SuperAndes", JOptionPane.QUESTION_MESSAGE);
-		
+		long cantidad = Long.parseLong(JOptionPane.showInputDialog(this,"Ingrese la cantidad del producto: ", "SuperAndes", JOptionPane.QUESTION_MESSAGE));
 		
 		try 
 		{
 			List <VOProducto> lista = superAndes.darVOProductos();
-			Carrito carrito = superAndes.agregarAlCarritoExistente(codProducto);
+			Carrito carrito = superAndes.agregarAlCarritoExistente(codProducto, cantidad);
 
 			String resultado = "Lista de productos";
 			resultado +=  "\n" + listarProductos(lista) + "\n";

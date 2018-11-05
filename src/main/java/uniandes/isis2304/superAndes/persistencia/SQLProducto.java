@@ -67,13 +67,6 @@ class SQLProducto
         return (long) q.executeUnique();            
 	}
 
-	/**
-	 * Crea y ejecuta la sentencia SQL para encontrar la información de UN CIUDAD de la 
-	 * base de datos de SuperAndes, por su identificador
-	 * @param pm - El manejador de persistencia
-	 * @param codigo_barras - El identificador del ciudad
-	 * @return El objeto CIUDAD que tiene el identificador dado
-	 */
 	public Producto darProductoPorCodBarras (PersistenceManager pm, String codigo_barras) 
 	{
 		Query q = pm.newQuery(SQL, "SELECT * FROM " + pp.darTablaProducto () + " WHERE codigo_barras = ?");

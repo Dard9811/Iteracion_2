@@ -34,7 +34,7 @@ public class SQLCarrito
 		carrito = null;
 	}
 	
-	public Carrito agregarAlCarrito (PersistenceManager pm, Carrito carrito, String codProd)
+	public Carrito agregarAlCarrito (PersistenceManager pm, Carrito carrito, String codProd, long cantidad)
 	{
         this.carrito = carrito;
 		Query q = pm.newQuery(SQL, "SET TRANSACTION ISOLATION LEVEL SERIALIZABLE");
@@ -48,8 +48,8 @@ public class SQLCarrito
     		x.setParameters(codProd);
     		int y = (int) x.executeUnique();
         	
-        	Query s = pm.newQuery(SQL, "DELETE FROM " + pp.darTablaEstanteProducto() + " WHERE COD_PROD = '" + codProd + "'");
-        	Query t = pm.newQuery(SQL, "INSERT INTO " + pp.darTablaVenta() + "(VALOR, FECHA) VALUES(?, ?)");
+        	Query s = pm.newQuery(SQL, "UPDATE " + pp.darTablaEstanteProducto() + "SET CANTIDAD = CANTIDAD-" + cantidad + " WHERE COD_PROD = '" + codProd + "'");
+        	Query t = pm.newQuery(SQL, "INSERT INTO " + pp.darTablaVenta() + "(idestante, VALOR, FECHA) VALUES(?, ?, ?)");
         	t.setParameters(y ,timestamp);
         	
         	s.executeUnique();
